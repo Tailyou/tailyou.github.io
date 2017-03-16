@@ -7,13 +7,32 @@
 
     
 
-    <title>恒心所致，达有所成！</title>
+    <title>文件下载-白世伟 | 恒心所致，达有所成！</title>
     <meta name="author" content="HdAndroidTeam">
+    
+    <meta name="description" content="#HDFileLoader-文件下载框架
+##概述基于OKHttp3开发，自带服务器和本地资源文件的同步更新。具体使用方式详见Samples
+##更新日志
+####V0.0.1
+
+完成基础框架构建
+增加资源同步更新##用法###引入插件
+
+Gradle:
+
+暂无
+
+Maven:
+
+暂无
+
+
+###使">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="文件下载-白世伟"/>
     <meta property="og:site_name" content="Hengda Android"/>
 
     
@@ -174,162 +193,193 @@
 
 
     <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
         
-
-<div class="slider">
-    <ul class="slides">
-    
-       <li>
-           <a href="/">
-               <img class="slider-image" src="http://lorempixel.com/580/250/nature/1">
-               <div class="caption center-align">
-                 <h4>This is our big Tagline!</h3>
-                 <h5 class="light grey-text text-lighten-3">Here&#39;s our small slogan.</h5>
-               </div>
-           </a>
-       </li>
-    
-       <li>
-           <a href="javascript:;">
-               <img class="slider-image" src="http://lorempixel.com/580/250/nature/2">
-               <div class="caption left-align">
-                 <h4>Left Aligned Caption</h3>
-                 <h5 class="light grey-text text-lighten-3">Here&#39;s our small slogan.</h5>
-               </div>
-           </a>
-       </li>
-    
-       <li>
-           <a href="javascript:;">
-               <img class="slider-image" src="http://lorempixel.com/580/250/nature/3">
-               <div class="caption right-align">
-                 <h4>Right Aligned Caption</h3>
-                 <h5 class="light grey-text text-lighten-3">Here&#39;s our small slogan.</h5>
-               </div>
-           </a>
-       </li>
-    
-   </ul>
- </div>
-
-
-
-<div id="article-list" class="container main-container">
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2017/03/16/CommonAdapter-Tailyou/">CommonAdapter-Tailyou</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2017-03-16T10:00:46.000Z"><a href="/2017/03/16/CommonAdapter-Tailyou/">2017-03-16</a></time>
-
             
 
-
-            
-        </div>
+        
 
         
     </div>
-</article>
+</nav>
 
-    
-        <article class="simple-article">
+<article>
     <div class="card">
         <div class="card-content">
+            
+
             <div class="article-title">
                 
     
-        <h1 class="indigo-link-context"><a href="/2017/03/16/文件下载-白世伟/">文件下载-白世伟</a></h1>
+        <h1>文件下载-白世伟</h1>
     
 
 
             </div>
-
             <time class="pink-link-context" datetime="2017-03-16T10:00:24.000Z"><a href="/2017/03/16/文件下载-白世伟/">2017-03-16</a></time>
 
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
             
 
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
+            <div class="toc pink-link-context hide-on-med-and-down">
     
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
+</div>
+
+
+            <div class="entry pink-link-context">
+                <p>#HDFileLoader-文件下载框架</p>
+<p>##概述<br>基于OKHttp3开发，自带服务器和本地资源文件的同步更新。具体使用方式详见Samples</p>
+<p>##更新日志</p>
+<p>####V0.0.1</p>
+<ul>
+<li>完成基础框架构建</li>
+<li><p>增加资源同步更新<br>##用法<br>###引入插件</p>
+<blockquote>
+<p>Gradle:</p>
+</blockquote>
+<pre><code>暂无
+</code></pre><blockquote>
+<p>Maven:</p>
+</blockquote>
+<pre><code>暂无
+</code></pre></li>
+</ul>
+<p>###使用</p>
+<p>####1.在Application.onCreate中初始化全局配置；<br>    OkHttpClient okHttpClient = new OkHttpClient.Builder()<br>             connectTimeout(10000L, TimeUnit.MILLISECONDS)<br>             readTimeout(10000L, TimeUnit.MILLISECONDS)<br>             addInterceptor(new LoggerInterceptor(“TAG”))<br>             build();<br>    HDFileLoader.initClient(getApplicationContext(),okHttpClient);<br>注意:addInterceptor(new LoggerInterceptor(“TAG”))用于输出debug调试信息，如果不需要可以去掉。</p>
+<p>#####FileLoader有两种使用方式，一种是自带下载框，一种是基础版下载框架,需要自定义下载框；</p>
+<p>####2 使用自带下载框的方式<br>(1)在Presenter，Fragment或Activity中实现DownloadCallBackListener接口，并实现以下三个回调方法</p>
+<pre><code>@Override
+public void completed(File file) {
+    //下载完成后回调此方法，返回下载文件，可通过file.getAbsolutePath()获取绝对路径;
+}
+
+@Override
+public void justPlay(String fileDir) {
+    //此方法回调分两种方式
+    //1，若果没有开启检查更新功能则判断本地文件是否存在，存在则回调；
+    //2，如果开启了检查更新功能，如果下载文件不需要更新则回调；
+}
+
+@Override
+public void error(Exception e) {
+    //下载失败回调，例如没有网络，连接超时，找不到下载地址（404），无法访问存储路径等等。
+}
+</code></pre><p>（2）开始下载</p>
+<pre><code>Downloader.Builder.create(MainActivity.this)
+                        .url(url)//下载地址
+                        .src(basicPath + &quot;0002/0002.aac&quot;)//源资源路径（例如播放路徑）
+                        .des(basicPath)//下载保存路径
+                        .name(&quot;0002.zip&quot;)//保存的文件名
+                        .title(&quot;正在下载&quot;)//下载框标题
+                        .ckeck(true)//是否自动检查更新，默认false
+                        .unzip(true)//是否需要解压缩，默认true
+                        .listener(MainActivity.this)//回调监听
+                        .showCancel(true)//是否显示取消按钮，默认false
+                        .build()
+                        .start();//开始下载
+</code></pre><p>####3.使用基础版下载框架<br>（1）创建一个RequestCall</p>
+<pre><code>RequestCall call = HDFileLoader.get().url(url).build();
+</code></pre><p>url为资源下载地址。<br>（2）创建FileCallBack回调，监听下载中的各种状态</p>
+<pre><code>callBack=new FileCallBack(mSrc, mDes, mName, mCheck) {
+    @Override
+    public void connected(long total, int id) {
+
+        //进行一些初始化的操作
+    }
+
+    @Override
+    public void inProgress(float progress, long total, int id) {
+
+        //下载进度回调，progress为已完成百分比，total为总长；
+    }
+
+    @Override
+    public void completed(File file, int id) {
+
+        //下载完成时回调，可以在这里解压缩及后续操作
+    }
+
+    @Override
+    public void justPlay(String destFileDir) {
+        //回调同带下载框方式一样
+    }
+
+    @Override
+    public void onError(Call call, Exception e, int id) {
+
+        //下载失败回调，例如没有网络，连接超时，找不到下载地址（404），无法访问存储路径等等。
+    }
+};
+</code></pre><p>FileCallBack需要传入四个参数：</p>
+<ol>
+<li>源资源路径（例如播放路徑）；</li>
+<li>下载路径。板锉</li>
+<li>保存的文件名</li>
+<li>是否启用检查更新</li>
+</ol>
+<p>####4.开始下载<br>    call.execute(callBack);</p>
+<p>####5.取消下载<br>    call.cancel();</p>
+
                 
-    
-        <h1 class="indigo-link-context"><a href="/2017/03/16/移动支付-常文达/">移动支付-常文达</a></h1>
-    
+<p class="pink-link-context">
+    <a href="/2017/03/16/CommonAdapter-Tailyou/" rel="next" title="CommonAdapter-Tailyou">
+    上一篇：CommonAdapter-Tailyou
+  </a>
+</p>
+
+
+
+<p class="pink-link-context">
+    <a href="/2017/03/16/移动支付-常文达/" rel="next" title="移动支付-常文达">
+    下一篇：移动支付-常文达
+  </a>
+</p>
 
 
             </div>
-
-            <time class="pink-link-context" datetime="2017-03-16T10:00:13.000Z"><a href="/2017/03/16/移动支付-常文达/">2017-03-16</a></time>
-
-            
-
-
-            
+			
         </div>
-
-        
     </div>
 </article>
 
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2017/03/16/多模收号-Tailyou/">多模收号-Tailyou</a></h1>
-    
 
 
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2017/03/16/文件下载-白世伟/" data-title="文件下载-白世伟" data-url="http://yoursite.com/2017/03/16/文件下载-白世伟/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'test'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
             </div>
-
-            <time class="pink-link-context" datetime="2017-03-16T09:59:51.000Z"><a href="/2017/03/16/多模收号-Tailyou/">2017-03-16</a></time>
-
-            
-
-
-            
         </div>
+    </section>
 
-        
-    </div>
-</article>
 
-    
-
-    <ul class="pagination center-align">
-    <li class="disabled">
-        <a href="/"><i class="fa fa-angle-left"></i></a>
-    </li>
-    
-    
-        <li class="active pink"><a href="/">1</a></li>
-    
-    
-    <li class="disabled">
-        <a href="/"><i class="fa fa-angle-right"></i></a>
-    </li>
- </ul>
 
 </div>
 
