@@ -7,17 +7,16 @@
 
     
 
-    <title>多模收号-Tailyou | 恒心所致，达有所成！</title>
+    <title>通用弹窗HdDialog-祝文飞 | 恒心所致，达有所成！</title>
     <meta name="author" content="HdAndroidTeam">
     
-    <meta name="description" content="一、概述收号模块，包rfid，ble，wifi三种收号方式。已升级支持RxJava2.
-二、版本已在多个项目中使用，且已上传jCenter，最新版本0.1.4，直接在gradle中添加即可。compile ‘com.hengda.zwf:AutoNoUtil:0.1.4’
-三、思路1、BLE收号思路">
+    <meta name="description" content="一、概述通用Dialog，适用于ProgressDialog，BuilderDialog，可以设置字体、进入退出动画，同时兼容手机和导览机。
+二、版本已在多个项目中使用，且已上传jCenter，最新版本0.0.5，直接在gradle中添加即可。compile ‘com.hengda.zwf:HdDi">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="多模收号-Tailyou"/>
+    <meta property="og:title" content="通用弹窗HdDialog-祝文飞"/>
     <meta property="og:site_name" content="Hengda Android"/>
 
     
@@ -199,12 +198,12 @@
             <div class="article-title">
                 
     
-        <h1>多模收号-Tailyou</h1>
+        <h1>通用弹窗HdDialog-祝文飞</h1>
     
 
 
             </div>
-            <time class="pink-link-context" datetime="2017-03-16T09:59:51.000Z"><a href="/2017/03/16/多模收号-Tailyou/">2017-03-16</a></time>
+            <time class="pink-link-context" datetime="2017-03-16T11:31:42.000Z"><a href="/2017/03/16/【通用弹窗HdDialog】-祝文飞/">2017-03-16</a></time>
 
             <span id="busuanzi_container_page_pv" class="read-times-container">
     <i class="fa fa-eye"></i>
@@ -214,35 +213,29 @@
             
 
             <div class="toc pink-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#一、概述"><span class="section table-of-contents-text">一、概述</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#二、版本"><span class="section table-of-contents-text">二、版本</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#三、思路"><span class="section table-of-contents-text">三、思路</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1、BLE收号思路"><span class="section table-of-contents-text">1、BLE收号思路</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2、WiFi收号思路"><span class="section table-of-contents-text">2、WiFi收号思路</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3、Rfid收号思路"><span class="section table-of-contents-text">3、Rfid收号思路</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#四、使用"><span class="section table-of-contents-text">四、使用</span></a></li></ol>
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#一、概述"><span class="section table-of-contents-text">一、概述</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#二、版本"><span class="section table-of-contents-text">二、版本</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#三、效果"><span class="section table-of-contents-text">三、效果</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1、ProgressDialog补间动画"><span class="section table-of-contents-text">1、ProgressDialog补间动画</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2、ProgressDialog帧动画"><span class="section table-of-contents-text">2、ProgressDialog帧动画</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3、BuilderDialog默认布局"><span class="section table-of-contents-text">3、BuilderDialog默认布局</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#4、BuilderDialog自定义布局"><span class="section table-of-contents-text">4、BuilderDialog自定义布局</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#四、使用"><span class="section table-of-contents-text">四、使用</span></a></li></ol>
 </div>
 
 
             <div class="entry pink-link-context">
-                <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>收号模块，包rfid，ble，wifi三种收号方式。已升级支持RxJava2.</p>
-<h2 id="二、版本"><a href="#二、版本" class="headerlink" title="二、版本"></a>二、版本</h2><p>已在多个项目中使用，且已上传jCenter，最新版本0.1.4，直接在gradle中添加即可。<br>compile ‘com.hengda.zwf:AutoNoUtil:0.1.4’</p>
-<h2 id="三、思路"><a href="#三、思路" class="headerlink" title="三、思路"></a>三、思路</h2><h3 id="1、BLE收号思路"><a href="#1、BLE收号思路" class="headerlink" title="1、BLE收号思路"></a>1、BLE收号思路</h3><ul>
-<li>1、启动蓝牙收号后，将后台扫描得到的 BluetoothDevice device, int rssi, byte[] scanRecord 解析成Beacon；</li>
-<li>2、将Beacon通过 RxBus 发送；</li>
-<li>3、在收号服务中接收Beacon，根据一定条件过滤，将符合条件的Beacon加入List；</li>
-<li>4、每个一定时间间隔从List中取AutoNo，取的原则是：按平均rssi排序，较大为优</li>
-</ul>
-<h3 id="2、WiFi收号思路"><a href="#2、WiFi收号思路" class="headerlink" title="2、WiFi收号思路"></a>2、WiFi收号思路</h3><ul>
-<li>1、启动WiFi收号后，通过RxBus发送后台扫描得到的 ScanResult；</li>
-<li>3、在收号服务中接收 ScanResult，根据一定条件过滤，将符合条件的 ScanResult 加入List；</li>
-<li>4、每个一定时间间隔从List中取AutoNo，取的原则是：按平均 level 排序，较大为优</li>
-</ul>
-<h3 id="3、Rfid收号思路"><a href="#3、Rfid收号思路" class="headerlink" title="3、Rfid收号思路"></a>3、Rfid收号思路</h3><p>Rfid收号只有导览机使用，这一部分其实就是拷贝代码，接收设备底层上传的数据并解析得到多模号；</p>
-<h2 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h2><p>具体使用见demo。</p>
+                <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>通用Dialog，适用于ProgressDialog，BuilderDialog，可以设置字体、进入退出动画，同时兼容手机和导览机。</p>
+<h2 id="二、版本"><a href="#二、版本" class="headerlink" title="二、版本"></a>二、版本</h2><p>已在多个项目中使用，且已上传jCenter，最新版本0.0.5，直接在gradle中添加即可。<br>compile ‘com.hengda.zwf:HdDialog:0.0.5’</p>
+<h2 id="三、效果"><a href="#三、效果" class="headerlink" title="三、效果"></a>三、效果</h2><h3 id="1、ProgressDialog补间动画"><a href="#1、ProgressDialog补间动画" class="headerlink" title="1、ProgressDialog补间动画"></a>1、ProgressDialog补间动画</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-6/79120594-file_1486346779883_dc73.png" alt=""></p>
+<h3 id="2、ProgressDialog帧动画"><a href="#2、ProgressDialog帧动画" class="headerlink" title="2、ProgressDialog帧动画"></a>2、ProgressDialog帧动画</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-6/49606317-file_1486346779998_c220.png" alt=""></p>
+<h3 id="3、BuilderDialog默认布局"><a href="#3、BuilderDialog默认布局" class="headerlink" title="3、BuilderDialog默认布局"></a>3、BuilderDialog默认布局</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-6/95840505-file_1486346780216_7f00.png" alt=""></p>
+<h3 id="4、BuilderDialog自定义布局"><a href="#4、BuilderDialog自定义布局" class="headerlink" title="4、BuilderDialog自定义布局"></a>4、BuilderDialog自定义布局</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-6/76351990-file_1486346780326_3ff9.png" alt=""></p>
+<h2 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h2><p>此处以BuilderDialog自定义布局为例，简单介绍说使用，具体用法参见demo。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 该方法通过提取文字参数和点击事件可以继续封装</div><div class="line"> *</div><div class="line"> * @author 祝文飞（Tailyou）</div><div class="line"> * @time 2017/2/6 9:37</div><div class="line"> */</div><div class="line">private void showCustomDlg() &#123;</div><div class="line">    HDialogBuilder hDialogBuilder = new HDialogBuilder(mContext);</div><div class="line"></div><div class="line">    View customView = View.inflate(mContext, R.layout.dialog_custom_view_all, null);</div><div class="line">    TextView tvTitle = HdTool.getView(customView, R.id.tvTitle);</div><div class="line">    TextView tvMsg = HdTool.getView(customView, R.id.tvMsg);</div><div class="line">    TextView btnYes = HdTool.getView(customView, R.id.btnYes);</div><div class="line">    TextView btnNo = HdTool.getView(customView, R.id.btnNo);</div><div class="line">    tvTitle.setText(&quot;注销&quot;);</div><div class="line">    tvMsg.setText(&quot;退出账号可能会使连续登录记录归零，确定退出？&quot;);</div><div class="line">    btnYes.setText(&quot;确定退出&quot;);</div><div class="line">    btnNo.setText(&quot;取消&quot;);</div><div class="line">    btnYes.setOnClickListener(v -&gt; hDialogBuilder.dismiss());</div><div class="line">    btnNo.setOnClickListener(v -&gt; hDialogBuilder.dismiss());</div><div class="line"></div><div class="line">    hDialogBuilder.setCustomView(customView)</div><div class="line">            .dlgColor(Color.TRANSPARENT)</div><div class="line">            .cancelable(false)</div><div class="line">            .show();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>封装后:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">private void showCustomDlg(String title, String msg, String txtYes, String txtNo,</div><div class="line">                           DialogClickListener dialogClickListener) &#123;</div><div class="line">    hDialogBuilder = new HDialogBuilder(mContext);</div><div class="line"></div><div class="line">    View customView = View.inflate(mContext, R.layout.dialog_custom_view_all, null);</div><div class="line">    TextView tvTitle = HdTool.getView(customView, R.id.tvTitle);</div><div class="line">    TextView tvMsg = HdTool.getView(customView, R.id.tvMsg);</div><div class="line">    TextView btnYes = HdTool.getView(customView, R.id.btnYes);</div><div class="line">    TextView btnNo = HdTool.getView(customView, R.id.btnNo);</div><div class="line">    tvTitle.setText(title);</div><div class="line">    tvMsg.setText(msg);</div><div class="line">    btnYes.setText(txtYes);</div><div class="line">    btnNo.setText(txtNo);</div><div class="line">    btnYes.setOnClickListener(v -&gt; dialogClickListener.p());</div><div class="line">    btnNo.setOnClickListener(v -&gt; dialogClickListener.n());</div><div class="line"></div><div class="line">    hDialogBuilder.setCustomView(customView)</div><div class="line">                    .dlgColor(Color.TRANSPARENT)</div><div class="line">                    .cancelable(false)</div><div class="line">                    .show();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>封装好之后，可以写到工具类中供直接调用.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 作者：Tailyou （祝文飞）</div><div class="line"> * 时间：2016/5/26 19:03</div><div class="line"> * 邮箱：tailyou@163.com</div><div class="line"> * 描述：Dialog工具类</div><div class="line"> */</div><div class="line">public class DialogCenter &#123;</div><div class="line"></div><div class="line">    private static HDialogBuilder hDialogBuilder;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 封装好的方法可以写到DialogCenter工具类中，供直接调用</div><div class="line">     *</div><div class="line">     * @author 祝文飞（Tailyou）</div><div class="line">     * @time 2017/2/6 9:39</div><div class="line">     */</div><div class="line">    public static void showCustomDlg(Context mContext, String title, String msg, String txtYes, String txtNo,</div><div class="line">                               DialogClickListener dialogClickListener) &#123;</div><div class="line">        hideDialog();</div><div class="line">        hDialogBuilder = new HDialogBuilder(mContext);</div><div class="line"></div><div class="line">        View customView = View.inflate(mContext, R.layout.dialog_custom_view_all, null);</div><div class="line">        TextView tvTitle = HdTool.getView(customView, R.id.tvTitle);</div><div class="line">        TextView tvMsg = HdTool.getView(customView, R.id.tvMsg);</div><div class="line">        TextView btnYes = HdTool.getView(customView, R.id.btnYes);</div><div class="line">        TextView btnNo = HdTool.getView(customView, R.id.btnNo);</div><div class="line">        tvTitle.setText(title);</div><div class="line">        tvMsg.setText(msg);</div><div class="line">        btnYes.setText(txtYes);</div><div class="line">        btnNo.setText(txtNo);</div><div class="line">        btnYes.setOnClickListener(v -&gt; dialogClickListener.p());</div><div class="line">        btnNo.setOnClickListener(v -&gt; dialogClickListener.n());</div><div class="line"></div><div class="line">        hDialogBuilder.setCustomView(customView)</div><div class="line">                        .dlgColor(Color.TRANSPARENT)</div><div class="line">                        .cancelable(false)</div><div class="line">                        .show();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 隐藏Dialog</div><div class="line">     */</div><div class="line">    public static void hideDialog() &#123;</div><div class="line">        if (hDialogBuilder != null) &#123;</div><div class="line">            hDialogBuilder.dismiss();</div><div class="line">            hDialogBuilder = null;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
                 
+
+
 <p class="pink-link-context">
-    <a href="/2017/03/16/移动支付-常文达/" rel="next" title="移动支付-常文达">
-    上一篇：移动支付-常文达
+    <a href="/2017/03/16/【文件下载HttpUtil】-祝文飞/" rel="next" title="基于RxJava+Retrofit的文件下载库-祝文飞">
+    下一篇：基于RxJava+Retrofit的文件下载库-祝文飞
   </a>
 </p>
-
-
 
 
             </div>
@@ -258,7 +251,7 @@
         <div class="card">
             <div class="card-content">
                 <!-- Duoshuo Comment BEGIN -->
-                <div class="ds-thread" data-thread-key="2017/03/16/多模收号-Tailyou/" data-title="多模收号-Tailyou" data-url="http://yoursite.com/2017/03/16/多模收号-Tailyou/"></div>
+                <div class="ds-thread" data-thread-key="2017/03/16/【通用弹窗HdDialog】-祝文飞/" data-title="通用弹窗HdDialog-祝文飞" data-url="http://yoursite.com/2017/03/16/【通用弹窗HdDialog】-祝文飞/"></div>
 
                 <script type="text/javascript">
                     console.log(document.querySelector('.ds-thread'));
