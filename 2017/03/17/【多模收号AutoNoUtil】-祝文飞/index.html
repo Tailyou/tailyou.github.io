@@ -7,16 +7,19 @@
 
     
 
-    <title>CommonAdapter-Tailyou | 恒心所致，达有所成！</title>
+    <title>【多模收号AutoNoUtil】-祝文飞 | 恒心所至，达有所成！</title>
     <meta name="author" content="HdAndroidTeam">
     
-    <meta name="description" content="一、概述通用Adapter，适用于单布局ListView、多布局ListView、单布局RecyclerView，多布局RecyclerView，带章节标题RecyclerView，GridView与ViewPage结合使用等情况。
-二、版本已在多个项目中使用，且已上传jCenter，最新版本0.0">
+    <meta name="description" content="一、概述多模收号模块，包含rfid，ble，wifi三种收号方式。
+二、版本最新版本1.0.2，compile ‘com.hengda.zwf:AutoNoUtil:1.0.2’
+三、gradle依赖无
+四、思路1、BLE收号思路
+1、启动蓝牙收号后，将后台扫描得到的 BluetoothDevice">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="CommonAdapter-Tailyou"/>
+    <meta property="og:title" content="【多模收号AutoNoUtil】-祝文飞"/>
     <meta property="og:site_name" content="Hengda Android"/>
 
     
@@ -95,7 +98,7 @@
         <li class="side-user">
             <div class="row">
                 <div class="col s4 no-padding">
-                    <img class="avatar-image circle responsive-img" src="http://ww2.sinaimg.cn/small/74990035jw1f1rjkd681bj20rs0rsdhg.jpg" alt="User Avatar">
+                    <img class="avatar-image circle responsive-img" src="http://oksdjdocc.bkt.clouddn.com/u=305802528,4129622145&amp;fm=214&amp;gp=0.jpg" alt="User Avatar">
                 </div>
                 <div class="info col s8 valign-wrapper no-padding">
                     <div class="valign">
@@ -198,12 +201,12 @@
             <div class="article-title">
                 
     
-        <h1>CommonAdapter-Tailyou</h1>
+        <h1>【多模收号AutoNoUtil】-祝文飞</h1>
     
 
 
             </div>
-            <time class="pink-link-context" datetime="2017-03-16T10:00:46.000Z"><a href="/2017/03/16/【数据适配器CommonAdapter】-祝文飞/">2017-03-16</a></time>
+            <time class="pink-link-context" datetime="2017-03-17T00:11:30.000Z"><a href="/2017/03/17/【多模收号AutoNoUtil】-祝文飞/">2017-03-17</a></time>
 
             <span id="busuanzi_container_page_pv" class="read-times-container">
     <i class="fa fa-eye"></i>
@@ -213,35 +216,38 @@
             
 
             <div class="toc pink-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#一、概述"><span class="section table-of-contents-text">一、概述</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#二、版本"><span class="section table-of-contents-text">二、版本</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#三、效果"><span class="section table-of-contents-text">三、效果</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1、单布局ListView"><span class="section table-of-contents-text">1、单布局ListView</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2、多布局ListView"><span class="section table-of-contents-text">2、多布局ListView</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3、单布局RecyclerView"><span class="section table-of-contents-text">3、单布局RecyclerView</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#4、多布局RecyclerView"><span class="section table-of-contents-text">4、多布局RecyclerView</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#5、章节标题RecyclerView"><span class="section table-of-contents-text">5、章节标题RecyclerView</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#6、GridView结合ViewPage"><span class="section table-of-contents-text">6、GridView结合ViewPage</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#四、使用"><span class="section table-of-contents-text">四、使用</span></a></li></ol>
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#一、概述"><span class="section table-of-contents-text">一、概述</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#二、版本"><span class="section table-of-contents-text">二、版本</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#三、gradle依赖"><span class="section table-of-contents-text">三、gradle依赖</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#四、思路"><span class="section table-of-contents-text">四、思路</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1、BLE收号思路"><span class="section table-of-contents-text">1、BLE收号思路</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2、WiFi收号思路"><span class="section table-of-contents-text">2、WiFi收号思路</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3、Rfid收号思路"><span class="section table-of-contents-text">3、Rfid收号思路</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#四、使用"><span class="section table-of-contents-text">四、使用</span></a></li></ol>
 </div>
 
 
             <div class="entry pink-link-context">
-                <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>通用Adapter，适用于单布局ListView、多布局ListView、单布局RecyclerView，多布局RecyclerView，带章节标题RecyclerView，GridView与ViewPage结合使用等情况。</p>
-<h2 id="二、版本"><a href="#二、版本" class="headerlink" title="二、版本"></a>二、版本</h2><p>已在多个项目中使用，且已上传jCenter，最新版本0.0.6，直接在gradle中添加即可。<br>compile ‘com.hengda.zwf:CommonAdapter:0.0.6’</p>
-<h2 id="三、效果"><a href="#三、效果" class="headerlink" title="三、效果"></a>三、效果</h2><h3 id="1、单布局ListView"><a href="#1、单布局ListView" class="headerlink" title="1、单布局ListView"></a>1、单布局ListView</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-3/89062263-file_1486106094623_13cca.png" alt=""></p>
-<h3 id="2、多布局ListView"><a href="#2、多布局ListView" class="headerlink" title="2、多布局ListView"></a>2、多布局ListView</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-3/95414587-file_1486106094743_467a.png" alt=""></p>
-<h3 id="3、单布局RecyclerView"><a href="#3、单布局RecyclerView" class="headerlink" title="3、单布局RecyclerView"></a>3、单布局RecyclerView</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-3/7801613-file_1486106094857_1789f.png" alt=""></p>
-<h3 id="4、多布局RecyclerView"><a href="#4、多布局RecyclerView" class="headerlink" title="4、多布局RecyclerView"></a>4、多布局RecyclerView</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-3/51561209-file_1486106094971_210f.png" alt=""></p>
-<h3 id="5、章节标题RecyclerView"><a href="#5、章节标题RecyclerView" class="headerlink" title="5、章节标题RecyclerView"></a>5、章节标题RecyclerView</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-3/79560240-file_1486106095086_dd99.png" alt=""></p>
-<h3 id="6、GridView结合ViewPage"><a href="#6、GridView结合ViewPage" class="headerlink" title="6、GridView结合ViewPage"></a>6、GridView结合ViewPage</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-3/4686495-file_1486106094388_21d9.png" alt=""></p>
-<h2 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h2><p>具体用法见demo。</p>
+                <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>多模收号模块，包含rfid，ble，wifi三种收号方式。</p>
+<h2 id="二、版本"><a href="#二、版本" class="headerlink" title="二、版本"></a>二、版本</h2><p>最新版本1.0.2，compile ‘com.hengda.zwf:AutoNoUtil:1.0.2’</p>
+<h2 id="三、gradle依赖"><a href="#三、gradle依赖" class="headerlink" title="三、gradle依赖"></a>三、gradle依赖</h2><p>无</p>
+<h2 id="四、思路"><a href="#四、思路" class="headerlink" title="四、思路"></a>四、思路</h2><h3 id="1、BLE收号思路"><a href="#1、BLE收号思路" class="headerlink" title="1、BLE收号思路"></a>1、BLE收号思路</h3><ul>
+<li>1、启动蓝牙收号后，将后台扫描得到的 BluetoothDevice device, int rssi, byte[] scanRecord 解析成Beacon；</li>
+<li>2、以回调接口的形式，在收号服务中处理解析得到的Beacon，根据一定条件进行过滤，将符合条件的Beacon加入List；</li>
+<li>3、每隔一定时间间隔从List中取AutoNo，取的原则是：按平均rssi排序，较大为优</li>
+</ul>
+<h3 id="2、WiFi收号思路"><a href="#2、WiFi收号思路" class="headerlink" title="2、WiFi收号思路"></a>2、WiFi收号思路</h3><ul>
+<li>1、启动WiFi收号后，通过RxBus发送后台扫描得到的 ScanResult；</li>
+<li>2、在收号服务中接收 ScanResult，根据一定条件过滤，将符合条件的 ScanResult 加入List；</li>
+<li>3、每个一定时间间隔从List中取AutoNo，取的原则是：按平均 level 排序，较大为优</li>
+</ul>
+<h3 id="3、Rfid收号思路"><a href="#3、Rfid收号思路" class="headerlink" title="3、Rfid收号思路"></a>3、Rfid收号思路</h3><ul>
+<li>1、Rfid收号只有导览机使用，接收设备底层上传的数据并解析得到多模号；</li>
+<li>2、SerialPort及所在的包名不能修改。</li>
+</ul>
+<h2 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h2><p>具体使用见demo。</p>
 
                 
 <p class="pink-link-context">
-    <a href="/2017/03/16/【文件下载HttpUtil】-祝文飞/" rel="next" title="基于RxJava+Retrofit的文件下载库-祝文飞">
-    上一篇：基于RxJava+Retrofit的文件下载库-祝文飞
+    <a href="/2017/03/17/【数据适配器CommonAdapter】-祝文飞/" rel="next" title="【数据适配器CommonAdapter】-祝文飞">
+    上一篇：【数据适配器CommonAdapter】-祝文飞
   </a>
 </p>
 
 
-
-<p class="pink-link-context">
-    <a href="/2017/03/16/【文件下载】-白世伟/" rel="next" title="文件下载-白世伟">
-    下一篇：文件下载-白世伟
-  </a>
-</p>
 
 
             </div>
@@ -257,7 +263,7 @@
         <div class="card">
             <div class="card-content">
                 <!-- Duoshuo Comment BEGIN -->
-                <div class="ds-thread" data-thread-key="2017/03/16/【数据适配器CommonAdapter】-祝文飞/" data-title="CommonAdapter-Tailyou" data-url="http://yoursite.com/2017/03/16/【数据适配器CommonAdapter】-祝文飞/"></div>
+                <div class="ds-thread" data-thread-key="2017/03/17/【多模收号AutoNoUtil】-祝文飞/" data-title="【多模收号AutoNoUtil】-祝文飞" data-url="http://yoursite.com/2017/03/17/【多模收号AutoNoUtil】-祝文飞/"></div>
 
                 <script type="text/javascript">
                     console.log(document.querySelector('.ds-thread'));

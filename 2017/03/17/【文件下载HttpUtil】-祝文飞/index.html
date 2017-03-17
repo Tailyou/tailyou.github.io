@@ -7,16 +7,21 @@
 
     
 
-    <title>通用弹窗HdDialog-祝文飞 | 恒心所致，达有所成！</title>
+    <title>【文件下载HttpUtil】-祝文飞 | 恒心所至，达有所成！</title>
     <meta name="author" content="HdAndroidTeam">
     
-    <meta name="description" content="一、概述通用Dialog，适用于ProgressDialog，BuilderDialog，可以设置字体、进入退出动画，同时兼容手机和导览机。
-二、版本已在多个项目中使用，且已上传jCenter，最新版本0.0.5，直接在gradle中添加即可。compile ‘com.hengda.zwf:HdDi">
+    <meta name="description" content="一、概述基于Retrofit和RxJava2的网络请求和文件下载工具。
+
+智能判断服务器是否支持断点续传并适配相应下载方式；
+智能判断同一地址对应的文件在服务端是否有改变并重新下载；
+支持多线程下载，可设置下载线程数；
+支持下载状态、下载进度监听；
+支持在Service中下载文件，内置Downloa">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="通用弹窗HdDialog-祝文飞"/>
+    <meta property="og:title" content="【文件下载HttpUtil】-祝文飞"/>
     <meta property="og:site_name" content="Hengda Android"/>
 
     
@@ -95,7 +100,7 @@
         <li class="side-user">
             <div class="row">
                 <div class="col s4 no-padding">
-                    <img class="avatar-image circle responsive-img" src="http://ww2.sinaimg.cn/small/74990035jw1f1rjkd681bj20rs0rsdhg.jpg" alt="User Avatar">
+                    <img class="avatar-image circle responsive-img" src="http://oksdjdocc.bkt.clouddn.com/u=305802528,4129622145&amp;fm=214&amp;gp=0.jpg" alt="User Avatar">
                 </div>
                 <div class="info col s8 valign-wrapper no-padding">
                     <div class="valign">
@@ -198,12 +203,12 @@
             <div class="article-title">
                 
     
-        <h1>通用弹窗HdDialog-祝文飞</h1>
+        <h1>【文件下载HttpUtil】-祝文飞</h1>
     
 
 
             </div>
-            <time class="pink-link-context" datetime="2017-03-16T11:31:42.000Z"><a href="/2017/03/16/【通用弹窗HdDialog】-祝文飞/">2017-03-16</a></time>
+            <time class="pink-link-context" datetime="2017-03-17T00:14:43.000Z"><a href="/2017/03/17/【文件下载HttpUtil】-祝文飞/">2017-03-17</a></time>
 
             <span id="busuanzi_container_page_pv" class="read-times-container">
     <i class="fa fa-eye"></i>
@@ -213,27 +218,35 @@
             
 
             <div class="toc pink-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#一、概述"><span class="section table-of-contents-text">一、概述</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#二、版本"><span class="section table-of-contents-text">二、版本</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#三、效果"><span class="section table-of-contents-text">三、效果</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1、ProgressDialog补间动画"><span class="section table-of-contents-text">1、ProgressDialog补间动画</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2、ProgressDialog帧动画"><span class="section table-of-contents-text">2、ProgressDialog帧动画</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3、BuilderDialog默认布局"><span class="section table-of-contents-text">3、BuilderDialog默认布局</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#4、BuilderDialog自定义布局"><span class="section table-of-contents-text">4、BuilderDialog自定义布局</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#四、使用"><span class="section table-of-contents-text">四、使用</span></a></li></ol>
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#一、概述"><span class="section table-of-contents-text">一、概述</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#二、版本"><span class="section table-of-contents-text">二、版本</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#三、使用"><span class="section table-of-contents-text">三、使用</span></a></li></ol>
 </div>
 
 
             <div class="entry pink-link-context">
-                <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>通用Dialog，适用于ProgressDialog，BuilderDialog，可以设置字体、进入退出动画，同时兼容手机和导览机。</p>
-<h2 id="二、版本"><a href="#二、版本" class="headerlink" title="二、版本"></a>二、版本</h2><p>已在多个项目中使用，且已上传jCenter，最新版本0.0.5，直接在gradle中添加即可。<br>compile ‘com.hengda.zwf:HdDialog:0.0.5’</p>
-<h2 id="三、效果"><a href="#三、效果" class="headerlink" title="三、效果"></a>三、效果</h2><h3 id="1、ProgressDialog补间动画"><a href="#1、ProgressDialog补间动画" class="headerlink" title="1、ProgressDialog补间动画"></a>1、ProgressDialog补间动画</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-6/79120594-file_1486346779883_dc73.png" alt=""></p>
-<h3 id="2、ProgressDialog帧动画"><a href="#2、ProgressDialog帧动画" class="headerlink" title="2、ProgressDialog帧动画"></a>2、ProgressDialog帧动画</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-6/49606317-file_1486346779998_c220.png" alt=""></p>
-<h3 id="3、BuilderDialog默认布局"><a href="#3、BuilderDialog默认布局" class="headerlink" title="3、BuilderDialog默认布局"></a>3、BuilderDialog默认布局</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-6/95840505-file_1486346780216_7f00.png" alt=""></p>
-<h3 id="4、BuilderDialog自定义布局"><a href="#4、BuilderDialog自定义布局" class="headerlink" title="4、BuilderDialog自定义布局"></a>4、BuilderDialog自定义布局</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-6/76351990-file_1486346780326_3ff9.png" alt=""></p>
-<h2 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h2><p>此处以BuilderDialog自定义布局为例，简单介绍说使用，具体用法参见demo。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 该方法通过提取文字参数和点击事件可以继续封装</div><div class="line"> *</div><div class="line"> * @author 祝文飞（Tailyou）</div><div class="line"> * @time 2017/2/6 9:37</div><div class="line"> */</div><div class="line">private void showCustomDlg() &#123;</div><div class="line">    HDialogBuilder hDialogBuilder = new HDialogBuilder(mContext);</div><div class="line"></div><div class="line">    View customView = View.inflate(mContext, R.layout.dialog_custom_view_all, null);</div><div class="line">    TextView tvTitle = HdTool.getView(customView, R.id.tvTitle);</div><div class="line">    TextView tvMsg = HdTool.getView(customView, R.id.tvMsg);</div><div class="line">    TextView btnYes = HdTool.getView(customView, R.id.btnYes);</div><div class="line">    TextView btnNo = HdTool.getView(customView, R.id.btnNo);</div><div class="line">    tvTitle.setText(&quot;注销&quot;);</div><div class="line">    tvMsg.setText(&quot;退出账号可能会使连续登录记录归零，确定退出？&quot;);</div><div class="line">    btnYes.setText(&quot;确定退出&quot;);</div><div class="line">    btnNo.setText(&quot;取消&quot;);</div><div class="line">    btnYes.setOnClickListener(v -&gt; hDialogBuilder.dismiss());</div><div class="line">    btnNo.setOnClickListener(v -&gt; hDialogBuilder.dismiss());</div><div class="line"></div><div class="line">    hDialogBuilder.setCustomView(customView)</div><div class="line">            .dlgColor(Color.TRANSPARENT)</div><div class="line">            .cancelable(false)</div><div class="line">            .show();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>封装后:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">private void showCustomDlg(String title, String msg, String txtYes, String txtNo,</div><div class="line">                           DialogClickListener dialogClickListener) &#123;</div><div class="line">    hDialogBuilder = new HDialogBuilder(mContext);</div><div class="line"></div><div class="line">    View customView = View.inflate(mContext, R.layout.dialog_custom_view_all, null);</div><div class="line">    TextView tvTitle = HdTool.getView(customView, R.id.tvTitle);</div><div class="line">    TextView tvMsg = HdTool.getView(customView, R.id.tvMsg);</div><div class="line">    TextView btnYes = HdTool.getView(customView, R.id.btnYes);</div><div class="line">    TextView btnNo = HdTool.getView(customView, R.id.btnNo);</div><div class="line">    tvTitle.setText(title);</div><div class="line">    tvMsg.setText(msg);</div><div class="line">    btnYes.setText(txtYes);</div><div class="line">    btnNo.setText(txtNo);</div><div class="line">    btnYes.setOnClickListener(v -&gt; dialogClickListener.p());</div><div class="line">    btnNo.setOnClickListener(v -&gt; dialogClickListener.n());</div><div class="line"></div><div class="line">    hDialogBuilder.setCustomView(customView)</div><div class="line">                    .dlgColor(Color.TRANSPARENT)</div><div class="line">                    .cancelable(false)</div><div class="line">                    .show();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>封装好之后，可以写到工具类中供直接调用.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 作者：Tailyou （祝文飞）</div><div class="line"> * 时间：2016/5/26 19:03</div><div class="line"> * 邮箱：tailyou@163.com</div><div class="line"> * 描述：Dialog工具类</div><div class="line"> */</div><div class="line">public class DialogCenter &#123;</div><div class="line"></div><div class="line">    private static HDialogBuilder hDialogBuilder;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 封装好的方法可以写到DialogCenter工具类中，供直接调用</div><div class="line">     *</div><div class="line">     * @author 祝文飞（Tailyou）</div><div class="line">     * @time 2017/2/6 9:39</div><div class="line">     */</div><div class="line">    public static void showCustomDlg(Context mContext, String title, String msg, String txtYes, String txtNo,</div><div class="line">                               DialogClickListener dialogClickListener) &#123;</div><div class="line">        hideDialog();</div><div class="line">        hDialogBuilder = new HDialogBuilder(mContext);</div><div class="line"></div><div class="line">        View customView = View.inflate(mContext, R.layout.dialog_custom_view_all, null);</div><div class="line">        TextView tvTitle = HdTool.getView(customView, R.id.tvTitle);</div><div class="line">        TextView tvMsg = HdTool.getView(customView, R.id.tvMsg);</div><div class="line">        TextView btnYes = HdTool.getView(customView, R.id.btnYes);</div><div class="line">        TextView btnNo = HdTool.getView(customView, R.id.btnNo);</div><div class="line">        tvTitle.setText(title);</div><div class="line">        tvMsg.setText(msg);</div><div class="line">        btnYes.setText(txtYes);</div><div class="line">        btnNo.setText(txtNo);</div><div class="line">        btnYes.setOnClickListener(v -&gt; dialogClickListener.p());</div><div class="line">        btnNo.setOnClickListener(v -&gt; dialogClickListener.n());</div><div class="line"></div><div class="line">        hDialogBuilder.setCustomView(customView)</div><div class="line">                        .dlgColor(Color.TRANSPARENT)</div><div class="line">                        .cancelable(false)</div><div class="line">                        .show();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 隐藏Dialog</div><div class="line">     */</div><div class="line">    public static void hideDialog() &#123;</div><div class="line">        if (hDialogBuilder != null) &#123;</div><div class="line">            hDialogBuilder.dismiss();</div><div class="line">            hDialogBuilder = null;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+                <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>基于Retrofit和RxJava2的网络请求和文件下载工具。</p>
+<ul>
+<li>智能判断服务器是否支持断点续传并适配相应下载方式；</li>
+<li>智能判断同一地址对应的文件在服务端是否有改变并重新下载；</li>
+<li>支持多线程下载，可设置下载线程数；</li>
+<li>支持下载状态、下载进度监听；</li>
+<li>支持在Service中下载文件，内置DownloadService；</li>
+</ul>
+<h2 id="二、版本"><a href="#二、版本" class="headerlink" title="二、版本"></a>二、版本</h2><p>已在多个项目中使用，且已上传jCenter，最新版本1.0.0，直接在gradle中添加即可。<br>compile ‘com.hengda.zwf:HttpUtil:1.0.0’</p>
+<h2 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h2><p>具体用法参见demo，demo以检查版本更新和安装包下载为例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">private void loadAndInstall(CheckResponse checkResponse) &#123;</div><div class="line">        String url = checkResponse.getVersionInfo().getVersionUrl();</div><div class="line">        String saveName = url.substring(url.lastIndexOf(&quot;/&quot;) + 1);</div><div class="line">        String savePath = HdAppConfig.getDefaultFileDir();</div><div class="line"></div><div class="line">        RxDownload.getInstance()</div><div class="line">                .download(url, saveName, savePath)</div><div class="line">                .subscribeOn(Schedulers.io())</div><div class="line">                .observeOn(AndroidSchedulers.mainThread())</div><div class="line">                .doOnSubscribe(d -&gt; disposable = d)</div><div class="line">                .doOnNext(status -&gt; updateProgress(status))</div><div class="line">                .doOnError(throwable -&gt; Logger.e(&quot;下载失败：&quot; + throwable.getMessage()))</div><div class="line">                .doOnComplete(() -&gt; installApk(saveName, savePath))</div><div class="line">                .subscribe();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private void installApk(String saveName, String savePath) &#123;</div><div class="line">        String apkPath = TextUtils.concat(savePath, saveName).toString();</div><div class="line">        AppUtil.installApk(CheckUpdateActivity.this, apkPath);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private void updateProgress(DownloadStatus status) &#123;</div><div class="line">        txtProgress.setText(String.format(&quot;正在下载(%s/%s)&quot;,</div><div class="line">                DataManager.getFormatSize(status.getDownloadSize()),</div><div class="line">                DataManager.getFormatSize(status.getTotalSize())));</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 
                 
+<p class="pink-link-context">
+    <a href="/2017/03/17/【移动支付MobilePay】-常文达/" rel="next" title="【移动支付MobilePay】-常文达">
+    上一篇：【移动支付MobilePay】-常文达
+  </a>
+</p>
+
 
 
 <p class="pink-link-context">
-    <a href="/2017/03/16/【文件下载HttpUtil】-祝文飞/" rel="next" title="基于RxJava+Retrofit的文件下载库-祝文飞">
-    下一篇：基于RxJava+Retrofit的文件下载库-祝文飞
+    <a href="/2017/03/17/【提示弹框HdDialog】-祝文飞/" rel="next" title="【提示弹框HdDialog】-祝文飞">
+    下一篇：【提示弹框HdDialog】-祝文飞
   </a>
 </p>
 
@@ -251,7 +264,7 @@
         <div class="card">
             <div class="card-content">
                 <!-- Duoshuo Comment BEGIN -->
-                <div class="ds-thread" data-thread-key="2017/03/16/【通用弹窗HdDialog】-祝文飞/" data-title="通用弹窗HdDialog-祝文飞" data-url="http://yoursite.com/2017/03/16/【通用弹窗HdDialog】-祝文飞/"></div>
+                <div class="ds-thread" data-thread-key="2017/03/17/【文件下载HttpUtil】-祝文飞/" data-title="【文件下载HttpUtil】-祝文飞" data-url="http://yoursite.com/2017/03/17/【文件下载HttpUtil】-祝文飞/"></div>
 
                 <script type="text/javascript">
                     console.log(document.querySelector('.ds-thread'));

@@ -7,32 +7,16 @@
 
     
 
-    <title>文件下载-白世伟 | 恒心所致，达有所成！</title>
+    <title>【提示弹框HdDialog】-祝文飞 | 恒心所至，达有所成！</title>
     <meta name="author" content="HdAndroidTeam">
     
-    <meta name="description" content="#HDFileLoader-文件下载框架
-##概述基于OKHttp3开发，自带服务器和本地资源文件的同步更新。具体使用方式详见Samples
-##更新日志
-####V0.0.1
-
-完成基础框架构建
-增加资源同步更新##用法###引入插件
-
-Gradle:
-
-暂无
-
-Maven:
-
-暂无
-
-
-###使">
+    <meta name="description" content="一、概述通用Dialog，适用于ProgressDialog，BuilderDialog，可以设置字体、进入退出动画，同时兼容手机和导览机。
+二、版本已在多个项目中使用，且已上传jCenter，最新版本0.0.5，直接在gradle中添加即可。compile ‘com.hengda.zwf:HdDi">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="文件下载-白世伟"/>
+    <meta property="og:title" content="【提示弹框HdDialog】-祝文飞"/>
     <meta property="og:site_name" content="Hengda Android"/>
 
     
@@ -111,7 +95,7 @@ Maven:
         <li class="side-user">
             <div class="row">
                 <div class="col s4 no-padding">
-                    <img class="avatar-image circle responsive-img" src="http://ww2.sinaimg.cn/small/74990035jw1f1rjkd681bj20rs0rsdhg.jpg" alt="User Avatar">
+                    <img class="avatar-image circle responsive-img" src="http://oksdjdocc.bkt.clouddn.com/u=305802528,4129622145&amp;fm=214&amp;gp=0.jpg" alt="User Avatar">
                 </div>
                 <div class="info col s8 valign-wrapper no-padding">
                     <div class="valign">
@@ -214,12 +198,12 @@ Maven:
             <div class="article-title">
                 
     
-        <h1>文件下载-白世伟</h1>
+        <h1>【提示弹框HdDialog】-祝文飞</h1>
     
 
 
             </div>
-            <time class="pink-link-context" datetime="2017-03-16T10:00:24.000Z"><a href="/2017/03/16/【文件下载】-白世伟/">2017-03-16</a></time>
+            <time class="pink-link-context" datetime="2017-03-17T00:14:05.000Z"><a href="/2017/03/17/【提示弹框HdDialog】-祝文飞/">2017-03-17</a></time>
 
             <span id="busuanzi_container_page_pv" class="read-times-container">
     <i class="fa fa-eye"></i>
@@ -229,116 +213,33 @@ Maven:
             
 
             <div class="toc pink-link-context hide-on-med-and-down">
-    
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#一、概述"><span class="section table-of-contents-text">一、概述</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#二、版本"><span class="section table-of-contents-text">二、版本</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#三、效果"><span class="section table-of-contents-text">三、效果</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1、ProgressDialog补间动画"><span class="section table-of-contents-text">1、ProgressDialog补间动画</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2、ProgressDialog帧动画"><span class="section table-of-contents-text">2、ProgressDialog帧动画</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3、BuilderDialog默认布局"><span class="section table-of-contents-text">3、BuilderDialog默认布局</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#4、BuilderDialog自定义布局"><span class="section table-of-contents-text">4、BuilderDialog自定义布局</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#四、使用"><span class="section table-of-contents-text">四、使用</span></a></li></ol>
 </div>
 
 
             <div class="entry pink-link-context">
-                <p>#HDFileLoader-文件下载框架</p>
-<p>##概述<br>基于OKHttp3开发，自带服务器和本地资源文件的同步更新。具体使用方式详见Samples</p>
-<p>##更新日志</p>
-<p>####V0.0.1</p>
-<ul>
-<li>完成基础框架构建</li>
-<li><p>增加资源同步更新<br>##用法<br>###引入插件</p>
-<blockquote>
-<p>Gradle:</p>
-</blockquote>
-<pre><code>暂无
-</code></pre><blockquote>
-<p>Maven:</p>
-</blockquote>
-<pre><code>暂无
-</code></pre></li>
-</ul>
-<p>###使用</p>
-<p>####1.在Application.onCreate中初始化全局配置；<br>    OkHttpClient okHttpClient = new OkHttpClient.Builder()<br>             connectTimeout(10000L, TimeUnit.MILLISECONDS)<br>             readTimeout(10000L, TimeUnit.MILLISECONDS)<br>             addInterceptor(new LoggerInterceptor(“TAG”))<br>             build();<br>    HDFileLoader.initClient(getApplicationContext(),okHttpClient);<br>注意:addInterceptor(new LoggerInterceptor(“TAG”))用于输出debug调试信息，如果不需要可以去掉。</p>
-<p>#####FileLoader有两种使用方式，一种是自带下载框，一种是基础版下载框架,需要自定义下载框；</p>
-<p>####2 使用自带下载框的方式<br>(1)在Presenter，Fragment或Activity中实现DownloadCallBackListener接口，并实现以下三个回调方法</p>
-<pre><code>@Override
-public void completed(File file) {
-    //下载完成后回调此方法，返回下载文件，可通过file.getAbsolutePath()获取绝对路径;
-}
-
-@Override
-public void justPlay(String fileDir) {
-    //此方法回调分两种方式
-    //1，若果没有开启检查更新功能则判断本地文件是否存在，存在则回调；
-    //2，如果开启了检查更新功能，如果下载文件不需要更新则回调；
-}
-
-@Override
-public void error(Exception e) {
-    //下载失败回调，例如没有网络，连接超时，找不到下载地址（404），无法访问存储路径等等。
-}
-</code></pre><p>（2）开始下载</p>
-<pre><code>Downloader.Builder.create(MainActivity.this)
-                        .url(url)//下载地址
-                        .src(basicPath + &quot;0002/0002.aac&quot;)//源资源路径（例如播放路徑）
-                        .des(basicPath)//下载保存路径
-                        .name(&quot;0002.zip&quot;)//保存的文件名
-                        .title(&quot;正在下载&quot;)//下载框标题
-                        .ckeck(true)//是否自动检查更新，默认false
-                        .unzip(true)//是否需要解压缩，默认true
-                        .listener(MainActivity.this)//回调监听
-                        .showCancel(true)//是否显示取消按钮，默认false
-                        .build()
-                        .start();//开始下载
-</code></pre><p>####3.使用基础版下载框架<br>（1）创建一个RequestCall</p>
-<pre><code>RequestCall call = HDFileLoader.get().url(url).build();
-</code></pre><p>url为资源下载地址。<br>（2）创建FileCallBack回调，监听下载中的各种状态</p>
-<pre><code>callBack=new FileCallBack(mSrc, mDes, mName, mCheck) {
-    @Override
-    public void connected(long total, int id) {
-
-        //进行一些初始化的操作
-    }
-
-    @Override
-    public void inProgress(float progress, long total, int id) {
-
-        //下载进度回调，progress为已完成百分比，total为总长；
-    }
-
-    @Override
-    public void completed(File file, int id) {
-
-        //下载完成时回调，可以在这里解压缩及后续操作
-    }
-
-    @Override
-    public void justPlay(String destFileDir) {
-        //回调同带下载框方式一样
-    }
-
-    @Override
-    public void onError(Call call, Exception e, int id) {
-
-        //下载失败回调，例如没有网络，连接超时，找不到下载地址（404），无法访问存储路径等等。
-    }
-};
-</code></pre><p>FileCallBack需要传入四个参数：</p>
-<ol>
-<li>源资源路径（例如播放路徑）；</li>
-<li>下载路径。板锉</li>
-<li>保存的文件名</li>
-<li>是否启用检查更新</li>
-</ol>
-<p>####4.开始下载<br>    call.execute(callBack);</p>
-<p>####5.取消下载<br>    call.cancel();</p>
+                <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>通用Dialog，适用于ProgressDialog，BuilderDialog，可以设置字体、进入退出动画，同时兼容手机和导览机。</p>
+<h2 id="二、版本"><a href="#二、版本" class="headerlink" title="二、版本"></a>二、版本</h2><p>已在多个项目中使用，且已上传jCenter，最新版本0.0.5，直接在gradle中添加即可。<br>compile ‘com.hengda.zwf:HdDialog:0.0.5’</p>
+<h2 id="三、效果"><a href="#三、效果" class="headerlink" title="三、效果"></a>三、效果</h2><h3 id="1、ProgressDialog补间动画"><a href="#1、ProgressDialog补间动画" class="headerlink" title="1、ProgressDialog补间动画"></a>1、ProgressDialog补间动画</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-6/79120594-file_1486346779883_dc73.png" alt=""></p>
+<h3 id="2、ProgressDialog帧动画"><a href="#2、ProgressDialog帧动画" class="headerlink" title="2、ProgressDialog帧动画"></a>2、ProgressDialog帧动画</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-6/49606317-file_1486346779998_c220.png" alt=""></p>
+<h3 id="3、BuilderDialog默认布局"><a href="#3、BuilderDialog默认布局" class="headerlink" title="3、BuilderDialog默认布局"></a>3、BuilderDialog默认布局</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-6/95840505-file_1486346780216_7f00.png" alt=""></p>
+<h3 id="4、BuilderDialog自定义布局"><a href="#4、BuilderDialog自定义布局" class="headerlink" title="4、BuilderDialog自定义布局"></a>4、BuilderDialog自定义布局</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-6/76351990-file_1486346780326_3ff9.png" alt=""></p>
+<h2 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h2><p>此处以BuilderDialog自定义布局为例，简单介绍说使用，具体用法参见demo。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 该方法通过提取文字参数和点击事件可以继续封装</div><div class="line"> *</div><div class="line"> * @author 祝文飞（Tailyou）</div><div class="line"> * @time 2017/2/6 9:37</div><div class="line"> */</div><div class="line">private void showCustomDlg() &#123;</div><div class="line">    HDialogBuilder hDialogBuilder = new HDialogBuilder(mContext);</div><div class="line"></div><div class="line">    View customView = View.inflate(mContext, R.layout.dialog_custom_view_all, null);</div><div class="line">    TextView tvTitle = HdTool.getView(customView, R.id.tvTitle);</div><div class="line">    TextView tvMsg = HdTool.getView(customView, R.id.tvMsg);</div><div class="line">    TextView btnYes = HdTool.getView(customView, R.id.btnYes);</div><div class="line">    TextView btnNo = HdTool.getView(customView, R.id.btnNo);</div><div class="line">    tvTitle.setText(&quot;注销&quot;);</div><div class="line">    tvMsg.setText(&quot;退出账号可能会使连续登录记录归零，确定退出？&quot;);</div><div class="line">    btnYes.setText(&quot;确定退出&quot;);</div><div class="line">    btnNo.setText(&quot;取消&quot;);</div><div class="line">    btnYes.setOnClickListener(v -&gt; hDialogBuilder.dismiss());</div><div class="line">    btnNo.setOnClickListener(v -&gt; hDialogBuilder.dismiss());</div><div class="line"></div><div class="line">    hDialogBuilder.setCustomView(customView)</div><div class="line">            .dlgColor(Color.TRANSPARENT)</div><div class="line">            .cancelable(false)</div><div class="line">            .show();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>封装后:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">private void showCustomDlg(String title, String msg, String txtYes, String txtNo,</div><div class="line">                           DialogClickListener dialogClickListener) &#123;</div><div class="line">    hDialogBuilder = new HDialogBuilder(mContext);</div><div class="line"></div><div class="line">    View customView = View.inflate(mContext, R.layout.dialog_custom_view_all, null);</div><div class="line">    TextView tvTitle = HdTool.getView(customView, R.id.tvTitle);</div><div class="line">    TextView tvMsg = HdTool.getView(customView, R.id.tvMsg);</div><div class="line">    TextView btnYes = HdTool.getView(customView, R.id.btnYes);</div><div class="line">    TextView btnNo = HdTool.getView(customView, R.id.btnNo);</div><div class="line">    tvTitle.setText(title);</div><div class="line">    tvMsg.setText(msg);</div><div class="line">    btnYes.setText(txtYes);</div><div class="line">    btnNo.setText(txtNo);</div><div class="line">    btnYes.setOnClickListener(v -&gt; dialogClickListener.p());</div><div class="line">    btnNo.setOnClickListener(v -&gt; dialogClickListener.n());</div><div class="line"></div><div class="line">    hDialogBuilder.setCustomView(customView)</div><div class="line">                    .dlgColor(Color.TRANSPARENT)</div><div class="line">                    .cancelable(false)</div><div class="line">                    .show();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>封装好之后，可以写到工具类中供直接调用.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 作者：Tailyou （祝文飞）</div><div class="line"> * 时间：2016/5/26 19:03</div><div class="line"> * 邮箱：tailyou@163.com</div><div class="line"> * 描述：Dialog工具类</div><div class="line"> */</div><div class="line">public class DialogCenter &#123;</div><div class="line"></div><div class="line">    private static HDialogBuilder hDialogBuilder;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 封装好的方法可以写到DialogCenter工具类中，供直接调用</div><div class="line">     *</div><div class="line">     * @author 祝文飞（Tailyou）</div><div class="line">     * @time 2017/2/6 9:39</div><div class="line">     */</div><div class="line">    public static void showCustomDlg(Context mContext, String title, String msg, String txtYes, String txtNo,</div><div class="line">                               DialogClickListener dialogClickListener) &#123;</div><div class="line">        hideDialog();</div><div class="line">        hDialogBuilder = new HDialogBuilder(mContext);</div><div class="line"></div><div class="line">        View customView = View.inflate(mContext, R.layout.dialog_custom_view_all, null);</div><div class="line">        TextView tvTitle = HdTool.getView(customView, R.id.tvTitle);</div><div class="line">        TextView tvMsg = HdTool.getView(customView, R.id.tvMsg);</div><div class="line">        TextView btnYes = HdTool.getView(customView, R.id.btnYes);</div><div class="line">        TextView btnNo = HdTool.getView(customView, R.id.btnNo);</div><div class="line">        tvTitle.setText(title);</div><div class="line">        tvMsg.setText(msg);</div><div class="line">        btnYes.setText(txtYes);</div><div class="line">        btnNo.setText(txtNo);</div><div class="line">        btnYes.setOnClickListener(v -&gt; dialogClickListener.p());</div><div class="line">        btnNo.setOnClickListener(v -&gt; dialogClickListener.n());</div><div class="line"></div><div class="line">        hDialogBuilder.setCustomView(customView)</div><div class="line">                        .dlgColor(Color.TRANSPARENT)</div><div class="line">                        .cancelable(false)</div><div class="line">                        .show();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 隐藏Dialog</div><div class="line">     */</div><div class="line">    public static void hideDialog() &#123;</div><div class="line">        if (hDialogBuilder != null) &#123;</div><div class="line">            hDialogBuilder.dismiss();</div><div class="line">            hDialogBuilder = null;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
                 
 <p class="pink-link-context">
-    <a href="/2017/03/16/【数据适配器CommonAdapter】-祝文飞/" rel="next" title="CommonAdapter-Tailyou">
-    上一篇：CommonAdapter-Tailyou
+    <a href="/2017/03/17/【文件下载HttpUtil】-祝文飞/" rel="next" title="【文件下载HttpUtil】-祝文飞">
+    上一篇：【文件下载HttpUtil】-祝文飞
   </a>
 </p>
 
 
 
 <p class="pink-link-context">
-    <a href="/2017/03/16/【移动支付】-常文达/" rel="next" title="移动支付-常文达">
-    下一篇：移动支付-常文达
+    <a href="/2017/03/17/【数据适配器CommonAdapter】-祝文飞/" rel="next" title="【数据适配器CommonAdapter】-祝文飞">
+    下一篇：【数据适配器CommonAdapter】-祝文飞
   </a>
 </p>
 
@@ -356,7 +257,7 @@ public void error(Exception e) {
         <div class="card">
             <div class="card-content">
                 <!-- Duoshuo Comment BEGIN -->
-                <div class="ds-thread" data-thread-key="2017/03/16/【文件下载】-白世伟/" data-title="文件下载-白世伟" data-url="http://yoursite.com/2017/03/16/【文件下载】-白世伟/"></div>
+                <div class="ds-thread" data-thread-key="2017/03/17/【提示弹框HdDialog】-祝文飞/" data-title="【提示弹框HdDialog】-祝文飞" data-url="http://yoursite.com/2017/03/17/【提示弹框HdDialog】-祝文飞/"></div>
 
                 <script type="text/javascript">
                     console.log(document.querySelector('.ds-thread'));
