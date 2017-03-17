@@ -169,16 +169,16 @@
         
 
             <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/Android/Model/">
-                    Model <span class="right">6 篇</span></a>
+                <a class="no-padding" href="/categories/Android/项目模板/">
+                    项目模板 <span class="right">2 篇</span></a>
                 </a>
             </li>
 
         
 
             <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/Android/项目模板/">
-                    项目模板 <span class="right">2 篇</span></a>
+                <a class="no-padding" href="/categories/Android/Model/">
+                    Model <span class="right">6 篇</span></a>
                 </a>
             </li>
 
@@ -268,7 +268,7 @@
 <li>支持在Service中下载文件，内置DownloadService；</li>
 </ul>
 <h2 id="二、版本"><a href="#二、版本" class="headerlink" title="二、版本"></a>二、版本</h2><p>已在多个项目中使用，且已上传jCenter，最新版本1.0.0，直接在gradle中添加即可。<br>compile ‘com.hengda.zwf:HttpUtil:1.0.0’</p>
-<h2 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h2><p>具体用法参见demo，demo以检查版本更新和安装包下载为例。</p>
+<h2 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h2><p>具体用法参见demo，demo以检查版本更新和安装包下载为例。<br>地址：<a href="https://git.oschina.net/tailyou/HD_Frame_HttpUtil" target="_blank" rel="external">https://git.oschina.net/tailyou/HD_Frame_HttpUtil</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">private void loadAndInstall(CheckResponse checkResponse) &#123;</div><div class="line">        String url = checkResponse.getVersionInfo().getVersionUrl();</div><div class="line">        String saveName = url.substring(url.lastIndexOf(&quot;/&quot;) + 1);</div><div class="line">        String savePath = HdAppConfig.getDefaultFileDir();</div><div class="line"></div><div class="line">        RxDownload.getInstance()</div><div class="line">                .download(url, saveName, savePath)</div><div class="line">                .subscribeOn(Schedulers.io())</div><div class="line">                .observeOn(AndroidSchedulers.mainThread())</div><div class="line">                .doOnSubscribe(d -&gt; disposable = d)</div><div class="line">                .doOnNext(status -&gt; updateProgress(status))</div><div class="line">                .doOnError(throwable -&gt; Logger.e(&quot;下载失败：&quot; + throwable.getMessage()))</div><div class="line">                .doOnComplete(() -&gt; installApk(saveName, savePath))</div><div class="line">                .subscribe();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private void installApk(String saveName, String savePath) &#123;</div><div class="line">        String apkPath = TextUtils.concat(savePath, saveName).toString();</div><div class="line">        AppUtil.installApk(CheckUpdateActivity.this, apkPath);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private void updateProgress(DownloadStatus status) &#123;</div><div class="line">        txtProgress.setText(String.format(&quot;正在下载(%s/%s)&quot;,</div><div class="line">                DataManager.getFormatSize(status.getDownloadSize()),</div><div class="line">                DataManager.getFormatSize(status.getTotalSize())));</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 
                 
