@@ -7,17 +7,13 @@
 
     
 
-    <title>【移动支付MobilePay】-常文达 | 恒心所至，达有所成！</title>
+    <title>Model | 恒心所至，达有所成！</title>
     <meta name="author" content="HdAndroidTeam">
-    
-    <meta name="description" content="一、概述支付宝和微信支付
-二、引入方法dependencies {      compile ‘com.wenda.pay:wd_pay:0.0.8’}
-三、使用支付宝支付123456789AliPayReq aliPayReq = new AliPayReq.Builder()        .w">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="【移动支付MobilePay】-常文达"/>
+    
     <meta property="og:site_name" content="Hengda Android"/>
 
     
@@ -211,116 +207,60 @@
 
     <main>
         <div class="container main-container">
-    <nav class="page-nav hide-on-small-only">
+    
+
+<nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper green">
         <span class="breadcrumb">当前位置（分类目录）</span>
         
-            
-    
-    
-    <a class="breadcrumb" href="/categories/Android/">Android</a><a class="breadcrumb" href="/categories/Android/Model/">Model</a>
-
 
         
-
+            <a class="breadcrumb" href="/categories/Android/Model/">Model</a>
         
     </div>
 </nav>
 
-<article>
-    <div class="card">
-        <div class="card-content">
-            
-
-            <div class="article-title">
-                
-    
-        <h1>【移动支付MobilePay】-常文达</h1>
-    
 
 
-            </div>
-            <time class="red-link-context" datetime="2017-03-17T00:15:34.000Z"><a href="/2017/03/17/【移动支付MobilePay】-常文达/">2017-03-17</a></time>
-
-            <span id="busuanzi_container_page_pv" class="read-times-container">
-    <i class="fa fa-eye"></i>
-    <span id="busuanzi_value_page_pv"></span>
-</span>
-
-            
-
-            <div class="toc red-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#一、概述"><span class="section table-of-contents-text">一、概述</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#二、引入方法"><span class="section table-of-contents-text">二、引入方法</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#三、使用"><span class="section table-of-contents-text">三、使用</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#注意"><span class="section table-of-contents-text">注意</span></a></li></ol>
-</div>
-
-
-            <div class="entry red-link-context">
-                <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>支付宝和微信支付</p>
-<h2 id="二、引入方法"><a href="#二、引入方法" class="headerlink" title="二、引入方法"></a>二、引入方法</h2><p>dependencies {<br>      compile ‘com.wenda.pay:wd_pay:0.0.8’<br>}</p>
-<h2 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h2><p>支付宝支付<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">AliPayReq aliPayReq = new AliPayReq.Builder()</div><div class="line">        .with(MainActivity.this)</div><div class="line">        .setOrderInfo(OrderInfo) //OrderInfo为订单详情，服务器拼好的</div><div class="line">        .create()</div><div class="line"></div><div class="line"> PayAPI.getInstance().sendPayRequest(aliPayReq);//调起支付</div><div class="line"></div><div class="line">//关于支付宝支付的回调</div><div class="line">//aliPayReq.setOnAliPayListener(new OnAliPayListener);</div></pre></td></tr></table></figure></p>
-<p>回调说明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">.setOnAliPayListener(new AliPayReq.OnAliPayListener() &#123;</div><div class="line">                         @Override</div><div class="line">                         public void onPaySuccess(String resultInfo) &#123;</div><div class="line">                             Toast.makeText(MainActivity.this,&quot;支付成功&quot;,Toast.LENGTH_LONG).show();</div><div class="line">                         &#125;</div><div class="line"></div><div class="line">                         @Override</div><div class="line">                         public void onPayFailure(String resultInfo) &#123;//包括用户主动取消支付，或者系统返回的错误</div><div class="line">                             Toast.makeText(MainActivity.this,&quot;支付失败&quot;,Toast.LENGTH_LONG).show();</div><div class="line">                         &#125;</div><div class="line"></div><div class="line">                         @Override</div><div class="line">                         public void onPayConfirmimg(String resultInfo) &#123;//代表支付结果因为支付渠道原因或者系统原因还在等待支付结果确认，最终交易是否成功以服务端异步通知为准（小概率状态）</div><div class="line">                             Toast.makeText(MainActivity.this,&quot;支付失败&quot;,Toast.LENGTH_LONG).show();</div><div class="line">                         &#125;</div><div class="line">                     &#125;);</div></pre></td></tr></table></figure></p>
-<p>微信支付<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">WechatPayReq wechatPayReq = new WechatPayReq.Builder()</div><div class="line">                .with(MainActivity.this) //activity实例</div><div class="line">                .setAppId(&quot;AppId&quot;) //微信支付AppID</div><div class="line">                .setPartnerId(&quot;PartnerId&quot;)//微信支付商户号</div><div class="line">                .setPrepayId(&quot;PrepayId&quot;)//预支付码</div><div class="line">                .setNonceStr(&quot;NonceStr&quot;)</div><div class="line">                .setTimeStamp(&quot;TimeStamp&quot;)//时间戳</div><div class="line">                .setSign(&quot;Sign&quot;)//签名</div><div class="line">                .create();</div><div class="line">        PayAPI.getInstance().sendPayRequest(wechatPayReq);//调起支付</div><div class="line">          //关于微信支付的回调  要在支付前调用</div><div class="line">        wechatPayReq.init(getApplicationContext(), &quot;AppId&quot;);</div><div class="line">        WechatPayReq.getInstance().setWXPayResultCallBack();</div></pre></td></tr></table></figure></p>
-<p>回调说明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">WechatPayReq.getInstance().setWXPayResultCallBack(new WechatPayReq.WXPayResultCallBack() &#123;</div><div class="line">      @Override</div><div class="line">      public void onSuccess() &#123;</div><div class="line">          Toast.makeText(MainActivity.this,&quot;支付成功&quot;,Toast.LENGTH_LONG).show();</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      @Override</div><div class="line">      public void onError(int error_code) &#123;//错误 可能的原因：签名错误、未注册APPID、项目设置APPID不正确、注册的APPID与设置的不匹配、其他异常等</div><div class="line">          Toast.makeText(MainActivity.this,&quot;支付失败&quot;,Toast.LENGTH_LONG).show();</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      @Override</div><div class="line">      public void onCancel() &#123;// 用户取消 无需处理。发生场景：用户不支付了，点击取消，返回APP。</div><div class="line">          Toast.makeText(MainActivity.this,&quot;支付失败&quot;,Toast.LENGTH_LONG).show();</div><div class="line">      &#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure></p>
-<p>微信支付需增加的权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;activity</div><div class="line">        android:name=&quot;com.wenda.pay.WXPayCallbackActivity&quot;</div><div class="line">        android:configChanges=&quot;orientation|keyboardHidden|navigation|screenSize&quot;</div><div class="line">        android:launchMode=&quot;singleTop&quot;</div><div class="line">        android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar&quot; /&gt;</div><div class="line"></div><div class="line">    &lt;activity-alias</div><div class="line">        android:name=&quot;.wxapi.WXPayEntryActivity&quot;</div><div class="line">        android:exported=&quot;true&quot;</div><div class="line">        android:targetActivity=&quot;com.wenda.pay.WXPayCallbackActivity&quot; /&gt;</div></pre></td></tr></table></figure></p>
-<p>混淆</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#wechat pay</div><div class="line">-dontwarn com.tencent.**</div><div class="line">-keep class com.tencent.** &#123;*;&#125;</div><div class="line"></div><div class="line"></div><div class="line">#alipay</div><div class="line">-dontwarn com.alipay.**</div><div class="line">-keep class com.alipay.** &#123;*;&#125;</div><div class="line"></div><div class="line">-dontwarn  com.ta.utdid2.**</div><div class="line">-keep class com.ta.utdid2.** &#123;*;&#125;</div><div class="line"></div><div class="line">-dontwarn  com.ut.device.**</div><div class="line">-keep class com.ut.device.** &#123;*;&#125;</div><div class="line"></div><div class="line">-dontwarn  org.json.alipay.**</div><div class="line">-keep class corg.json.alipay.** &#123;*;&#125;</div></pre></td></tr></table></figure>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>###微信支付<br>微信支付必须是正式的签名包和正确的包名才能调起。</p>
-<p>微信支付<br><a href="https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=8_5" target="_blank" rel="external">https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=8_5</a></p>
-<p>支付宝支付<br><a href="https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.1wPnBT&amp;treeId=204&amp;articleId=106079&amp;docType=1" target="_blank" rel="external">https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.1wPnBT&amp;treeId=204&amp;articleId=106079&amp;docType=1</a></p>
-<p>demo里的数据是测试数据，都是已支付过的所以不能支付成功</p>
-
-                
-<p class="red-link-context">
-    <a href="/2017/03/17/【文件下载FileLoader】-白世伟/" rel="next" title="【文件下载FileLoader】-白世伟">
-    上一篇：【文件下载FileLoader】-白世伟
-  </a>
-</p>
-
-
-
-<p class="red-link-context">
-    <a href="/2017/03/17/【文件下载HttpUtil】-祝文飞/" rel="next" title="【文件下载HttpUtil】-祝文飞">
-    下一篇：【文件下载HttpUtil】-祝文飞
-  </a>
-</p>
-
-
-            </div>
-			
-        </div>
+    <div class="collection mt-0">
+        
+            <a href="/2017/03/17/【文件下载FileLoader】-白世伟/" class="collection-item grey-text text-darken-1">
+                <time datetime="2017-03-17T00:16:15.000Z">2017-03-17</time>
+                <span>&nbsp;&nbsp;&nbsp;</span>
+                【文件下载FileLoader】-白世伟
+            </a>
+        
+            <a href="/2017/03/17/【移动支付MobilePay】-常文达/" class="collection-item grey-text text-darken-1">
+                <time datetime="2017-03-17T00:15:34.000Z">2017-03-17</time>
+                <span>&nbsp;&nbsp;&nbsp;</span>
+                【移动支付MobilePay】-常文达
+            </a>
+        
+            <a href="/2017/03/17/【文件下载HttpUtil】-祝文飞/" class="collection-item grey-text text-darken-1">
+                <time datetime="2017-03-17T00:14:43.000Z">2017-03-17</time>
+                <span>&nbsp;&nbsp;&nbsp;</span>
+                【文件下载HttpUtil】-祝文飞
+            </a>
+        
+            <a href="/2017/03/17/【提示弹框HdDialog】-祝文飞/" class="collection-item grey-text text-darken-1">
+                <time datetime="2017-03-17T00:14:05.000Z">2017-03-17</time>
+                <span>&nbsp;&nbsp;&nbsp;</span>
+                【提示弹框HdDialog】-祝文飞
+            </a>
+        
+            <a href="/2017/03/17/【数据适配器CommonAdapter】-祝文飞/" class="collection-item grey-text text-darken-1">
+                <time datetime="2017-03-17T00:13:19.000Z">2017-03-17</time>
+                <span>&nbsp;&nbsp;&nbsp;</span>
+                【数据适配器CommonAdapter】-祝文飞
+            </a>
+        
+            <a href="/2017/03/17/【多模收号AutoNoUtil】-祝文飞/" class="collection-item grey-text text-darken-1">
+                <time datetime="2017-03-17T00:11:30.000Z">2017-03-17</time>
+                <span>&nbsp;&nbsp;&nbsp;</span>
+                【多模收号AutoNoUtil】-祝文飞
+            </a>
+        
     </div>
-</article>
-
-
-
-
-    <section id="comment">
-        <div class="card">
-            <div class="card-content">
-                <!-- Duoshuo Comment BEGIN -->
-                <div class="ds-thread" data-thread-key="2017/03/17/【移动支付MobilePay】-常文达/" data-title="【移动支付MobilePay】-常文达" data-url="http://yoursite.com/2017/03/17/【移动支付MobilePay】-常文达/"></div>
-
-                <script type="text/javascript">
-                    console.log(document.querySelector('.ds-thread'));
-                    var duoshuoQuery = {
-                        short_name: 'test'
-                    };
-                    (function() {
-                        var ds = document.createElement('script');
-                        ds.type = 'text/javascript';
-                        ds.async = true;
-                        ds.src = (document.location.protocol == 'https:'
-                            ? 'https:'
-                            : 'http:') + '//static.duoshuo.com/embed.js';
-                        ds.charset = 'UTF-8';
-                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-                    })();
-                </script>
-                <!-- Duoshuo Comment END -->
-            </div>
-        </div>
-    </section>
-
 
 
 </div>

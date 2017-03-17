@@ -1,78 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hengda Android</title>
-  <subtitle>恒心所至，达有所成！</subtitle>
-  <link href="/atom.xml" rel="self"/>
+<search>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2017-03-17T07:41:04.785Z</updated>
-  <id>http://yoursite.com/</id>
   
-  <author>
-    <name>HdAndroidTeam</name>
     
-  </author>
-  
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>【导览机项目模板】-祝文飞</title>
-    <link href="http://yoursite.com/2017/03/17/%E3%80%90%E5%AF%BC%E8%A7%88%E6%9C%BA%E9%A1%B9%E7%9B%AE%E6%A8%A1%E6%9D%BF%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/"/>
-    <id>http://yoursite.com/2017/03/17/【导览机项目模板】-祝文飞/</id>
-    <published>2017-03-17T07:20:34.000Z</published>
-    <updated>2017-03-17T07:41:04.785Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>参考GeekNews，基于RxJava2，Dagger2，Retrofit2搭建，采用MVP模式。封装了文件下载，多模收号，网络交互、数据库操作等功能；</p>
+    <entry>
+      <title><![CDATA[【导览机项目模板】-祝文飞]]></title>
+      <url>http://yoursite.com/2017/03/17/%E3%80%90%E5%AF%BC%E8%A7%88%E6%9C%BA%E9%A1%B9%E7%9B%AE%E6%A8%A1%E6%9D%BF%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</url>
+      <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>参考GeekNews，基于RxJava2，Dagger2，Retrofit2搭建，采用MVP模式。封装了文件下载，多模收号，网络交互、数据库操作等功能；</p>
 <h2 id="二、项目地址"><a href="#二、项目地址" class="headerlink" title="二、项目地址"></a>二、项目地址</h2><p><a href="https://git.oschina.net/tailyou/Hd_Smart_Template_D" target="_blank" rel="external">https://git.oschina.net/tailyou/Hd_Smart_Template_D</a></p>
 <h2 id="二、依赖"><a href="#二、依赖" class="headerlink" title="二、依赖"></a>二、依赖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">//tailyou</div><div class="line">compile &apos;com.hengda.zwf:HttpUtil:1.0.2&apos;</div><div class="line">compile &apos;com.hengda.zwf:AutoNoUtil:1.0.1&apos;</div><div class="line">compile &apos;com.hengda.zwf:CommonUtil:1.0.1&apos;</div><div class="line">compile &apos;com.hengda.zwf:CommonAdapter:1.0.2&apos;</div><div class="line">compile &apos;com.hengda.zwf:HdDialog:0.0.6&apos;</div><div class="line">//di</div><div class="line">compile &apos;com.google.dagger:dagger:2.9&apos;</div><div class="line">annotationProcessor &apos;com.google.dagger:dagger-compiler:2.9&apos;</div><div class="line">compile &apos;com.jakewharton:butterknife:8.5.1&apos;</div><div class="line">compile &apos;com.jakewharton:butterknife-compiler:8.5.1&apos;</div><div class="line">//other</div><div class="line">compile &apos;com.qozix:tileview:2.2.6&apos;</div><div class="line">compile &apos;com.orhanobut:logger:1.15&apos;</div><div class="line">compile &apos;me.yokeyword:fragmentation:0.10.1&apos;</div><div class="line">compile &apos;com.tencent.bugly:crashreport:2.4.0&apos;</div><div class="line">compile &apos;com.github.bumptech.glide:glide:3.7.0&apos;</div><div class="line">compile &apos;com.github.chrisbanes:PhotoView:1.3.1&apos;</div><div class="line">compile &apos;org.greenrobot:greendao:3.2.0&apos;</div><div class="line">compile &apos;org.greenrobot:greendao-generator:3.2.0&apos;</div><div class="line">compile &apos;com.android.support:multidex:1.0.1&apos;</div></pre></td></tr></table></figure>
 ]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+            <category> 项目模板 </category>
+            
+        </categories>
+        
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h2 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h2&gt;&lt;p&gt;参考GeekNews，基于RxJava2，Dagger2，Retrofit2搭建，采用MVP模式。封装了文件下载，多模收号，
-    
-    </summary>
-    
-      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
-    
-      <category term="项目模板" scheme="http://yoursite.com/categories/Android/%E9%A1%B9%E7%9B%AE%E6%A8%A1%E6%9D%BF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>【Android项目模板】-祝文飞</title>
-    <link href="http://yoursite.com/2017/03/17/%E3%80%90Android%E9%A1%B9%E7%9B%AE%E6%A8%A1%E6%9D%BF%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/"/>
-    <id>http://yoursite.com/2017/03/17/【Android项目模板】-祝文飞/</id>
-    <published>2017-03-17T07:20:25.000Z</published>
-    <updated>2017-03-17T07:40:55.224Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>参考GeekNews，基于RxJava2，Dagger2，Retrofit2搭建，采用MVP模式。封装了文件下载，多模收号，网络交互、数据库操作等功能；</p>
+    <entry>
+      <title><![CDATA[【Android项目模板】-祝文飞]]></title>
+      <url>http://yoursite.com/2017/03/17/%E3%80%90Android%E9%A1%B9%E7%9B%AE%E6%A8%A1%E6%9D%BF%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</url>
+      <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>参考GeekNews，基于RxJava2，Dagger2，Retrofit2搭建，采用MVP模式。封装了文件下载，多模收号，网络交互、数据库操作等功能；</p>
 <h2 id="二、项目地址"><a href="#二、项目地址" class="headerlink" title="二、项目地址"></a>二、项目地址</h2><p><a href="https://git.oschina.net/tailyou/Hd_Smart_Template" target="_blank" rel="external">https://git.oschina.net/tailyou/Hd_Smart_Template</a></p>
 <h2 id="二、依赖"><a href="#二、依赖" class="headerlink" title="二、依赖"></a>二、依赖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">//tailyou</div><div class="line">compile &apos;com.hengda.zwf:HttpUtil:1.0.2&apos;</div><div class="line">compile &apos;com.hengda.zwf:AutoNoUtil:1.0.2&apos;</div><div class="line">compile &apos;com.hengda.zwf:CommonUtil:1.0.1&apos;</div><div class="line">compile &apos;com.hengda.zwf:CommonAdapter:1.0.2&apos;</div><div class="line">compile &apos;com.hengda.zwf:HdDialog:0.0.6&apos;</div><div class="line">//di</div><div class="line">compile &apos;com.google.dagger:dagger:2.9&apos;</div><div class="line">annotationProcessor &apos;com.google.dagger:dagger-compiler:2.9&apos;</div><div class="line">compile &apos;com.jakewharton:butterknife:8.5.1&apos;</div><div class="line">compile &apos;com.jakewharton:butterknife-compiler:8.5.1&apos;</div><div class="line">//canary</div><div class="line">compile &apos;com.squareup.leakcanary:leakcanary-android:1.5&apos;</div><div class="line">compile &apos;com.squareup.leakcanary:leakcanary-android-no-op:1.5&apos;</div><div class="line">compile &apos;com.github.markzhai:blockcanary-android:1.4.1&apos;</div><div class="line">compile &apos;com.github.markzhai:blockcanary-no-op:1.4.1&apos;</div><div class="line">//other</div><div class="line">compile &apos;com.qozix:tileview:2.2.6&apos;</div><div class="line">compile &apos;com.orhanobut:logger:1.15&apos;</div><div class="line">compile &apos;me.yokeyword:fragmentation:0.10.1&apos;</div><div class="line">compile &apos;com.tencent.bugly:crashreport:2.4.0&apos;</div><div class="line">compile &apos;com.github.bumptech.glide:glide:3.7.0&apos;</div><div class="line">compile &apos;com.github.chrisbanes:PhotoView:1.3.1&apos;</div><div class="line">compile &apos;org.greenrobot:greendao:3.2.0&apos;</div><div class="line">compile &apos;org.greenrobot:greendao-generator:3.2.0&apos;</div><div class="line">compile &apos;com.github.hotchemi:permissionsdispatcher:2.3.1&apos;</div><div class="line">compile &apos;com.android.support:multidex:1.0.1&apos;</div><div class="line">annotationProcessor &apos;com.github.hotchemi:permissionsdispatcher-processor:2.3.1&apos;</div></pre></td></tr></table></figure>
 ]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+            <category> 项目模板 </category>
+            
+        </categories>
+        
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h2 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h2&gt;&lt;p&gt;参考GeekNews，基于RxJava2，Dagger2，Retrofit2搭建，采用MVP模式。封装了文件下载，多模收号，
-    
-    </summary>
-    
-      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
-    
-      <category term="项目模板" scheme="http://yoursite.com/categories/Android/%E9%A1%B9%E7%9B%AE%E6%A8%A1%E6%9D%BF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>【智慧欧七设备信息】-王志强</title>
-    <link href="http://yoursite.com/2017/03/17/%E3%80%90%E6%99%BA%E6%85%A7%E6%AC%A7%E4%B8%83%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF%E3%80%91-%E7%8E%8B%E5%BF%97%E5%BC%BA/"/>
-    <id>http://yoursite.com/2017/03/17/【智慧欧七设备信息】-王志强/</id>
-    <published>2017-03-17T06:50:37.000Z</published>
-    <updated>2017-03-17T07:15:14.431Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1、屏幕分辨率"><a href="#1、屏幕分辨率" class="headerlink" title="1、屏幕分辨率"></a>1、屏幕分辨率</h2><p>分辨率：240*320<br>状态栏高度：25<br>可用分辨率：240*295</p>
+    <entry>
+      <title><![CDATA[【智慧欧七设备信息】-王志强]]></title>
+      <url>http://yoursite.com/2017/03/17/%E3%80%90%E6%99%BA%E6%85%A7%E6%AC%A7%E4%B8%83%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF%E3%80%91-%E7%8E%8B%E5%BF%97%E5%BC%BA/</url>
+      <content type="html"><![CDATA[<h2 id="1、屏幕分辨率"><a href="#1、屏幕分辨率" class="headerlink" title="1、屏幕分辨率"></a>1、屏幕分辨率</h2><p>分辨率：240*320<br>状态栏高度：25<br>可用分辨率：240*295</p>
 <h2 id="2、系统版本"><a href="#2、系统版本" class="headerlink" title="2、系统版本"></a>2、系统版本</h2><p>Android5.1.1</p>
 <h2 id="3、物理按键对应的Android事件"><a href="#3、物理按键对应的Android事件" class="headerlink" title="3、物理按键对应的Android事件"></a>3、物理按键对应的Android事件</h2><p><img src="http://oksdjdocc.bkt.clouddn.com/17-3-17/75535658-file_1489734524518_57d1.png" alt=""></p>
 <table>
@@ -122,27 +94,20 @@
 </tbody>
 </table>
 ]]></content>
+      
+        <categories>
+            
+            <category> 文档 </category>
+            
+        </categories>
+        
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1、屏幕分辨率&quot;&gt;&lt;a href=&quot;#1、屏幕分辨率&quot; class=&quot;headerlink&quot; title=&quot;1、屏幕分辨率&quot;&gt;&lt;/a&gt;1、屏幕分辨率&lt;/h2&gt;&lt;p&gt;分辨率：240*320&lt;br&gt;状态栏高度：25&lt;br&gt;可用分辨率：240*295&lt;/p&gt;
-&lt;h2 i
-    
-    </summary>
-    
-      <category term="文档" scheme="http://yoursite.com/categories/%E6%96%87%E6%A1%A3/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>【恒达开发者账号】-王志强</title>
-    <link href="http://yoursite.com/2017/03/17/%E3%80%90%E6%81%92%E8%BE%BE%E5%BC%80%E5%8F%91%E8%80%85%E8%B4%A6%E5%8F%B7%E3%80%91-%E7%8E%8B%E5%BF%97%E5%BC%BA/"/>
-    <id>http://yoursite.com/2017/03/17/【恒达开发者账号】-王志强/</id>
-    <published>2017-03-17T06:34:01.000Z</published>
-    <updated>2017-03-17T06:46:45.438Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1、腾讯bugly账号"><a href="#1、腾讯bugly账号" class="headerlink" title="1、腾讯bugly账号"></a>1、腾讯bugly账号</h2><p>账号：3364730368<br>密码：hengda888666<br>地址：<a href="https://bugly.qq.com/v2/index" target="_blank" rel="external">https://bugly.qq.com/v2/index</a></p>
+    <entry>
+      <title><![CDATA[【恒达开发者账号】-王志强]]></title>
+      <url>http://yoursite.com/2017/03/17/%E3%80%90%E6%81%92%E8%BE%BE%E5%BC%80%E5%8F%91%E8%80%85%E8%B4%A6%E5%8F%B7%E3%80%91-%E7%8E%8B%E5%BF%97%E5%BC%BA/</url>
+      <content type="html"><![CDATA[<h2 id="1、腾讯bugly账号"><a href="#1、腾讯bugly账号" class="headerlink" title="1、腾讯bugly账号"></a>1、腾讯bugly账号</h2><p>账号：3364730368<br>密码：hengda888666<br>地址：<a href="https://bugly.qq.com/v2/index" target="_blank" rel="external">https://bugly.qq.com/v2/index</a></p>
 <h2 id="2、fir内测平台"><a href="#2、fir内测平台" class="headerlink" title="2、fir内测平台"></a>2、fir内测平台</h2><p>账号：HD_Android@126.com<br>密码：hengda888666<br>地址：<a href="http://fir.im/" target="_blank" rel="external">http://fir.im/</a></p>
 <h2 id="3、激光推送"><a href="#3、激光推送" class="headerlink" title="3、激光推送"></a>3、激光推送</h2><p>账号：HD_Android@126.com<br>密码：hengda888666<br>地址：<a href="https://www.jiguang.cn/app/list" target="_blank" rel="external">https://www.jiguang.cn/app/list</a></p>
 <h2 id="4、百度账号"><a href="#4、百度账号" class="headerlink" title="4、百度账号"></a>4、百度账号</h2><p>账号：HD_Android<br>密码：hengda888666<br>地址：<a href="http://lbsyun.baidu.com/apiconsole/key" target="_blank" rel="external">http://lbsyun.baidu.com/apiconsole/key</a></p>
@@ -153,26 +118,20 @@
 <h2 id="9、Jenter账号"><a href="#9、Jenter账号" class="headerlink" title="9、Jenter账号"></a>9、Jenter账号</h2><p>账号：HDAndroidTeam<br>密码：hengda888666<br>上传步骤：<a href="https://segmentfault.com/a/1190000006186992" target="_blank" rel="external">https://segmentfault.com/a/1190000006186992</a></p>
 <h2 id="10、vpn账号"><a href="#10、vpn账号" class="headerlink" title="10、vpn账号"></a>10、vpn账号</h2><p>账号：hengda<br>密码：hengda888666</p>
 ]]></content>
+      
+        <categories>
+            
+            <category> 文档 </category>
+            
+        </categories>
+        
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1、腾讯bugly账号&quot;&gt;&lt;a href=&quot;#1、腾讯bugly账号&quot; class=&quot;headerlink&quot; title=&quot;1、腾讯bugly账号&quot;&gt;&lt;/a&gt;1、腾讯bugly账号&lt;/h2&gt;&lt;p&gt;账号：3364730368&lt;br&gt;密码：hengda888666&lt;b
-    
-    </summary>
-    
-      <category term="文档" scheme="http://yoursite.com/categories/%E6%96%87%E6%A1%A3/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>【文件下载FileLoader】-白世伟</title>
-    <link href="http://yoursite.com/2017/03/17/%E3%80%90%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BDFileLoader%E3%80%91-%E7%99%BD%E4%B8%96%E4%BC%9F/"/>
-    <id>http://yoursite.com/2017/03/17/【文件下载FileLoader】-白世伟/</id>
-    <published>2017-03-17T00:16:15.000Z</published>
-    <updated>2017-03-17T07:53:35.282Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="HDFileLoader-文件下载框架"><a href="#HDFileLoader-文件下载框架" class="headerlink" title="HDFileLoader-文件下载框架"></a>HDFileLoader-文件下载框架</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>基于OKHttp3开发，自带服务器和本地资源文件的同步更新。具体使用方式详见Samples</p>
+    <entry>
+      <title><![CDATA[【文件下载FileLoader】-白世伟]]></title>
+      <url>http://yoursite.com/2017/03/17/%E3%80%90%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BDFileLoader%E3%80%91-%E7%99%BD%E4%B8%96%E4%BC%9F/</url>
+      <content type="html"><![CDATA[<h1 id="HDFileLoader-文件下载框架"><a href="#HDFileLoader-文件下载框架" class="headerlink" title="HDFileLoader-文件下载框架"></a>HDFileLoader-文件下载框架</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>基于OKHttp3开发，自带服务器和本地资源文件的同步更新。具体使用方式详见Samples</p>
 <h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h2><h4 id="V0-0-1"><a href="#V0-0-1" class="headerlink" title="V0.0.1"></a>V0.0.1</h4><ul>
 <li>完成基础框架构建</li>
 <li><p>增加资源同步更新</p>
@@ -266,28 +225,22 @@ public void error(Exception e) {
 <h4 id="4-开始下载"><a href="#4-开始下载" class="headerlink" title="4.开始下载"></a>4.开始下载</h4><pre><code>call.execute(callBack);
 </code></pre><h4 id="5-取消下载"><a href="#5-取消下载" class="headerlink" title="5.取消下载"></a>5.取消下载</h4><pre><code>call.cancel();
 </code></pre>]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+            <category> Model </category>
+            
+        </categories>
+        
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h1 id=&quot;HDFileLoader-文件下载框架&quot;&gt;&lt;a href=&quot;#HDFileLoader-文件下载框架&quot; class=&quot;headerlink&quot; title=&quot;HDFileLoader-文件下载框架&quot;&gt;&lt;/a&gt;HDFileLoader-文件下载框架&lt;/h1&gt;&lt;h2 i
-    
-    </summary>
-    
-      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
-    
-      <category term="Model" scheme="http://yoursite.com/categories/Android/Model/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>【移动支付MobilePay】-常文达</title>
-    <link href="http://yoursite.com/2017/03/17/%E3%80%90%E7%A7%BB%E5%8A%A8%E6%94%AF%E4%BB%98MobilePay%E3%80%91-%E5%B8%B8%E6%96%87%E8%BE%BE/"/>
-    <id>http://yoursite.com/2017/03/17/【移动支付MobilePay】-常文达/</id>
-    <published>2017-03-17T00:15:34.000Z</published>
-    <updated>2017-03-17T06:31:52.213Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>支付宝和微信支付</p>
+    <entry>
+      <title><![CDATA[【移动支付MobilePay】-常文达]]></title>
+      <url>http://yoursite.com/2017/03/17/%E3%80%90%E7%A7%BB%E5%8A%A8%E6%94%AF%E4%BB%98MobilePay%E3%80%91-%E5%B8%B8%E6%96%87%E8%BE%BE/</url>
+      <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>支付宝和微信支付</p>
 <h2 id="二、引入方法"><a href="#二、引入方法" class="headerlink" title="二、引入方法"></a>二、引入方法</h2><p>dependencies {<br>      compile ‘com.wenda.pay:wd_pay:0.0.8’<br>}</p>
 <h2 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h2><p>支付宝支付<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">AliPayReq aliPayReq = new AliPayReq.Builder()</div><div class="line">        .with(MainActivity.this)</div><div class="line">        .setOrderInfo(OrderInfo) //OrderInfo为订单详情，服务器拼好的</div><div class="line">        .create()</div><div class="line"></div><div class="line"> PayAPI.getInstance().sendPayRequest(aliPayReq);//调起支付</div><div class="line"></div><div class="line">//关于支付宝支付的回调</div><div class="line">//aliPayReq.setOnAliPayListener(new OnAliPayListener);</div></pre></td></tr></table></figure></p>
 <p>回调说明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">.setOnAliPayListener(new AliPayReq.OnAliPayListener() &#123;</div><div class="line">                         @Override</div><div class="line">                         public void onPaySuccess(String resultInfo) &#123;</div><div class="line">                             Toast.makeText(MainActivity.this,&quot;支付成功&quot;,Toast.LENGTH_LONG).show();</div><div class="line">                         &#125;</div><div class="line"></div><div class="line">                         @Override</div><div class="line">                         public void onPayFailure(String resultInfo) &#123;//包括用户主动取消支付，或者系统返回的错误</div><div class="line">                             Toast.makeText(MainActivity.this,&quot;支付失败&quot;,Toast.LENGTH_LONG).show();</div><div class="line">                         &#125;</div><div class="line"></div><div class="line">                         @Override</div><div class="line">                         public void onPayConfirmimg(String resultInfo) &#123;//代表支付结果因为支付渠道原因或者系统原因还在等待支付结果确认，最终交易是否成功以服务端异步通知为准（小概率状态）</div><div class="line">                             Toast.makeText(MainActivity.this,&quot;支付失败&quot;,Toast.LENGTH_LONG).show();</div><div class="line">                         &#125;</div><div class="line">                     &#125;);</div></pre></td></tr></table></figure></p>
@@ -301,29 +254,22 @@ public void error(Exception e) {
 <p>支付宝支付<br><a href="https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.1wPnBT&amp;treeId=204&amp;articleId=106079&amp;docType=1" target="_blank" rel="external">https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.1wPnBT&amp;treeId=204&amp;articleId=106079&amp;docType=1</a></p>
 <p>demo里的数据是测试数据，都是已支付过的所以不能支付成功</p>
 ]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+            <category> Model </category>
+            
+        </categories>
+        
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h2 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h2&gt;&lt;p&gt;支付宝和微信支付&lt;/p&gt;
-&lt;h2 id=&quot;二、引入方法&quot;&gt;&lt;a href=&quot;#二、引入方法&quot; class=&quot;headerli
-    
-    </summary>
-    
-      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
-    
-      <category term="Model" scheme="http://yoursite.com/categories/Android/Model/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>【文件下载HttpUtil】-祝文飞</title>
-    <link href="http://yoursite.com/2017/03/17/%E3%80%90%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BDHttpUtil%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/"/>
-    <id>http://yoursite.com/2017/03/17/【文件下载HttpUtil】-祝文飞/</id>
-    <published>2017-03-17T00:14:43.000Z</published>
-    <updated>2017-03-17T06:31:45.373Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>基于Retrofit和RxJava2的网络请求和文件下载工具。</p>
+    <entry>
+      <title><![CDATA[【文件下载HttpUtil】-祝文飞]]></title>
+      <url>http://yoursite.com/2017/03/17/%E3%80%90%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BDHttpUtil%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</url>
+      <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>基于Retrofit和RxJava2的网络请求和文件下载工具。</p>
 <ul>
 <li>智能判断服务器是否支持断点续传并适配相应下载方式；</li>
 <li>智能判断同一地址对应的文件在服务端是否有改变并重新下载；</li>
@@ -335,30 +281,22 @@ public void error(Exception e) {
 <h2 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h2><p>具体用法参见demo，demo以检查版本更新和安装包下载为例。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">private void loadAndInstall(CheckResponse checkResponse) &#123;</div><div class="line">        String url = checkResponse.getVersionInfo().getVersionUrl();</div><div class="line">        String saveName = url.substring(url.lastIndexOf(&quot;/&quot;) + 1);</div><div class="line">        String savePath = HdAppConfig.getDefaultFileDir();</div><div class="line"></div><div class="line">        RxDownload.getInstance()</div><div class="line">                .download(url, saveName, savePath)</div><div class="line">                .subscribeOn(Schedulers.io())</div><div class="line">                .observeOn(AndroidSchedulers.mainThread())</div><div class="line">                .doOnSubscribe(d -&gt; disposable = d)</div><div class="line">                .doOnNext(status -&gt; updateProgress(status))</div><div class="line">                .doOnError(throwable -&gt; Logger.e(&quot;下载失败：&quot; + throwable.getMessage()))</div><div class="line">                .doOnComplete(() -&gt; installApk(saveName, savePath))</div><div class="line">                .subscribe();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private void installApk(String saveName, String savePath) &#123;</div><div class="line">        String apkPath = TextUtils.concat(savePath, saveName).toString();</div><div class="line">        AppUtil.installApk(CheckUpdateActivity.this, apkPath);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private void updateProgress(DownloadStatus status) &#123;</div><div class="line">        txtProgress.setText(String.format(&quot;正在下载(%s/%s)&quot;,</div><div class="line">                DataManager.getFormatSize(status.getDownloadSize()),</div><div class="line">                DataManager.getFormatSize(status.getTotalSize())));</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 ]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+            <category> Model </category>
+            
+        </categories>
+        
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h2 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h2&gt;&lt;p&gt;基于Retrofit和RxJava2的网络请求和文件下载工具。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;智能判断服务器是否支持断点续传并适
-    
-    </summary>
-    
-      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
-    
-      <category term="Model" scheme="http://yoursite.com/categories/Android/Model/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>【提示弹框HdDialog】-祝文飞</title>
-    <link href="http://yoursite.com/2017/03/17/%E3%80%90%E6%8F%90%E7%A4%BA%E5%BC%B9%E6%A1%86HdDialog%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/"/>
-    <id>http://yoursite.com/2017/03/17/【提示弹框HdDialog】-祝文飞/</id>
-    <published>2017-03-17T00:14:05.000Z</published>
-    <updated>2017-03-17T06:31:29.637Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>通用Dialog，适用于ProgressDialog，BuilderDialog，可以设置字体、进入退出动画，同时兼容手机和导览机。</p>
+    <entry>
+      <title><![CDATA[【提示弹框HdDialog】-祝文飞]]></title>
+      <url>http://yoursite.com/2017/03/17/%E3%80%90%E6%8F%90%E7%A4%BA%E5%BC%B9%E6%A1%86HdDialog%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</url>
+      <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>通用Dialog，适用于ProgressDialog，BuilderDialog，可以设置字体、进入退出动画，同时兼容手机和导览机。</p>
 <h2 id="二、版本"><a href="#二、版本" class="headerlink" title="二、版本"></a>二、版本</h2><p>已在多个项目中使用，且已上传jCenter，最新版本0.0.5，直接在gradle中添加即可。<br>compile ‘com.hengda.zwf:HdDialog:0.0.5’</p>
 <h2 id="三、效果"><a href="#三、效果" class="headerlink" title="三、效果"></a>三、效果</h2><h3 id="1、ProgressDialog补间动画"><a href="#1、ProgressDialog补间动画" class="headerlink" title="1、ProgressDialog补间动画"></a>1、ProgressDialog补间动画</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-6/79120594-file_1486346779883_dc73.png" alt=""></p>
 <h3 id="2、ProgressDialog帧动画"><a href="#2、ProgressDialog帧动画" class="headerlink" title="2、ProgressDialog帧动画"></a>2、ProgressDialog帧动画</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-6/49606317-file_1486346779998_c220.png" alt=""></p>
@@ -368,28 +306,22 @@ public void error(Exception e) {
 <p>封装后:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">private void showCustomDlg(String title, String msg, String txtYes, String txtNo,</div><div class="line">                           DialogClickListener dialogClickListener) &#123;</div><div class="line">    hDialogBuilder = new HDialogBuilder(mContext);</div><div class="line"></div><div class="line">    View customView = View.inflate(mContext, R.layout.dialog_custom_view_all, null);</div><div class="line">    TextView tvTitle = HdTool.getView(customView, R.id.tvTitle);</div><div class="line">    TextView tvMsg = HdTool.getView(customView, R.id.tvMsg);</div><div class="line">    TextView btnYes = HdTool.getView(customView, R.id.btnYes);</div><div class="line">    TextView btnNo = HdTool.getView(customView, R.id.btnNo);</div><div class="line">    tvTitle.setText(title);</div><div class="line">    tvMsg.setText(msg);</div><div class="line">    btnYes.setText(txtYes);</div><div class="line">    btnNo.setText(txtNo);</div><div class="line">    btnYes.setOnClickListener(v -&gt; dialogClickListener.p());</div><div class="line">    btnNo.setOnClickListener(v -&gt; dialogClickListener.n());</div><div class="line"></div><div class="line">    hDialogBuilder.setCustomView(customView)</div><div class="line">                    .dlgColor(Color.TRANSPARENT)</div><div class="line">                    .cancelable(false)</div><div class="line">                    .show();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>封装好之后，可以写到工具类中供直接调用.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 作者：Tailyou （祝文飞）</div><div class="line"> * 时间：2016/5/26 19:03</div><div class="line"> * 邮箱：tailyou@163.com</div><div class="line"> * 描述：Dialog工具类</div><div class="line"> */</div><div class="line">public class DialogCenter &#123;</div><div class="line"></div><div class="line">    private static HDialogBuilder hDialogBuilder;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 封装好的方法可以写到DialogCenter工具类中，供直接调用</div><div class="line">     *</div><div class="line">     * @author 祝文飞（Tailyou）</div><div class="line">     * @time 2017/2/6 9:39</div><div class="line">     */</div><div class="line">    public static void showCustomDlg(Context mContext, String title, String msg, String txtYes, String txtNo,</div><div class="line">                               DialogClickListener dialogClickListener) &#123;</div><div class="line">        hideDialog();</div><div class="line">        hDialogBuilder = new HDialogBuilder(mContext);</div><div class="line"></div><div class="line">        View customView = View.inflate(mContext, R.layout.dialog_custom_view_all, null);</div><div class="line">        TextView tvTitle = HdTool.getView(customView, R.id.tvTitle);</div><div class="line">        TextView tvMsg = HdTool.getView(customView, R.id.tvMsg);</div><div class="line">        TextView btnYes = HdTool.getView(customView, R.id.btnYes);</div><div class="line">        TextView btnNo = HdTool.getView(customView, R.id.btnNo);</div><div class="line">        tvTitle.setText(title);</div><div class="line">        tvMsg.setText(msg);</div><div class="line">        btnYes.setText(txtYes);</div><div class="line">        btnNo.setText(txtNo);</div><div class="line">        btnYes.setOnClickListener(v -&gt; dialogClickListener.p());</div><div class="line">        btnNo.setOnClickListener(v -&gt; dialogClickListener.n());</div><div class="line"></div><div class="line">        hDialogBuilder.setCustomView(customView)</div><div class="line">                        .dlgColor(Color.TRANSPARENT)</div><div class="line">                        .cancelable(false)</div><div class="line">                        .show();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 隐藏Dialog</div><div class="line">     */</div><div class="line">    public static void hideDialog() &#123;</div><div class="line">        if (hDialogBuilder != null) &#123;</div><div class="line">            hDialogBuilder.dismiss();</div><div class="line">            hDialogBuilder = null;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 ]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+            <category> Model </category>
+            
+        </categories>
+        
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h2 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h2&gt;&lt;p&gt;通用Dialog，适用于ProgressDialog，BuilderDialog，可以设置字体、进入退出动画，同时兼容手机和
-    
-    </summary>
-    
-      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
-    
-      <category term="Model" scheme="http://yoursite.com/categories/Android/Model/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>【数据适配器CommonAdapter】-祝文飞</title>
-    <link href="http://yoursite.com/2017/03/17/%E3%80%90%E6%95%B0%E6%8D%AE%E9%80%82%E9%85%8D%E5%99%A8CommonAdapter%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/"/>
-    <id>http://yoursite.com/2017/03/17/【数据适配器CommonAdapter】-祝文飞/</id>
-    <published>2017-03-17T00:13:19.000Z</published>
-    <updated>2017-03-17T06:31:23.582Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>通用Adapter，适用于单布局ListView、多布局ListView、单布局RecyclerView，多布局RecyclerView，带章节标题RecyclerView，GridView与ViewPage结合使用等情况。</p>
+    <entry>
+      <title><![CDATA[【数据适配器CommonAdapter】-祝文飞]]></title>
+      <url>http://yoursite.com/2017/03/17/%E3%80%90%E6%95%B0%E6%8D%AE%E9%80%82%E9%85%8D%E5%99%A8CommonAdapter%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</url>
+      <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>通用Adapter，适用于单布局ListView、多布局ListView、单布局RecyclerView，多布局RecyclerView，带章节标题RecyclerView，GridView与ViewPage结合使用等情况。</p>
 <h2 id="二、版本"><a href="#二、版本" class="headerlink" title="二、版本"></a>二、版本</h2><p>已在多个项目中使用，且已上传jCenter，最新版本0.0.6，直接在gradle中添加即可。<br>compile ‘com.hengda.zwf:CommonAdapter:0.0.6’</p>
 <h2 id="三、效果"><a href="#三、效果" class="headerlink" title="三、效果"></a>三、效果</h2><h3 id="1、单布局ListView"><a href="#1、单布局ListView" class="headerlink" title="1、单布局ListView"></a>1、单布局ListView</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-3/89062263-file_1486106094623_13cca.png" alt=""></p>
 <h3 id="2、多布局ListView"><a href="#2、多布局ListView" class="headerlink" title="2、多布局ListView"></a>2、多布局ListView</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-3/95414587-file_1486106094743_467a.png" alt=""></p>
@@ -399,28 +331,22 @@ public void error(Exception e) {
 <h3 id="6、GridView结合ViewPage"><a href="#6、GridView结合ViewPage" class="headerlink" title="6、GridView结合ViewPage"></a>6、GridView结合ViewPage</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-3/4686495-file_1486106094388_21d9.png" alt=""></p>
 <h2 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h2><p>具体用法见demo。</p>
 ]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+            <category> Model </category>
+            
+        </categories>
+        
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h2 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h2&gt;&lt;p&gt;通用Adapter，适用于单布局ListView、多布局ListView、单布局RecyclerView，多布局Recycl
-    
-    </summary>
-    
-      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
-    
-      <category term="Model" scheme="http://yoursite.com/categories/Android/Model/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>【多模收号AutoNoUtil】-祝文飞</title>
-    <link href="http://yoursite.com/2017/03/17/%E3%80%90%E5%A4%9A%E6%A8%A1%E6%94%B6%E5%8F%B7AutoNoUtil%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/"/>
-    <id>http://yoursite.com/2017/03/17/【多模收号AutoNoUtil】-祝文飞/</id>
-    <published>2017-03-17T00:11:30.000Z</published>
-    <updated>2017-03-17T06:29:43.957Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>多模收号模块，包含rfid，ble，wifi三种收号方式。</p>
+    <entry>
+      <title><![CDATA[【多模收号AutoNoUtil】-祝文飞]]></title>
+      <url>http://yoursite.com/2017/03/17/%E3%80%90%E5%A4%9A%E6%A8%A1%E6%94%B6%E5%8F%B7AutoNoUtil%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</url>
+      <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>多模收号模块，包含rfid，ble，wifi三种收号方式。</p>
 <h2 id="二、版本"><a href="#二、版本" class="headerlink" title="二、版本"></a>二、版本</h2><p>最新版本1.0.2，compile ‘com.hengda.zwf:AutoNoUtil:1.0.2’</p>
 <h2 id="三、gradle依赖"><a href="#三、gradle依赖" class="headerlink" title="三、gradle依赖"></a>三、gradle依赖</h2><p>无</p>
 <h2 id="四、思路"><a href="#四、思路" class="headerlink" title="四、思路"></a>四、思路</h2><h3 id="1、BLE收号思路"><a href="#1、BLE收号思路" class="headerlink" title="1、BLE收号思路"></a>1、BLE收号思路</h3><ul>
@@ -439,19 +365,33 @@ public void error(Exception e) {
 </ul>
 <h2 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h2><p>具体使用见demo。</p>
 ]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+            <category> Model </category>
+            
+        </categories>
+        
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h2 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h2&gt;&lt;p&gt;多模收号模块，包含rfid，ble，wifi三种收号方式。&lt;/p&gt;
-&lt;h2 id=&quot;二、版本&quot;&gt;&lt;a href=&quot;#二、版本
-    
-    </summary>
-    
-      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
-    
-      <category term="Model" scheme="http://yoursite.com/categories/Android/Model/"/>
-    
-    
-  </entry>
   
-</feed>
+  
+    
+    <entry>
+      <title><![CDATA[关于]]></title>
+      <url>http://yoursite.com/about/index.html</url>
+      <content type="html"><![CDATA[<p>大家好，我们是恒达Android团队。欢迎来到我们的技术博客。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[读书]]></title>
+      <url>http://yoursite.com/reading/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+  
+</search>

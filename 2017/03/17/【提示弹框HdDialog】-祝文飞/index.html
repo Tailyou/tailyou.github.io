@@ -39,7 +39,7 @@
 <body>
     <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
 
-    <nav class="indigo">
+    <nav class="green">
     <div class="nav-wrapper">
         <a href="#" data-activates="main-menu" class="button-collapse">
             <i class="fa fa-navicon"></i>
@@ -65,7 +65,7 @@
                     </li>
                 
                     <li>
-                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                        <a class="menu-category category-menu" href="/category" data-activates="category-menu" >
                             <i class="fa fa-bookmark "></i>
                             
                             分类
@@ -90,7 +90,7 @@
                 
             </ul>
             <div>
-    <ul class="side-nav indigo darken-1" id="main-menu">
+    <ul class="side-nav green darken-1" id="main-menu">
         
         <li class="side-user">
             <div class="row">
@@ -125,7 +125,7 @@
             </li>
         
             <li class="no-padding">
-                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                <a class="waves-effect menu-category category-menu" href="/category" data-activates="category-menu" >
                     <i class="fa fa-bookmark "></i>
                     
                     分类
@@ -150,10 +150,42 @@
         
     </ul>
 
-    <ul class="side-nav indigo darken-1" id="category-menu">
+    <ul class="side-nav green darken-1" id="category-menu">
     
 
             
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Android/">
+                    Android <span class="right">8 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Android/Model/">
+                    Model <span class="right">6 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Android/项目模板/">
+                    项目模板 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/文档/">
+                    文档 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
 
     </ul>
 </div>
@@ -179,10 +211,14 @@
     <main>
         <div class="container main-container">
     <nav class="page-nav hide-on-small-only">
-    <div class="nav-wrapper indigo">
+    <div class="nav-wrapper green">
         <span class="breadcrumb">当前位置（分类目录）</span>
         
             
+    
+    
+    <a class="breadcrumb" href="/categories/Android/">Android</a><a class="breadcrumb" href="/categories/Android/Model/">Model</a>
+
 
         
 
@@ -203,7 +239,7 @@
 
 
             </div>
-            <time class="pink-link-context" datetime="2017-03-17T00:14:05.000Z"><a href="/2017/03/17/【提示弹框HdDialog】-祝文飞/">2017-03-17</a></time>
+            <time class="red-link-context" datetime="2017-03-17T00:14:05.000Z"><a href="/2017/03/17/【提示弹框HdDialog】-祝文飞/">2017-03-17</a></time>
 
             <span id="busuanzi_container_page_pv" class="read-times-container">
     <i class="fa fa-eye"></i>
@@ -212,12 +248,12 @@
 
             
 
-            <div class="toc pink-link-context hide-on-med-and-down">
+            <div class="toc red-link-context hide-on-med-and-down">
     <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#一、概述"><span class="section table-of-contents-text">一、概述</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#二、版本"><span class="section table-of-contents-text">二、版本</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#三、效果"><span class="section table-of-contents-text">三、效果</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1、ProgressDialog补间动画"><span class="section table-of-contents-text">1、ProgressDialog补间动画</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2、ProgressDialog帧动画"><span class="section table-of-contents-text">2、ProgressDialog帧动画</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3、BuilderDialog默认布局"><span class="section table-of-contents-text">3、BuilderDialog默认布局</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#4、BuilderDialog自定义布局"><span class="section table-of-contents-text">4、BuilderDialog自定义布局</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#四、使用"><span class="section table-of-contents-text">四、使用</span></a></li></ol>
 </div>
 
 
-            <div class="entry pink-link-context">
+            <div class="entry red-link-context">
                 <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>通用Dialog，适用于ProgressDialog，BuilderDialog，可以设置字体、进入退出动画，同时兼容手机和导览机。</p>
 <h2 id="二、版本"><a href="#二、版本" class="headerlink" title="二、版本"></a>二、版本</h2><p>已在多个项目中使用，且已上传jCenter，最新版本0.0.5，直接在gradle中添加即可。<br>compile ‘com.hengda.zwf:HdDialog:0.0.5’</p>
 <h2 id="三、效果"><a href="#三、效果" class="headerlink" title="三、效果"></a>三、效果</h2><h3 id="1、ProgressDialog补间动画"><a href="#1、ProgressDialog补间动画" class="headerlink" title="1、ProgressDialog补间动画"></a>1、ProgressDialog补间动画</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-6/79120594-file_1486346779883_dc73.png" alt=""></p>
@@ -229,7 +265,7 @@
 <p>封装好之后，可以写到工具类中供直接调用.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 作者：Tailyou （祝文飞）</div><div class="line"> * 时间：2016/5/26 19:03</div><div class="line"> * 邮箱：tailyou@163.com</div><div class="line"> * 描述：Dialog工具类</div><div class="line"> */</div><div class="line">public class DialogCenter &#123;</div><div class="line"></div><div class="line">    private static HDialogBuilder hDialogBuilder;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 封装好的方法可以写到DialogCenter工具类中，供直接调用</div><div class="line">     *</div><div class="line">     * @author 祝文飞（Tailyou）</div><div class="line">     * @time 2017/2/6 9:39</div><div class="line">     */</div><div class="line">    public static void showCustomDlg(Context mContext, String title, String msg, String txtYes, String txtNo,</div><div class="line">                               DialogClickListener dialogClickListener) &#123;</div><div class="line">        hideDialog();</div><div class="line">        hDialogBuilder = new HDialogBuilder(mContext);</div><div class="line"></div><div class="line">        View customView = View.inflate(mContext, R.layout.dialog_custom_view_all, null);</div><div class="line">        TextView tvTitle = HdTool.getView(customView, R.id.tvTitle);</div><div class="line">        TextView tvMsg = HdTool.getView(customView, R.id.tvMsg);</div><div class="line">        TextView btnYes = HdTool.getView(customView, R.id.btnYes);</div><div class="line">        TextView btnNo = HdTool.getView(customView, R.id.btnNo);</div><div class="line">        tvTitle.setText(title);</div><div class="line">        tvMsg.setText(msg);</div><div class="line">        btnYes.setText(txtYes);</div><div class="line">        btnNo.setText(txtNo);</div><div class="line">        btnYes.setOnClickListener(v -&gt; dialogClickListener.p());</div><div class="line">        btnNo.setOnClickListener(v -&gt; dialogClickListener.n());</div><div class="line"></div><div class="line">        hDialogBuilder.setCustomView(customView)</div><div class="line">                        .dlgColor(Color.TRANSPARENT)</div><div class="line">                        .cancelable(false)</div><div class="line">                        .show();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 隐藏Dialog</div><div class="line">     */</div><div class="line">    public static void hideDialog() &#123;</div><div class="line">        if (hDialogBuilder != null) &#123;</div><div class="line">            hDialogBuilder.dismiss();</div><div class="line">            hDialogBuilder = null;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
                 
-<p class="pink-link-context">
+<p class="red-link-context">
     <a href="/2017/03/17/【文件下载HttpUtil】-祝文飞/" rel="next" title="【文件下载HttpUtil】-祝文飞">
     上一篇：【文件下载HttpUtil】-祝文飞
   </a>
@@ -237,7 +273,7 @@
 
 
 
-<p class="pink-link-context">
+<p class="red-link-context">
     <a href="/2017/03/17/【数据适配器CommonAdapter】-祝文飞/" rel="next" title="【数据适配器CommonAdapter】-祝文飞">
     下一篇：【数据适配器CommonAdapter】-祝文飞
   </a>
@@ -285,17 +321,17 @@
 </div>
 
         <div class="fixed-action-btn float-sitemap">
-    <a class="btn-floating btn-large pink">
+    <a class="btn-floating btn-large red">
       <i class="fa fa-caret-square-o-up"></i>
     </a>
     <ul>
-      <li><a class="btn-return-top btn-floating waves-effect green" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
-      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
+      <li><a class="btn-return-top btn-floating waves-effect cyan" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse light-green"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
     </ul>
   </div>
 
     </main>
-    <footer class="page-footer indigo darken-1">
+    <footer class="page-footer green darken-1">
     
     <div class="container">
         <div class="row">
@@ -343,9 +379,9 @@
     </div>
     
 
-    <div class="footer-copyright pink-link-context">
+    <div class="footer-copyright red-link-context">
         <div class="container">
-            © 2016 example.com, All rights reserved.
+            © 2017 hengdawb.com, All rights reserved.
             <p class="right" style="margin-top: 0;">本博客由 <a href="https://hexo.io">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
         </div>
     </div>
@@ -442,11 +478,11 @@
             $('li.tab a').hover(function() {
                 $(this).toggleClass('text-lighten-4');
             });
-            $('.indicator').addClass('pink lighten-2');
+            $('.indicator').addClass('red lighten-2');
 
             
             // 添加new标签
-            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            $('.menu-reading, .menu-about').append('<span class="new badge red"></span>');
             
 
             // 搜索功能
@@ -458,7 +494,7 @@
                     }
                 }
             });
-            var searchXml = "";
+            var searchXml = "search.xml";
             if (searchXml.length == 0) {
              	searchXml = "search.xml";
             }
@@ -521,7 +557,7 @@
                             if (isMatch) {
                                 keywords.forEach(function(keyword) {
                                     var regS = new RegExp(keyword, "gi");
-                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword red lighten-2\">" + keyword + "</span>");
                                 });
 
                                 str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
@@ -543,7 +579,7 @@
                                     // highlight all keywords
                                     keywords.forEach(function(keyword) {
                                         var regS = new RegExp(keyword, "gi");
-                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword red lighten-2\">" + keyword + "</span>");
                                     });
 
                                     str += "<p class=\"search-result\">..." + match_content + "...</p>"
