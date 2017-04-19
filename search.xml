@@ -4,6 +4,580 @@
   
     
     <entry>
+      <title><![CDATA[【文件下载HttpUtil】-祝文飞]]></title>
+      <url>http://yoursite.com/2017/04/16/%E3%80%90%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BDHttpUtil%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</url>
+      <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>基于Retrofit2+RxJava2的网络请求和文件下载工具。</p>
+<ul>
+<li>智能判断服务器是否支持断点续传并适配相应下载方式；</li>
+<li>智能判断同一地址对应的文件在服务端是否有改变并重新下载；</li>
+<li>支持多线程下载，可设置下载线程数；</li>
+<li>支持下载状态、下载进度监听；</li>
+<li>支持在Service中下载文件，内置DownloadService；</li>
+</ul>
+<h2 id="二、版本"><a href="#二、版本" class="headerlink" title="二、版本"></a>二、版本</h2><p>最新版本1.0.4，直接在gradle中添加即可。<br>compile ‘com.hengda.zwf:HttpUtil:1.0.4’</p>
+<h2 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h2><p>具体用法参见demo，demo以检查版本更新和安装包下载为例。<br>地址：<a href="https://git.oschina.net/tailyou/HD_Frame_HttpUtil" target="_blank" rel="external">https://git.oschina.net/tailyou/HD_Frame_HttpUtil</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">RxDownload.getInstance().context(this).maxThread(16).maxRetryCount(3)</div><div class="line">        .download(url, saveName, savePath)</div><div class="line">        .subscribeOn(Schedulers.io())</div><div class="line">        .observeOn(AndroidSchedulers.mainThread())</div><div class="line">        .doOnSubscribe(new Consumer&lt;Disposable&gt;() &#123;</div><div class="line">            @Override</div><div class="line">            public void accept(Disposable disposable) throws Exception &#123;</div><div class="line">                compositeDisposable.add(disposable);</div><div class="line">                tvDownloadStatus.setText(&quot;下载地址：&quot; + url + &quot;\n&quot;);</div><div class="line">                SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy年MM月dd日HH时mm分ss秒&quot;);</div><div class="line">                tvDownloadStatus.setText(tvDownloadStatus.getText() + &quot;\n开始下载：&quot; + sdf.format(new Date()));</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">        .doOnNext(new Consumer&lt;DownloadStatus&gt;() &#123;</div><div class="line">            @Override</div><div class="line">            public void accept(DownloadStatus downloadStatus) throws Exception &#123;</div><div class="line">                tvDownloadPrg.setText(&quot;下载进度：&quot; + downloadStatus.getFormatStatusString());</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">        .doOnError(new Consumer&lt;Throwable&gt;() &#123;</div><div class="line">            @Override</div><div class="line">            public void accept(Throwable throwable) throws Exception &#123;</div><div class="line">                tvDownloadStatus.setText(&quot;下载失败:&quot; + throwable.getMessage());</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">        .doOnComplete(new Action() &#123;</div><div class="line">            @Override</div><div class="line">            public void run() throws Exception &#123;</div><div class="line">                SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy年MM月dd日HH时mm分ss秒&quot;);</div><div class="line">                tvDownloadPrg.setText(tvDownloadPrg.getText() + &quot;\n下载完成：&quot; + sdf.format(new Date()));</div><div class="line">                File file = new File(savePath, saveName);</div><div class="line">                file.delete();</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">        .subscribe();</div></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+            <category> Model </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【Hexo博客简要使用说明】]]></title>
+      <url>http://yoursite.com/2017/03/28/%E3%80%90Hexo%E5%8D%9A%E5%AE%A2%E7%AE%80%E8%A6%81%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E3%80%91/</url>
+      <content type="html"><![CDATA[<h2 id="1、博客地址"><a href="#1、博客地址" class="headerlink" title="1、博客地址"></a>1、博客地址</h2><p><a href="http://192.168.11.46:4000" target="_blank" rel="external">http://192.168.11.46:4000</a></p>
+<h2 id="2、使用说明"><a href="#2、使用说明" class="headerlink" title="2、使用说明"></a>2、使用说明</h2><p>Hexo文件所在目录：D:\Hexo，使用Git Bash进入到该目录下，用命令进行操作。</p>
+<h2 id="3、常用命令"><a href="#3、常用命令" class="headerlink" title="3、常用命令"></a>3、常用命令</h2><ul>
+<li>1、new命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new &quot;name&quot;</div></pre></td></tr></table></figure>
+<p>执行上述new命令，会在D:\Hexo\source_posts 文件夹下生成name.md文件，用编辑器打开编辑内容即可。</p>
+<ul>
+<li>2、generate命令</li>
+</ul>
+<p>执行generate命令，会将所有的md文件生成静态网页博客，生成的静态网页在D:\Hexo\public文件夹下。</p>
+<p>在执行generate命令之前，先执行hexo clean命令，将上次生成的静态网页清空。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate</div></pre></td></tr></table></figure>
+<ul>
+<li>3、server命令</li>
+</ul>
+<p>执行server命令，启动服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> 文档 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【Android平台编码规范】-AndroidTeam]]></title>
+      <url>http://yoursite.com/2017/03/22/%E3%80%90Android%E5%B9%B3%E5%8F%B0%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83%E3%80%91-AndroidTeam/</url>
+      <content type="html"><![CDATA[<h1 id="恒达Android平台编码规范"><a href="#恒达Android平台编码规范" class="headerlink" title="恒达Android平台编码规范"></a>恒达Android平台编码规范</h1><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>为了能够更好地阅读代码，提高代码的可读性，缩短审查和修改代码过程中浪费的时间，特制订以下编码规范，包括<br> 包名，类名，接口，方法，变量，常量，资源图片，布局文件，动画文件，控件ID，色值，自定义View等声明规范。<br>基本原则：名词命名对象，动词命名函数。<br>名词解释：</p>
+<ul>
+<li>小驼峰命名法:除首单词外，其余所有单词的第一个字母大写;</li>
+<li>大驼峰命名法:所有单词的第一个字母大写;</li>
+<li>下划线命名法:单词与单词间用下划线做间隔。</li>
+</ul>
+<h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><h4 id="0-0-1-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-2017-3-20"><a href="#0-0-1-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-2017-3-20" class="headerlink" title="0.0.1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2017.3.20"></a>0.0.1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2017.3.20</h4><h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><h4 id="1-包名"><a href="#1-包名" class="headerlink" title="1 包名"></a>1 包名</h4><h5 id="基本规则：全部使用小写字母。"><a href="#基本规则：全部使用小写字母。" class="headerlink" title="基本规则：全部使用小写字母。"></a>基本规则：全部使用小写字母。</h5><p>app主包名参照：《Android版本号和包名命名规范V1.0》<br>范  例：com.hengda.smart.shanghaighg.m</p>
+<p>本次主要定义第六级模块名或层级名（实际开发中根据相应架构可做适当修改）</p>
+<table>
+<thead>
+<tr>
+<th>包名</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>com.hengda.xx.xx.xx.base</td>
+<td style="text-align:center">基础共享的类比如BaseActivity，BaseFragment等</td>
+</tr>
+<tr>
+<td>com.hengda.xx.xx.xx.tools</td>
+<td style="text-align:center">公共工具方法类，比如网络状态判断，文件路径判断等</td>
+</tr>
+<tr>
+<td>com.hengda.xx.xx.xx.bean</td>
+<td style="text-align:center">各种javabean,比如网络请求实体，数据库实体等</td>
+</tr>
+<tr>
+<td>com.hengda.xx.xx.xx.db</td>
+<td style="text-align:center">数据库操作类</td>
+</tr>
+<tr>
+<td>com.hengda.xx.xx.xx.adapter</td>
+<td style="text-align:center">模块或公共适配器类</td>
+</tr>
+<tr>
+<td>com.hengda.xx.xx.xx.view</td>
+<td style="text-align:center">自定义的view</td>
+</tr>
+<tr>
+<td>com.hengda.xx.xx.xx.service</td>
+<td style="text-align:center">service服务</td>
+</tr>
+<tr>
+<td>com.hengda.xx.xx.xx.broadcast</td>
+<td style="text-align:center">广播类</td>
+</tr>
+<tr>
+<td>com.hengda.xx.xx.xx.listener</td>
+<td style="text-align:center">自定义的监听器</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-类名"><a href="#2-类名" class="headerlink" title="2 类名"></a>2 类名</h4><h5 id="基本规则：大驼峰命名。"><a href="#基本规则：大驼峰命名。" class="headerlink" title="基本规则：大驼峰命名。"></a>基本规则：大驼峰命名。</h5><table>
+<thead>
+<tr>
+<th>类</th>
+<th style="text-align:center">规则</th>
+<th style="text-align:center">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Activity类</td>
+<td style="text-align:center">以Activity为后缀标识</td>
+<td style="text-align:center">主界面：MainActivity，登录界面LoginActivity</td>
+</tr>
+<tr>
+<td>Fragment类</td>
+<td style="text-align:center">以Fragment为后缀标识</td>
+<td style="text-align:center">地图：MapFragment， 用户：UserFragment</td>
+</tr>
+<tr>
+<td>Adapter类</td>
+<td style="text-align:center">以Adapter为后缀标识</td>
+<td style="text-align:center">用户适配器：UserAdapter</td>
+</tr>
+<tr>
+<td>公共方法类</td>
+<td style="text-align:center">Tools或Manager为后缀标识</td>
+<td style="text-align:center">线程池：ThreadPoolManager，日志工具：LogTools</td>
+</tr>
+<tr>
+<td>数据库类</td>
+<td style="text-align:center">以DBHelper为后缀标识</td>
+<td style="text-align:center">展品数据库：ExhibitDBHelper</td>
+</tr>
+<tr>
+<td>Service类</td>
+<td style="text-align:center">以Service为后缀标识</td>
+<td style="text-align:center">收号服务：BeaconService</td>
+</tr>
+<tr>
+<td>广播类</td>
+<td style="text-align:center">以Broadcast为后缀标识</td>
+<td style="text-align:center">通知广播：NotifyBroadcast</td>
+</tr>
+<tr>
+<td>adapter中的ViewHolder</td>
+<td style="text-align:center">以Holder为后缀标识</td>
+<td style="text-align:center">同伴列表中的PartnerHolder</td>
+</tr>
+<tr>
+<td>实体Bean</td>
+<td style="text-align:center">以Model为后缀标识</td>
+<td style="text-align:center">用户实体 UserModel</td>
+</tr>
+</tbody>
+</table>
+<h5 id="类注释"><a href="#类注释" class="headerlink" title="类注释"></a>类注释</h5><p>所有类，接口需要添加注释，格式如下</p>
+<pre><code>/**
+ * author:作者
+ * time:时间
+ * desc:描述
+ */
+</code></pre><h4 id="3-接口"><a href="#3-接口" class="headerlink" title="3 接口"></a>3 接口</h4><h5 id="基本规则：大驼峰命名。-1"><a href="#基本规则：大驼峰命名。-1" class="headerlink" title="基本规则：大驼峰命名。"></a>基本规则：大驼峰命名。</h5><p>监听类接口以大写字母I开头例如:INotifyListener，INotifyCallBack等<br>点击触发类以On开头例如：OnClickListener。</p>
+<h4 id="4-方法"><a href="#4-方法" class="headerlink" title="4 方法"></a>4 方法</h4><h5 id="基本规则：小驼峰命名，禁止拼音；"><a href="#基本规则：小驼峰命名，禁止拼音；" class="headerlink" title="基本规则：小驼峰命名，禁止拼音；"></a>基本规则：小驼峰命名，禁止拼音；</h5><h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><ul>
+<li>不要在函数名中描述参数，根本无意义。例如findExhibitByAutoNumAndType(int autoNum, int type) 可以简化成 findExhibit(int autoNum, int type)。</li>
+<li>注意上下文是否已暗示主语，比如一个保存信息的方法，可以叫做saveMessage(),如果这是Message类的一个方法，就可以简化为save()。</li>
+<li>一般情况下不要使用表达不明确的词语，比如do ,handle, perform, return 等等。</li>
+<li>方法参数需要正确表达含义比如doSomething(String s1, String s2, String s3)应该写成doSomething(String userName, String userEmail, String userId) 。</li>
+</ul>
+<p>此外，在Activity，Fragment,各种View，接口等等中请按照以下规则命名相应方法</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>initXX()</td>
+<td style="text-align:center">初始化相关方法,使用init为前缀标识，如初始化布局initView()</td>
+</tr>
+<tr>
+<td>getXX()</td>
+<td style="text-align:center">直接访问数据时,比如javabean的数据获取等，其他情况另选更精确的动词</td>
+</tr>
+<tr>
+<td>isXX()</td>
+<td style="text-align:center">方法返回值为boolean型，is, are, was, were开头，或者搭配情态动词，can, could, may, might, must, shall, should, will 和 would，这些词隐含了假设当前条件为真的反问信息。比如Button.isEnabled()，User.canAccess()</td>
+</tr>
+<tr>
+<td>displayXX()</td>
+<td style="text-align:center">弹出提示框和提示信息，比如displayErrorToast().比如displaySucceesDialog()</td>
+</tr>
+<tr>
+<td>saveXX()</td>
+<td style="text-align:center">保存数据</td>
+</tr>
+<tr>
+<td>clearXX()或removeXX()</td>
+<td style="text-align:center">清除数据</td>
+</tr>
+<tr>
+<td>drawXX()</td>
+<td style="text-align:center">绘制图形</td>
+</tr>
+<tr>
+<td>resetXX()</td>
+<td style="text-align:center">重置数据</td>
+</tr>
+<tr>
+<td>setXX()</td>
+<td style="text-align:center">数据或对象直接赋值</td>
+</tr>
+</tbody>
+</table>
+<h5 id="方法注释"><a href="#方法注释" class="headerlink" title="方法注释"></a>方法注释</h5><p> 重要方法需要添加方法注释，最好英文，格式如下：</p>
+<pre><code>/**
+ * desc:描述
+ * @param 参数名 参数描述
+ * @param 参数名2 参数描述
+ * @return 返回值类型说明(返回 void时可不写)
+ * @throws Exception 异常说明(可选)
+ */
+</code></pre><p>  方法內部逻辑注释<br>  全部使用“//”形式标注，注释位于需要注释的语句上方，例如</p>
+<pre><code>//请求成功
+if (response.succeed() == 0) {
+}
+</code></pre><h4 id="5-变量"><a href="#5-变量" class="headerlink" title="5 变量"></a>5 变量</h4><h5 id="基本规则：小驼峰命名"><a href="#基本规则：小驼峰命名" class="headerlink" title="基本规则：小驼峰命名"></a>基本规则：小驼峰命名</h5><p>1 非public的、非static的字段名称以m开头，例如mXXButton,mXXListener等；<br>2 其它字段以小写字母开头 ,例如：userName ,passWord;<br>3 static字段名称以s开头 例如：sSingleton；</p>
+<h4 id="6-常量"><a href="#6-常量" class="headerlink" title="6 常量"></a>6 常量</h4><h5 id="基本规则：全部大写，单词不缩写望文知意原则，下划线命名法。例如：MAX-SCREEN-WIDTH。"><a href="#基本规则：全部大写，单词不缩写望文知意原则，下划线命名法。例如：MAX-SCREEN-WIDTH。" class="headerlink" title="基本规则：全部大写，单词不缩写望文知意原则，下划线命名法。例如：MAX_SCREEN_WIDTH。"></a>基本规则：全部大写，单词不缩写望文知意原则，下划线命名法。例如：MAX_SCREEN_WIDTH。</h5><h4 id="7-资源图片"><a href="#7-资源图片" class="headerlink" title="7 资源图片"></a>7 资源图片</h4><h5 id="基本规则：全部小写，采用下划线命名法，单词禁止出现拼音；"><a href="#基本规则：全部小写，采用下划线命名法，单词禁止出现拼音；" class="headerlink" title="基本规则：全部小写，采用下划线命名法，单词禁止出现拼音；"></a>基本规则：全部小写，采用下划线命名法，单词禁止出现拼音；</h5><p>如果图片可以为各个模块公用可不加模块名，否则需加模块名。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th style="text-align:center">规则</th>
+<th style="text-align:center">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>按钮</td>
+<td style="text-align:center">btn_模块_功能_状态 或者 btn_功能_状态</td>
+<td style="text-align:center">btn_login_back_normal.png 或者 btn_back_normal.png</td>
+</tr>
+<tr>
+<td>图标类</td>
+<td style="text-align:center">icon_模块_说明 或者 icon_说明</td>
+<td style="text-align:center">icon_usercenter_userheader.png 或者 icon_userheader.png</td>
+</tr>
+<tr>
+<td>背景</td>
+<td style="text-align:center">bg_模块 或者 bg_说明</td>
+<td style="text-align:center">bg_login.png 或者 bg_white.png</td>
+</tr>
+<tr>
+<td>图片</td>
+<td style="text-align:center">img_模块_说明 或者 img_说明</td>
+<td style="text-align:center">img_login_header.png 或者 img_header.png</td>
+</tr>
+<tr>
+<td>带点击效果控件</td>
+<td style="text-align:center">btn_模块_功能_selector 或者 btn_功能_selector</td>
+<td style="text-align:center">btn_login_back_selector.xml 或者 btn_back_selector.xml</td>
+</tr>
+<tr>
+<td>默认图</td>
+<td style="text-align:center">def_模块_说明 或者 def_说明</td>
+<td style="text-align:center">def_usercenter_header.png 或者 def_header.png</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_normal</td>
+<td style="text-align:center">默认</td>
+</tr>
+<tr>
+<td>_pressed</td>
+<td style="text-align:center">按下</td>
+</tr>
+<tr>
+<td>_focused</td>
+<td style="text-align:center">获取焦点</td>
+</tr>
+<tr>
+<td>_disabled</td>
+<td style="text-align:center">不可点击</td>
+</tr>
+<tr>
+<td>_checked  _selected</td>
+<td style="text-align:center">选中</td>
+</tr>
+<tr>
+<td>_hovered</td>
+<td style="text-align:center">获取光标</td>
+</tr>
+<tr>
+<td>_checkable</td>
+<td style="text-align:center">可被选中</td>
+</tr>
+<tr>
+<td>_activated</td>
+<td style="text-align:center">激活</td>
+</tr>
+<tr>
+<td>_windowfocused</td>
+<td style="text-align:center">窗口焦点</td>
+</tr>
+</tbody>
+</table>
+<p>点击效果状态命名规则(参考自<a href="https://github.com/inmite/android-selector-chapek" target="_blank" rel="external">android-selector-chapek</a>使用本规则可使用android-selector-chapek插件快速生成selecter文件)</p>
+<h4 id="8-布局文件"><a href="#8-布局文件" class="headerlink" title="8 布局文件"></a>8 布局文件</h4><h5 id="基本规则：全部小写，下划线命名法-单词禁止出现拼音；"><a href="#基本规则：全部小写，下划线命名法-单词禁止出现拼音；" class="headerlink" title="基本规则：全部小写，下划线命名法,单词禁止出现拼音；"></a>基本规则：全部小写，下划线命名法,单词禁止出现拼音；</h5><table>
+<thead>
+<tr>
+<th>名称</th>
+<th style="text-align:center">规则</th>
+<th style="text-align:center">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Activity</td>
+<td style="text-align:center">activity_模块名.xml</td>
+<td style="text-align:center">activity_register.xml</td>
+</tr>
+<tr>
+<td>Fragment</td>
+<td style="text-align:center">fragment_模块名.xml</td>
+<td style="text-align:center">fragment_map.xml</td>
+</tr>
+<tr>
+<td>Dialog</td>
+<td style="text-align:center">dialog_说明.xml</td>
+<td style="text-align:center">dialog_editname.xml</td>
+</tr>
+<tr>
+<td>List列表</td>
+<td style="text-align:center">listitem_说明.xml</td>
+<td style="text-align:center">listitem_partners.xml</td>
+</tr>
+<tr>
+<td>PopupWindow</td>
+<td style="text-align:center">ppw_说明.xml</td>
+<td style="text-align:center">ppw_floorlist.xml</td>
+</tr>
+<tr>
+<td>其他子布局</td>
+<td style="text-align:center">模块_说明_item.xml</td>
+<td style="text-align:center">main_menu_item.xml</td>
+</tr>
+<tr>
+<td>包含项</td>
+<td style="text-align:center">include_说明.xml</td>
+<td style="text-align:center">include_header.xml</td>
+</tr>
+</tbody>
+</table>
+<h4 id="9-动画文件"><a href="#9-动画文件" class="headerlink" title="9 动画文件"></a>9 动画文件</h4><h5 id="基本规则-全部小写，下划线命名法"><a href="#基本规则-全部小写，下划线命名法" class="headerlink" title="基本规则;全部小写，下划线命名法;"></a>基本规则;全部小写，下划线命名法;</h5><h4 id="10-控件Id"><a href="#10-控件Id" class="headerlink" title="10 控件Id"></a>10 控件Id</h4><h5 id="基本规则：全部小写，下划线命名法-单词禁止出现拼音；-1"><a href="#基本规则：全部小写，下划线命名法-单词禁止出现拼音；-1" class="headerlink" title="基本规则：全部小写，下划线命名法,单词禁止出现拼音；"></a>基本规则：全部小写，下划线命名法,单词禁止出现拼音；</h5><p>格式：功能_控件缩写</p>
+<table>
+<thead>
+<tr>
+<th>控件</th>
+<th style="text-align:center">缩写</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Button</td>
+<td style="text-align:center">btn</td>
+</tr>
+<tr>
+<td>TextView</td>
+<td style="text-align:center">tv</td>
+</tr>
+<tr>
+<td>ImageButton</td>
+<td style="text-align:center">imgbtn</td>
+</tr>
+<tr>
+<td>ImageView</td>
+<td style="text-align:center">img</td>
+</tr>
+<tr>
+<td>Linearlayout</td>
+<td style="text-align:center">ll</td>
+</tr>
+<tr>
+<td>Relativelayout</td>
+<td style="text-align:center">rl</td>
+</tr>
+<tr>
+<td>Framelayout</td>
+<td style="text-align:center">fl</td>
+</tr>
+<tr>
+<td>EditText</td>
+<td style="text-align:center">edt</td>
+</tr>
+<tr>
+<td>SeekBar</td>
+<td style="text-align:center">skbar</td>
+</tr>
+<tr>
+<td>ScollView</td>
+<td style="text-align:center">scv</td>
+</tr>
+<tr>
+<td>ListView</td>
+<td style="text-align:center">lv</td>
+</tr>
+<tr>
+<td>ProgressBar</td>
+<td style="text-align:center">psbar</td>
+</tr>
+<tr>
+<td>WebView</td>
+<td style="text-align:center">wbv</td>
+</tr>
+</tbody>
+</table>
+<h4 id="10-colors-xml"><a href="#10-colors-xml" class="headerlink" title="10 colors.xml"></a>10 colors.xml</h4><p>基本规则：全部小写，下划线命名法；</p>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th style="text-align:center">规则</th>
+<th style="text-align:center">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>纯色</td>
+<td style="text-align:center">直接色值命名</td>
+<td style="text-align:center">black</td>
+</tr>
+<tr>
+<td>非纯色</td>
+<td style="text-align:center">模块<em>说明</em>主题色</td>
+<td style="text-align:center">login_username_light</td>
+</tr>
+</tbody>
+</table>
+<p>如果APP只有单一主题可不用设置主题色</p>
+<h4 id="11-自定义View"><a href="#11-自定义View" class="headerlink" title="11 自定义View"></a>11 自定义View</h4><h5 id="基本规则：大驼峰命名法，以View结尾"><a href="#基本规则：大驼峰命名法，以View结尾" class="headerlink" title="基本规则：大驼峰命名法，以View结尾"></a>基本规则：大驼峰命名法，以View结尾</h5><p>格式：功能+View<br>举例：TipsView；</p>
+<h4 id="12-Menu菜单"><a href="#12-Menu菜单" class="headerlink" title="12 Menu菜单"></a>12 Menu菜单</h4><h5 id="基本规则：全部小写，下划线命名法；"><a href="#基本规则：全部小写，下划线命名法；" class="headerlink" title="基本规则：全部小写，下划线命名法；"></a>基本规则：全部小写，下划线命名法；</h5><p>格式：模块_功能.xml<br>举例：search<em>add.xml<br>因为menu文件统一放在menu文件夹下所以不需要再加menu</em>前缀。</p>
+<h4 id="13-strings-xml"><a href="#13-strings-xml" class="headerlink" title="13 strings.xml"></a>13 strings.xml</h4><p>//还没想好</p>
+<p>参考<br><a href="http://www.blogjava.net/zh-weir/archive/2014/02/08/409608.html" target="_blank" rel="external">Google Java Style 中文版</a><br><a href="http://source.android.com/source/code-style.html" target="_blank" rel="external">Android Code Style</a><br><a href="https://github.com/futurice/android-best-practices/blob/master/translations/Chinese/README.cn.md" target="_blank" rel="external">Android 开发最佳实践</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 文档 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【瓦片地图HdTileView】-白世伟]]></title>
+      <url>http://yoursite.com/2017/03/22/%E3%80%90%E7%93%A6%E7%89%87%E5%9C%B0%E5%9B%BEHdTileView%E3%80%91-%E7%99%BD%E4%B8%96%E4%BC%9F/</url>
+      <content type="html"><![CDATA[<h1 id="HDTileView"><a href="#HDTileView" class="headerlink" title="HDTileView"></a>HDTileView</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>基于最新版本TileView，继承原有TileView，Picasso加载瓦片，封装开发中常用方法；</p>
+<h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h2><h4 id="V0-0-3"><a href="#V0-0-3" class="headerlink" title="V0.0.3"></a>V0.0.3</h4><ul>
+<li>修复onCreate函数中调用placeMarkerWithScale方法不直接显示markers问题</li>
+</ul>
+<h4 id="V0-0-2"><a href="#V0-0-2" class="headerlink" title="V0.0.2"></a>V0.0.2</h4><ul>
+<li>支持加载网络瓦片</li>
+<li>支持加载网络预缓存图片</li>
+</ul>
+<h4 id="V0-0-1"><a href="#V0-0-1" class="headerlink" title="V0.0.1"></a>V0.0.1</h4><ul>
+<li>完成基础框架构建</li>
+<li>marker增加动画效果</li>
+<li>marker支持缩放设置</li>
+<li>添加最小全屏模式</li>
+<li>支持滑动效果</li>
+<li>完成加载预缓冲图片</li>
+</ul>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p>（限本地测试）导入测试资源：将resource.zip解压后拷贝到sdcard根目录下</p>
+<h3 id="引入插件"><a href="#引入插件" class="headerlink" title="引入插件"></a>引入插件</h3><blockquote>
+<p>Gradle:</p>
+</blockquote>
+<pre><code>compile &apos;com.hengda.frame.tileview:library:0.0.3&apos;
+</code></pre><blockquote>
+<p>Maven:</p>
+</blockquote>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;com.hengda.frame.tileview&lt;/groupId&gt;
+  &lt;artifactId&gt;library&lt;/artifactId&gt;
+  &lt;version&gt;0.0.3&lt;/version&gt;
+  &lt;type&gt;pom&lt;/type&gt;
+&lt;/dependency&gt;
+</code></pre><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="1-Xml中；"><a href="#1-Xml中；" class="headerlink" title="1.Xml中；"></a>1.Xml中；</h4><pre><code>&lt;com.hengda.frame.tileview.HDTileView
+    android:id=&quot;@+id/tileView&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;/&gt;
+</code></pre><h4 id="2-Java代码中；"><a href="#2-Java代码中；" class="headerlink" title="2.Java代码中；"></a>2.Java代码中；</h4><pre><code>HDTileView mTileView=new HDTileView(this);
+</code></pre><h4 id="3-初始化配置"><a href="#3-初始化配置" class="headerlink" title="3 初始化配置"></a>3 初始化配置</h4><pre><code>/**
+ * 初始化
+ *
+ * @param maxScale 缩放级数
+ * @param width    总宽度
+ * @param height   总高度
+ * @param mapUrl   瓦片路徑
+ */
+public void init(int maxScale, int width, int height,String mapUrl) 
+
+loadMapFromHttpUseGlide();//使用Glide加载网络图片，默认开启硬盘缓存节省用户流量（推荐）
+loadMapFromHttpUsePicasso()//使用Picasso加载网络图片，不开启缓存，瓦片实时刷新
+loadMapFromDisk()//使用picasso加载本地瓦片
+</code></pre><p>到此瓦片地图已经可以正常显示。</p>
+<h4 id="4-加载预缓冲图片"><a href="#4-加载预缓冲图片" class="headerlink" title="4 加载预缓冲图片"></a>4 加载预缓冲图片</h4><p>（1）从sdcard或网络加载</p>
+<pre><code>mTileView.addSample(uri);
+</code></pre><p>（2）从res中加载</p>
+<pre><code>public void addSample(int resId)
+</code></pre><h4 id="5-添加marker"><a href="#5-添加marker" class="headerlink" title="5 添加marker"></a>5 添加marker</h4><pre><code>mTileView.placeMarkerWithScale(int resId, double x, double y, Object tag);
+</code></pre><p>或者</p>
+<pre><code>mTileView.placeMarkerWithScale(Bitmap bitmap, double x, double y, Object tag);
+</code></pre><h5 id="6-其他效果设置"><a href="#6-其他效果设置" class="headerlink" title="6 其他效果设置"></a>6 其他效果设置</h5><p>（1）</p>
+<pre><code>/**
+ * delay时间内滑动到指定位置并放大/缩小到指定scale
+ * @param x
+ * @param y
+ * @param scale
+ * @param delay
+ */
+public void slideToPositionWithScale(final double x, final double y, final float scale,final int delay) 
+</code></pre><p>（2）</p>
+<pre><code>/**
+ * delay时间内滑动到指定位置
+ * @param x
+ * @param y
+ * @param delay
+ */
+public void slideToPosition(final double x, final double y, final int delay) 
+</code></pre><p>（3）</p>
+<pre><code>/**
+ * 最小全屏模式
+ */
+public void setMinimumScaleFullScreen()；
+</code></pre>]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+            <category> Model </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[【移动支付AndroidPay】-祝文飞]]></title>
       <url>http://yoursite.com/2017/03/20/%E3%80%90%E7%A7%BB%E5%8A%A8%E6%94%AF%E4%BB%98AndroidPay%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</url>
       <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>移动支付框架，封装了微信支付、支付宝支付，两种支付方式保持了统一的使用风格，使用方便。</p>
@@ -57,93 +631,6 @@
             <category> Android </category>
             
             <category> 项目模板 </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[【智慧欧七设备信息】-王志强]]></title>
-      <url>http://yoursite.com/2017/03/17/%E3%80%90%E6%99%BA%E6%85%A7%E6%AC%A7%E4%B8%83%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF%E3%80%91-%E7%8E%8B%E5%BF%97%E5%BC%BA/</url>
-      <content type="html"><![CDATA[<h2 id="1、屏幕分辨率"><a href="#1、屏幕分辨率" class="headerlink" title="1、屏幕分辨率"></a>1、屏幕分辨率</h2><p>分辨率：240*320<br>状态栏高度：25<br>可用分辨率：240*295</p>
-<h2 id="2、系统版本"><a href="#2、系统版本" class="headerlink" title="2、系统版本"></a>2、系统版本</h2><p>Android5.1.1</p>
-<h2 id="3、物理按键对应的Android事件"><a href="#3、物理按键对应的Android事件" class="headerlink" title="3、物理按键对应的Android事件"></a>3、物理按键对应的Android事件</h2><p><img src="http://oksdjdocc.bkt.clouddn.com/17-3-17/75535658-file_1489734524518_57d1.png" alt=""></p>
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th style="text-align:center">名称</th>
-<th style="text-align:center">KeyCode</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td style="text-align:center">KEYCODE_DPAD_LEFT</td>
-<td style="text-align:center">21</td>
-</tr>
-<tr>
-<td>2</td>
-<td style="text-align:center">KEYCODE_DPAD_RIGHT</td>
-<td style="text-align:center">22</td>
-</tr>
-<tr>
-<td>3</td>
-<td style="text-align:center">KEYCODE_BACK</td>
-<td style="text-align:center">4</td>
-</tr>
-<tr>
-<td>4</td>
-<td style="text-align:center">KEYCODE_MEDIA_PLAY_PAUSE</td>
-<td style="text-align:center">85</td>
-</tr>
-<tr>
-<td>5</td>
-<td style="text-align:center">KEYCODE_VOLUME_DOWN</td>
-<td style="text-align:center">25</td>
-</tr>
-<tr>
-<td>6</td>
-<td style="text-align:center">KEYCODE_VOLUME_UP</td>
-<td style="text-align:center">24</td>
-</tr>
-<tr>
-<td>7</td>
-<td style="text-align:center">KEYCODE_ENTER</td>
-<td style="text-align:center">66</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-      
-        <categories>
-            
-            <category> 文档 </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[【恒达开发者账号】-王志强]]></title>
-      <url>http://yoursite.com/2017/03/17/%E3%80%90%E6%81%92%E8%BE%BE%E5%BC%80%E5%8F%91%E8%80%85%E8%B4%A6%E5%8F%B7%E3%80%91-%E7%8E%8B%E5%BF%97%E5%BC%BA/</url>
-      <content type="html"><![CDATA[<h2 id="1、腾讯bugly账号"><a href="#1、腾讯bugly账号" class="headerlink" title="1、腾讯bugly账号"></a>1、腾讯bugly账号</h2><p>账号：3364730368<br>密码：hengda888666<br>地址：<a href="https://bugly.qq.com/v2/index" target="_blank" rel="external">https://bugly.qq.com/v2/index</a></p>
-<h2 id="2、fir内测平台"><a href="#2、fir内测平台" class="headerlink" title="2、fir内测平台"></a>2、fir内测平台</h2><p>账号：HD_Android@126.com<br>密码：hengda888666<br>地址：<a href="http://fir.im/" target="_blank" rel="external">http://fir.im/</a></p>
-<h2 id="3、激光推送"><a href="#3、激光推送" class="headerlink" title="3、激光推送"></a>3、激光推送</h2><p>账号：HD_Android@126.com<br>密码：hengda888666<br>地址：<a href="https://www.jiguang.cn/app/list" target="_blank" rel="external">https://www.jiguang.cn/app/list</a></p>
-<h2 id="4、百度账号"><a href="#4、百度账号" class="headerlink" title="4、百度账号"></a>4、百度账号</h2><p>账号：HD_Android<br>密码：hengda888666<br>地址：<a href="http://lbsyun.baidu.com/apiconsole/key" target="_blank" rel="external">http://lbsyun.baidu.com/apiconsole/key</a></p>
-<h2 id="5、微信开放平台"><a href="#5、微信开放平台" class="headerlink" title="5、微信开放平台"></a>5、微信开放平台</h2><p>账号：HD_Android@126.com<br>密码：hengda888666<br>地址：<a href="https://open.weixin.qq.com/" target="_blank" rel="external">https://open.weixin.qq.com/</a></p>
-<h2 id="6、高通AR"><a href="#6、高通AR" class="headerlink" title="6、高通AR"></a>6、高通AR</h2><p>账号：HD_Android@126.com<br>密码：Hengda888666<br>地址：<a href="https://developer.vuforia.com/targetmanager/project/deviceTargetListing" target="_blank" rel="external">https://developer.vuforia.com/targetmanager/project/deviceTargetListing</a></p>
-<h2 id="7、腾讯QQ开放"><a href="#7、腾讯QQ开放" class="headerlink" title="7、腾讯QQ开放"></a>7、腾讯QQ开放</h2><p>账号：3364730368<br>密码：hengda888666<br>地址：<a href="http://open.qq.com/" target="_blank" rel="external">http://open.qq.com/</a></p>
-<h2 id="8、Umeng-统计账号"><a href="#8、Umeng-统计账号" class="headerlink" title="8、Umeng 统计账号"></a>8、Umeng 统计账号</h2><p>账号： HD_Android@126.com<br>密码： hengda888666<br>地址：<a href="http://mobile.umeng.com/apps/setting" target="_blank" rel="external">http://mobile.umeng.com/apps/setting</a></p>
-<h2 id="9、Jenter账号"><a href="#9、Jenter账号" class="headerlink" title="9、Jenter账号"></a>9、Jenter账号</h2><p>账号：HDAndroidTeam<br>密码：hengda888666<br>上传步骤：<a href="https://segmentfault.com/a/1190000006186992" target="_blank" rel="external">https://segmentfault.com/a/1190000006186992</a></p>
-<h2 id="10、vpn账号"><a href="#10、vpn账号" class="headerlink" title="10、vpn账号"></a>10、vpn账号</h2><p>账号：hengda<br>密码：hengda888666</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 文档 </category>
             
         </categories>
         
@@ -289,33 +776,6 @@ public void error(Exception e) {
     </entry>
     
     <entry>
-      <title><![CDATA[【文件下载HttpUtil】-祝文飞]]></title>
-      <url>http://yoursite.com/2017/03/17/%E3%80%90%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BDHttpUtil%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</url>
-      <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>基于Retrofit和RxJava2的网络请求和文件下载工具。</p>
-<ul>
-<li>智能判断服务器是否支持断点续传并适配相应下载方式；</li>
-<li>智能判断同一地址对应的文件在服务端是否有改变并重新下载；</li>
-<li>支持多线程下载，可设置下载线程数；</li>
-<li>支持下载状态、下载进度监听；</li>
-<li>支持在Service中下载文件，内置DownloadService；</li>
-</ul>
-<h2 id="二、版本"><a href="#二、版本" class="headerlink" title="二、版本"></a>二、版本</h2><p>最新版本1.0.2，直接在gradle中添加即可。<br>compile ‘com.hengda.zwf:HttpUtil:1.0.2’</p>
-<h2 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h2><p>具体用法参见demo，demo以检查版本更新和安装包下载为例。<br>地址：<a href="https://git.oschina.net/tailyou/HD_Frame_HttpUtil" target="_blank" rel="external">https://git.oschina.net/tailyou/HD_Frame_HttpUtil</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">private void loadAndInstall(CheckResponse checkResponse) &#123;</div><div class="line">        String url = checkResponse.getVersionInfo().getVersionUrl();</div><div class="line">        String saveName = url.substring(url.lastIndexOf(&quot;/&quot;) + 1);</div><div class="line">        String savePath = HdAppConfig.getDefaultFileDir();</div><div class="line"></div><div class="line">        RxDownload.getInstance()</div><div class="line">                .download(url, saveName, savePath)</div><div class="line">                .subscribeOn(Schedulers.io())</div><div class="line">                .observeOn(AndroidSchedulers.mainThread())</div><div class="line">                .doOnSubscribe(d -&gt; disposable = d)</div><div class="line">                .doOnNext(status -&gt; updateProgress(status))</div><div class="line">                .doOnError(throwable -&gt; Logger.e(&quot;下载失败：&quot; + throwable.getMessage()))</div><div class="line">                .doOnComplete(() -&gt; installApk(saveName, savePath))</div><div class="line">                .subscribe();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private void installApk(String saveName, String savePath) &#123;</div><div class="line">        String apkPath = TextUtils.concat(savePath, saveName).toString();</div><div class="line">        AppUtil.installApk(CheckUpdateActivity.this, apkPath);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private void updateProgress(DownloadStatus status) &#123;</div><div class="line">        txtProgress.setText(String.format(&quot;正在下载(%s/%s)&quot;,</div><div class="line">                DataManager.getFormatSize(status.getDownloadSize()),</div><div class="line">                DataManager.getFormatSize(status.getTotalSize())));</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-]]></content>
-      
-        <categories>
-            
-            <category> Android </category>
-            
-            <category> Model </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[【提示弹框HdDialog】-祝文飞]]></title>
       <url>http://yoursite.com/2017/03/17/%E3%80%90%E6%8F%90%E7%A4%BA%E5%BC%B9%E6%A1%86HdDialog%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</url>
       <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>通用Dialog，适用于ProgressDialog，BuilderDialog，可以设置字体、进入退出动画，同时兼容手机和导览机。</p>
@@ -404,16 +864,16 @@ public void error(Exception e) {
   
     
     <entry>
-      <title><![CDATA[读书]]></title>
-      <url>http://yoursite.com/reading/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[关于]]></title>
       <url>http://yoursite.com/about/index.html</url>
       <content type="html"><![CDATA[<p>大家好，我们是恒达Android团队。欢迎来到我们的技术博客。</p>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[读书]]></title>
+      <url>http://yoursite.com/reading/index.html</url>
+      <content type="html"></content>
     </entry>
     
   

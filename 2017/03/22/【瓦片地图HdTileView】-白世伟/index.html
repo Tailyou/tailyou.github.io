@@ -7,13 +7,21 @@
 
     
 
-    <title>读书 | 恒心所至，达有所成！</title>
+    <title>【瓦片地图HdTileView】-白世伟 | 恒心所至，达有所成！</title>
     <meta name="author" content="HdAndroidTeam">
+    
+    <meta name="description" content="HDTileView概述基于最新版本TileView，继承原有TileView，Picasso加载瓦片，封装开发中常用方法；
+更新日志V0.0.3
+修复onCreate函数中调用placeMarkerWithScale方法不直接显示markers问题
+
+V0.0.2
+支持加载网络瓦片
+支持加载网络预">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="读书"/>
+    <meta property="og:title" content="【瓦片地图HdTileView】-白世伟"/>
     <meta property="og:site_name" content="Hengda Android"/>
 
     
@@ -206,182 +214,157 @@
 
 
     <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper green">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/Android/">Android</a><a class="breadcrumb" href="/categories/Android/Model/">Model</a>
+
+
         
 
-<div class="container main-container">
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
     
-        <div class="">
-            <div class="row">
-                <ul class="tabs ">
-                    
-                        <li class="tab col s4 ">
-                            <a class="red-text " href="#readed">已读(3)</a>
-                        </li>
-                    
-                        <li class="tab col s4 ">
-                            <a class="red-text " href="#reading">在读(1)</a>
-                        </li>
-                    
-                        <li class="tab col s4 ">
-                            <a class="red-text " href="#wanted">想读(1)</a>
-                        </li>
-                    
-                </ul>
+        <h1>【瓦片地图HdTileView】-白世伟</h1>
+    
+
+
             </div>
+            <time class="red-link-context" datetime="2017-03-22T05:13:23.000Z"><a href="/2017/03/22/【瓦片地图HdTileView】-白世伟/">2017-03-22</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
 
             
-                <div id="readed" class="row" style="margin-top: 20px;">
-                    
-                    
-                        <div class="book-item col s12 m6">
-                            <div class="card small hoverable">
-                                <div class="card-image waves-effect waves-block waves-light">
-                                    <img class="card-cover-image activator" src="http://img3.douban.com/lpic/s23139051.jpg">
-                                </div>
-                                <div class="card-content red-link-context">
-                                    <span class="card-title truncate activator grey-text text-darken-4">众妙之门：网站UI设计之道
-                                    </span>
-                                    <p>评分: 7
-                                        <a class="external-link right" href="http://book.douban.com/subject/20281463/" target="_blank">
 
-                                            <i class="fa fa-external-link"></i>
-                                        </a>
-                                    </p>
-                                </div>
+            <div class="toc red-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#HDTileView"><span class="section table-of-contents-text">HDTileView</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#概述"><span class="section table-of-contents-text">概述</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#更新日志"><span class="section table-of-contents-text">更新日志</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#V0-0-3"><span class="section table-of-contents-text">V0.0.3</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#V0-0-2"><span class="section table-of-contents-text">V0.0.2</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#V0-0-1"><span class="section table-of-contents-text">V0.0.1</span></a></li></ol></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#用法"><span class="section table-of-contents-text">用法</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#引入插件"><span class="section table-of-contents-text">引入插件</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#使用"><span class="section table-of-contents-text">使用</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#1-Xml中；"><span class="section table-of-contents-text">1.Xml中；</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#2-Java代码中；"><span class="section table-of-contents-text">2.Java代码中；</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#3-初始化配置"><span class="section table-of-contents-text">3 初始化配置</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#4-加载预缓冲图片"><span class="section table-of-contents-text">4 加载预缓冲图片</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#5-添加marker"><span class="section table-of-contents-text">5 添加marker</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-5"><a class="section table-of-contents-link" href="#6-其他效果设置"><span class="section table-of-contents-text">6 其他效果设置</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+</div>
 
-                                <div class="card-reveal">
-                                    <span class="card-title grey-text text-darken-4">简评
-                                        <i class="fa fa-times-circle-o right"></i>
-                                    </span>
 
-                                    <p>推荐非UI人士了解UI阅读。</p>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="book-item col s12 m6">
-                            <div class="card small hoverable">
-                                <div class="card-image waves-effect waves-block waves-light">
-                                    <img class="card-cover-image activator" src="http://img5.douban.com/lpic/s11337059.jpg">
-                                </div>
-                                <div class="card-content red-link-context">
-                                    <span class="card-title truncate activator grey-text text-darken-4">JavaScript模式
-                                    </span>
-                                    <p>评分: 8.5
-                                        <a class="external-link right" href="http://book.douban.com/subject/11506062/" target="_blank">
+            <div class="entry red-link-context">
+                <h1 id="HDTileView"><a href="#HDTileView" class="headerlink" title="HDTileView"></a>HDTileView</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>基于最新版本TileView，继承原有TileView，Picasso加载瓦片，封装开发中常用方法；</p>
+<h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h2><h4 id="V0-0-3"><a href="#V0-0-3" class="headerlink" title="V0.0.3"></a>V0.0.3</h4><ul>
+<li>修复onCreate函数中调用placeMarkerWithScale方法不直接显示markers问题</li>
+</ul>
+<h4 id="V0-0-2"><a href="#V0-0-2" class="headerlink" title="V0.0.2"></a>V0.0.2</h4><ul>
+<li>支持加载网络瓦片</li>
+<li>支持加载网络预缓存图片</li>
+</ul>
+<h4 id="V0-0-1"><a href="#V0-0-1" class="headerlink" title="V0.0.1"></a>V0.0.1</h4><ul>
+<li>完成基础框架构建</li>
+<li>marker增加动画效果</li>
+<li>marker支持缩放设置</li>
+<li>添加最小全屏模式</li>
+<li>支持滑动效果</li>
+<li>完成加载预缓冲图片</li>
+</ul>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p>（限本地测试）导入测试资源：将resource.zip解压后拷贝到sdcard根目录下</p>
+<h3 id="引入插件"><a href="#引入插件" class="headerlink" title="引入插件"></a>引入插件</h3><blockquote>
+<p>Gradle:</p>
+</blockquote>
+<pre><code>compile &apos;com.hengda.frame.tileview:library:0.0.3&apos;
+</code></pre><blockquote>
+<p>Maven:</p>
+</blockquote>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;com.hengda.frame.tileview&lt;/groupId&gt;
+  &lt;artifactId&gt;library&lt;/artifactId&gt;
+  &lt;version&gt;0.0.3&lt;/version&gt;
+  &lt;type&gt;pom&lt;/type&gt;
+&lt;/dependency&gt;
+</code></pre><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="1-Xml中；"><a href="#1-Xml中；" class="headerlink" title="1.Xml中；"></a>1.Xml中；</h4><pre><code>&lt;com.hengda.frame.tileview.HDTileView
+    android:id=&quot;@+id/tileView&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;/&gt;
+</code></pre><h4 id="2-Java代码中；"><a href="#2-Java代码中；" class="headerlink" title="2.Java代码中；"></a>2.Java代码中；</h4><pre><code>HDTileView mTileView=new HDTileView(this);
+</code></pre><h4 id="3-初始化配置"><a href="#3-初始化配置" class="headerlink" title="3 初始化配置"></a>3 初始化配置</h4><pre><code>/**
+ * 初始化
+ *
+ * @param maxScale 缩放级数
+ * @param width    总宽度
+ * @param height   总高度
+ * @param mapUrl   瓦片路徑
+ */
+public void init(int maxScale, int width, int height,String mapUrl) 
 
-                                            <i class="fa fa-external-link"></i>
-                                        </a>
-                                    </p>
-                                </div>
+loadMapFromHttpUseGlide();//使用Glide加载网络图片，默认开启硬盘缓存节省用户流量（推荐）
+loadMapFromHttpUsePicasso()//使用Picasso加载网络图片，不开启缓存，瓦片实时刷新
+loadMapFromDisk()//使用picasso加载本地瓦片
+</code></pre><p>到此瓦片地图已经可以正常显示。</p>
+<h4 id="4-加载预缓冲图片"><a href="#4-加载预缓冲图片" class="headerlink" title="4 加载预缓冲图片"></a>4 加载预缓冲图片</h4><p>（1）从sdcard或网络加载</p>
+<pre><code>mTileView.addSample(uri);
+</code></pre><p>（2）从res中加载</p>
+<pre><code>public void addSample(int resId)
+</code></pre><h4 id="5-添加marker"><a href="#5-添加marker" class="headerlink" title="5 添加marker"></a>5 添加marker</h4><pre><code>mTileView.placeMarkerWithScale(int resId, double x, double y, Object tag);
+</code></pre><p>或者</p>
+<pre><code>mTileView.placeMarkerWithScale(Bitmap bitmap, double x, double y, Object tag);
+</code></pre><h5 id="6-其他效果设置"><a href="#6-其他效果设置" class="headerlink" title="6 其他效果设置"></a>6 其他效果设置</h5><p>（1）</p>
+<pre><code>/**
+ * delay时间内滑动到指定位置并放大/缩小到指定scale
+ * @param x
+ * @param y
+ * @param scale
+ * @param delay
+ */
+public void slideToPositionWithScale(final double x, final double y, final float scale,final int delay) 
+</code></pre><p>（2）</p>
+<pre><code>/**
+ * delay时间内滑动到指定位置
+ * @param x
+ * @param y
+ * @param delay
+ */
+public void slideToPosition(final double x, final double y, final int delay) 
+</code></pre><p>（3）</p>
+<pre><code>/**
+ * 最小全屏模式
+ */
+public void setMinimumScaleFullScreen()；
+</code></pre>
+                
+<p class="red-link-context">
+    <a href="/2017/03/22/【Android平台编码规范】-AndroidTeam/" rel="next" title="【Android平台编码规范】-AndroidTeam">
+    上一篇：【Android平台编码规范】-AndroidTeam
+  </a>
+</p>
 
-                                <div class="card-reveal">
-                                    <span class="card-title grey-text text-darken-4">简评
-                                        <i class="fa fa-times-circle-o right"></i>
-                                    </span>
 
-                                    <p>书很薄，但内容相当实用。</p>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="book-item col s12 m6">
-                            <div class="card small hoverable">
-                                <div class="card-image waves-effect waves-block waves-light">
-                                    <img class="card-cover-image activator" src="http://img3.douban.com/lpic/s11373174.jpg">
-                                </div>
-                                <div class="card-content red-link-context">
-                                    <span class="card-title truncate activator grey-text text-darken-4">JavaScript语言精粹
-                                    </span>
-                                    <p>评分: 9.5
-                                        <a class="external-link right" href="http://book.douban.com/subject/11874748/" target="_blank">
 
-                                            <i class="fa fa-external-link"></i>
-                                        </a>
-                                    </p>
-                                </div>
+<p class="red-link-context">
+    <a href="/2017/03/20/【移动支付AndroidPay】-祝文飞/" rel="next" title="【移动支付AndroidPay】-祝文飞">
+    下一篇：【移动支付AndroidPay】-祝文飞
+  </a>
+</p>
 
-                                <div class="card-reveal">
-                                    <span class="card-title grey-text text-darken-4">简评
-                                        <i class="fa fa-times-circle-o right"></i>
-                                    </span>
 
-                                    <p>这是一本前端人员的基础书，强烈推荐阅读，而且越早看受益越多！</p>
-                                </div>
-                            </div>
-                        </div>
-                    
-                </div>
-            
-                <div id="reading" class="row" style="margin-top: 20px;">
-                    
-                    
-                        <div class="book-item col s12 m6">
-                            <div class="card small hoverable">
-                                <div class="card-image waves-effect waves-block waves-light">
-                                    <img class="card-cover-image activator" src="http://img4.douban.com/lpic/s27881888.jpg">
-                                </div>
-                                <div class="card-content red-link-context">
-                                    <span class="card-title truncate activator grey-text text-darken-4">网络游戏核心技术与实战
-                                    </span>
-                                    <p>评分: ???
-                                        <a class="external-link right" href="http://book.douban.com/subject/25850090/" target="_blank">
-
-                                            <i class="fa fa-external-link"></i>
-                                        </a>
-                                    </p>
-                                </div>
-
-                                <div class="card-reveal">
-                                    <span class="card-title grey-text text-darken-4">简评
-                                        <i class="fa fa-times-circle-o right"></i>
-                                    </span>
-
-                                    <p></p>
-                                </div>
-                            </div>
-                        </div>
-                    
-                </div>
-            
-                <div id="wanted" class="row" style="margin-top: 20px;">
-                    
-                    
-                        <div class="book-item col s12 m6">
-                            <div class="card small hoverable">
-                                <div class="card-image waves-effect waves-block waves-light">
-                                    <img class="card-cover-image activator" src="http://img4.douban.com/lpic/s1113106.jpg">
-                                </div>
-                                <div class="card-content red-link-context">
-                                    <span class="card-title truncate activator grey-text text-darken-4">计算机程序的构造和解释
-                                    </span>
-                                    <p>评分: ???
-                                        <a class="external-link right" href="http://book.douban.com/subject/1148282/" target="_blank">
-
-                                            <i class="fa fa-external-link"></i>
-                                        </a>
-                                    </p>
-                                </div>
-
-                                <div class="card-reveal">
-                                    <span class="card-title grey-text text-darken-4">简评
-                                        <i class="fa fa-times-circle-o right"></i>
-                                    </span>
-
-                                    <p></p>
-                                </div>
-                            </div>
-                        </div>
-                    
-                </div>
-            
-
+            </div>
+			
         </div>
-        
+    </div>
+</article>
 
 
 
-    
+
+
+
 </div>
 
         <div class="fixed-action-btn float-sitemap">
