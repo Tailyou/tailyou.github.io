@@ -864,16 +864,16 @@ public void error(Exception e) {
   
     
     <entry>
-      <title><![CDATA[读书]]></title>
-      <url>http://yoursite.com/reading/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[关于]]></title>
       <url>http://yoursite.com/about/index.html</url>
       <content type="html"><![CDATA[<p>大家好，我们是恒达Android团队。欢迎来到我们的技术博客。</p>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[读书]]></title>
+      <url>http://yoursite.com/reading/index.html</url>
+      <content type="html"></content>
     </entry>
     
   
