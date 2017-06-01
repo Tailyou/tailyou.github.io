@@ -4,30 +4,34 @@
   
     
     <entry>
-      <title><![CDATA[【文件下载HttpUtil】-祝文飞]]></title>
-      <url>http://yoursite.com/2017/04/16/%E3%80%90%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BDHttpUtil%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</url>
+      <title><![CDATA[【文件下载&网络请求库-OkRetrofit】]]></title>
+      <url>http://yoursite.com/2017/04/16/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD&amp;%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%BA%93-OkRetrofit/</url>
       <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>Retrofit+RxJava是当前最流行的Android网络交互解决方案。OkRetrofit是一个基于Retrofit2+RxJava2封装的文件下载和网络请求库，<br>其中文件下载部分参考了RxDownload，去掉了RxPermission相关的代码，网络请求部分做了适当的抽象和封装，方便使用的同时也不影响相关部分的定制。</p>
-<h3 id="文件下载"><a href="#文件下载" class="headerlink" title="文件下载"></a>文件下载</h3><ul>
+<h3 id="1-1-文件下载"><a href="#1-1-文件下载" class="headerlink" title="1.1 文件下载"></a>1.1 文件下载</h3><ol>
 <li>智能判断服务器是否支持断点续传并适配相应下载方式；</li>
 <li>智能判断同一地址对应的文件在服务端是否有改变并重新下载；</li>
 <li>支持多线程下载，可设置下载线程数；</li>
 <li>支持下载状态、下载进度监听；</li>
 <li>支持在Service中下载文件，内置DownloadService；</li>
-</ul>
-<h3 id="网络请求"><a href="#网络请求" class="headerlink" title="网络请求"></a>网络请求</h3><ul>
+</ol>
+<p><br></p>
+<h3 id="1-2-网络请求"><a href="#1-2-网络请求" class="headerlink" title="1.2 网络请求"></a>1.2 网络请求</h3><ol>
 <li>内置<code>BaseRetrofit</code>,提供了抽象方法<code>initOkHttp</code>供上层实现，可在此方法中配置日志、缓存、超时等；</li>
 <li>内置服务器统一返回<code>HttpResponse</code>和请求异常<code>HttpException</code>；</li>
 <li>内置统一线程处理和统一返回结果转换方法；</li>
-</ul>
-<h2 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h2><h3 id="Gradle"><a href="#Gradle" class="headerlink" title="Gradle"></a>Gradle</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile <span class="string">'com.hengda.zwf:OkRetrofit:0.0.1'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;</div><div class="line">  &lt;groupId&gt;com.hengda.zwf&lt;/groupId&gt;</div><div class="line">  &lt;artifactId&gt;OkRetrofit&lt;/artifactId&gt;</div><div class="line">  &lt;version&gt;0.0.1&lt;/version&gt;</div><div class="line">  &lt;type&gt;pom&lt;/type&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure>
-<h3 id="文件下载-1"><a href="#文件下载-1" class="headerlink" title="文件下载"></a>文件下载</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">RxDownload.getInstance().context(MainActivity.<span class="keyword">this</span>)</div><div class="line">        .maxThread(<span class="number">4</span>).maxRetryCount(<span class="number">3</span>)</div><div class="line">        .download(url, saveName, savePath)</div><div class="line">        .subscribeOn(Schedulers.io())</div><div class="line">        .observeOn(AndroidSchedulers.mainThread())</div><div class="line">        .doOnSubscribe(<span class="keyword">new</span> Consumer&lt;Disposable&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Disposable disposable)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                compositeDisposable.add(disposable);</div><div class="line">                tvDownloadStatus.setText(<span class="string">"下载地址："</span> + url + <span class="string">"\n"</span>);</div><div class="line">                SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy年MM月dd日HH时mm分ss秒"</span>);</div><div class="line">                tvDownloadStatus.setText(tvDownloadStatus.getText() + <span class="string">"\n开始下载："</span> + sdf.format(<span class="keyword">new</span> Date()));</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">        .doOnNext(<span class="keyword">new</span> Consumer&lt;DownloadStatus&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(DownloadStatus downloadStatus)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                tvDownloadPrg.setText(<span class="string">"下载进度："</span> + downloadStatus.getFormatStatusString());</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">        .doOnError(<span class="keyword">new</span> Consumer&lt;Throwable&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Throwable throwable)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                tvDownloadStatus.setText(<span class="string">"下载失败:"</span> + throwable.getMessage());</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">        .doOnComplete(<span class="keyword">new</span> Action() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy年MM月dd日HH时mm分ss秒"</span>);</div><div class="line">                tvDownloadPrg.setText(tvDownloadPrg.getText() + <span class="string">"\n下载完成："</span> + sdf.format(<span class="keyword">new</span> Date()));</div><div class="line">                File file = <span class="keyword">new</span> File(savePath, saveName);</div><div class="line">                file.delete();</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">        .subscribe();</div></pre></td></tr></table></figure>
-<h3 id="网络请求-1"><a href="#网络请求-1" class="headerlink" title="网络请求"></a>网络请求</h3><p>1、新建声明网络请求方法的接口</p>
+</ol>
+<p><br></p>
+<h2 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h2><h3 id="2-1-Gradle"><a href="#2-1-Gradle" class="headerlink" title="2.1 Gradle"></a>2.1 Gradle</h3><p>OkRetrofit已上传到jcenter，在gradle中直接引用即可。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile <span class="string">'com.hengda.zwf:OkRetrofit:0.0.1'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-2-文件下载"><a href="#2-2-文件下载" class="headerlink" title="2.2 文件下载"></a>2.2 文件下载</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">RxDownload.getInstance().context(MainActivity.<span class="keyword">this</span>)</div><div class="line">              .maxThread(<span class="number">4</span>).maxRetryCount(<span class="number">3</span>)</div><div class="line">              .download(url, saveName, savePath)</div><div class="line">              .subscribeOn(Schedulers.io())</div><div class="line">              .observeOn(AndroidSchedulers.mainThread())</div><div class="line">              .doOnSubscribe(disposable -&gt; &#123;</div><div class="line">                  compositeDisposable.add(disposable);</div><div class="line">                  tvDownloadStatus.setText(<span class="string">"下载地址："</span> + url + <span class="string">"\n"</span>);</div><div class="line">                  SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy年MM月dd日HH时mm分ss秒"</span>);</div><div class="line">                  tvDownloadStatus.setText(tvDownloadStatus.getText() + <span class="string">"\n开始下载："</span> + sdf.format(<span class="keyword">new</span> Date()));</div><div class="line">              &#125;)</div><div class="line">              .doOnNext(downloadStatus -&gt; &#123;</div><div class="line">                  <span class="comment">//此处更新下载进度</span></div><div class="line">                  String formatStatusString = downloadStatus.getFormatStatusString();</div><div class="line">                  tvDownloadPrg.setText(<span class="string">"下载进度："</span> + formatStatusString);</div><div class="line">              &#125;)</div><div class="line">              .doOnError(throwable -&gt; &#123;</div><div class="line">                  <span class="comment">//此处处理下载异常</span></div><div class="line">                  tvDownloadStatus.setText(<span class="string">"下载失败:"</span> + throwable.getMessage());</div><div class="line">              &#125;)</div><div class="line">              .doOnComplete(() -&gt; &#123;</div><div class="line">                  <span class="comment">//下载完成，解压或安装</span></div><div class="line">                  SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy年MM月dd日HH时mm分ss秒"</span>);</div><div class="line">                  tvDownloadPrg.setText(tvDownloadPrg.getText() + <span class="string">"\n下载完成："</span> + sdf.format(<span class="keyword">new</span> Date()));</div><div class="line">                  File file = <span class="keyword">new</span> File(savePath, saveName);</div><div class="line">                  file.delete();</div><div class="line">              &#125;)</div><div class="line">              .subscribe();</div></pre></td></tr></table></figure>
+<h3 id="2-3-网络请求"><a href="#2-3-网络请求" class="headerlink" title="2.3 网络请求"></a>2.3 网络请求</h3><p>2.3.1 新建声明网络请求方法的接口</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">HttpApis</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@GET</span>(<span class="string">"index.php?g=mapi&amp;m=appdatas&amp;a=datas"</span>)</div><div class="line">    Observable&lt;HttpResponse&lt;DataBean&gt;&gt; loadDatas();</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>2、继承BaseRetrofit，实现initOkHttp方法，在此方法中可配置超时、日志、缓存等。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RetrofitHelper</span> <span class="keyword">extends</span> <span class="title">BaseRetrofit</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Hashtable&lt;String, RetrofitHelper&gt; retrofitHelperHashtable = <span class="keyword">new</span> Hashtable&lt;&gt;();</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> HttpApis httpApis = <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> RetrofitHelper instance;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">RetrofitHelper</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>();</div><div class="line">        httpApis = getApiService(setupBaseHttpUrl(), HttpApis.class);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> RetrofitHelper <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        String baseUrl = setupBaseHttpUrl();</div><div class="line">        instance = retrofitHelperHashtable.get(baseUrl);</div><div class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">synchronized</span> (RetrofitHelper.class) &#123;</div><div class="line">                <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</div><div class="line">                    instance = <span class="keyword">new</span> RetrofitHelper();</div><div class="line">                    retrofitHelperHashtable.clear();</div><div class="line">                    retrofitHelperHashtable.put(baseUrl, instance);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">setupBaseHttpUrl</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"http://"</span> + HdAppConfig.getDefaultIpPort() + <span class="string">"/hnbwy/"</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> OkHttpClient <span class="title">initOkHttp</span><span class="params">()</span> </span>&#123;</div><div class="line">        OkHttpClient.Builder builder = <span class="keyword">new</span> OkHttpClient.Builder();</div><div class="line">        builder.connectTimeout(<span class="number">10</span>, TimeUnit.SECONDS);</div><div class="line">        builder.writeTimeout(<span class="number">20</span>, TimeUnit.SECONDS);</div><div class="line">        builder.readTimeout(<span class="number">20</span>, TimeUnit.SECONDS);</div><div class="line">        builder.retryOnConnectionFailure(<span class="keyword">true</span>);</div><div class="line">        <span class="keyword">return</span> builder.build();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Observable&lt;DataBean&gt; <span class="title">loadDatas</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> httpApis.loadDatas().compose(rxSchedulerHelper()).compose(handleResult());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>3、使用</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">RetrofitHelper.getInstance()</div><div class="line">        .loadDatas()</div><div class="line">        .doOnSubscribe(<span class="keyword">new</span> Consumer&lt;Disposable&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Disposable disposable)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                compositeDisposable.add(disposable);</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">        .subscribe(<span class="keyword">new</span> Consumer&lt;DataBean&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(DataBean dataBean)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="keyword">new</span> Gson().toJson(dataBean), Toast.LENGTH_SHORT).show();</div><div class="line">            &#125;</div><div class="line">        &#125;, <span class="keyword">new</span> Consumer&lt;Throwable&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Throwable throwable)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                Logger.e(throwable.getMessage());</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure>]]></content>
+<p>2.3.2 继承BaseRetrofit，实现initOkHttp方法，在此方法中可配置超时、日志、缓存等。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RetrofitHelper</span> <span class="keyword">extends</span> <span class="title">BaseRetrofit</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> HttpApis httpApis = <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> RetrofitHelper instance;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 单例模式</div><div class="line">     *</div><div class="line">     * <span class="doctag">@author</span> 祝文飞（Tailyou）</div><div class="line">     * <span class="doctag">@time</span> 2016/11/12 11:31</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">RetrofitHelper</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>();</div><div class="line">        httpApis = getApiService(setupBaseHttpUrl(), HttpApis.class);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 组装网络请求基地址</div><div class="line">     *</div><div class="line">     * <span class="doctag">@author</span> 祝文飞（Tailyou）</div><div class="line">     * <span class="doctag">@time</span> 2016/11/12 11:38</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">setupBaseHttpUrl</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"http://"</span> + HdAppConfig.getDefaultIpPort() + <span class="string">"/hnbwy/"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取实例-单例</div><div class="line">     *</div><div class="line">     * <span class="doctag">@author</span> 祝文飞（Tailyou）</div><div class="line">     * <span class="doctag">@time</span> 2016/11/12 11:32</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> RetrofitHelper <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">synchronized</span> (RetrofitHelper.class) &#123;</div><div class="line">                <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</div><div class="line">                    instance = <span class="keyword">new</span> RetrofitHelper();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 在此配置超时，缓存，日志等</div><div class="line">     *</div><div class="line">     * <span class="doctag">@author</span> 祝文飞（Tailyou）</div><div class="line">     * <span class="doctag">@time</span> 2017/5/10 11:10</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> OkHttpClient <span class="title">initOkHttp</span><span class="params">()</span> </span>&#123;</div><div class="line">        OkHttpClient.Builder builder = <span class="keyword">new</span> OkHttpClient.Builder();</div><div class="line">        builder.connectTimeout(<span class="number">10</span>, TimeUnit.SECONDS);</div><div class="line">        builder.writeTimeout(<span class="number">20</span>, TimeUnit.SECONDS);</div><div class="line">        builder.readTimeout(<span class="number">20</span>, TimeUnit.SECONDS);</div><div class="line">        builder.retryOnConnectionFailure(<span class="keyword">true</span>);</div><div class="line">        <span class="keyword">return</span> builder.build();</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取数据</div><div class="line">     *</div><div class="line">     * <span class="doctag">@author</span> 祝文飞（Tailyou）</div><div class="line">     * <span class="doctag">@time</span> 2017/1/3 11:57</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> Observable&lt;DataBean&gt; <span class="title">loadDatas</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> httpApis.loadDatas().compose(rxSchedulerHelper()).compose(handleResult());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2.3.3 使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">RetrofitHelper.getInstance()</div><div class="line">        .loadDatas()</div><div class="line">        .doOnSubscribe(disposable -&gt; compositeDisposable.add(disposable))</div><div class="line">        .doOnNext(dataBean -&gt; Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="keyword">new</span> Gson().toJson(dataBean), Toast.LENGTH_SHORT).show())</div><div class="line">        .doOnError(throwable -&gt; Logger.e(throwable.getMessage()))</div><div class="line">        .subscribe();</div></pre></td></tr></table></figure>
+<p>详细用法参见Demo，地址：<a href="https://github.com/Tailyou/OkRetrofit" target="_blank" rel="external">https://github.com/Tailyou/OkRetrofit</a></p>
+]]></content>
       
         <categories>
             
@@ -42,560 +46,15 @@
             
             <tag> Retrofit </tag>
             
+            <tag> 文件下载 </tag>
+            
         </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[【Hexo博客简要使用说明】]]></title>
-      <url>http://yoursite.com/2017/03/28/%E3%80%90Hexo%E5%8D%9A%E5%AE%A2%E7%AE%80%E8%A6%81%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E3%80%91/</url>
-      <content type="html"><![CDATA[<h2 id="1、博客地址"><a href="#1、博客地址" class="headerlink" title="1、博客地址"></a>1、博客地址</h2><p><a href="http://192.168.11.46:4000" target="_blank" rel="external">http://192.168.11.46:4000</a></p>
-<h2 id="2、使用说明"><a href="#2、使用说明" class="headerlink" title="2、使用说明"></a>2、使用说明</h2><p>Hexo文件所在目录：D:\Hexo，使用Git Bash进入到该目录下，用命令进行操作。</p>
-<h2 id="3、常用命令"><a href="#3、常用命令" class="headerlink" title="3、常用命令"></a>3、常用命令</h2><ul>
-<li>1、new命令</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new &quot;name&quot;</div></pre></td></tr></table></figure>
-<p>执行上述new命令，会在D:\Hexo\source_posts 文件夹下生成name.md文件，用编辑器打开编辑内容即可。</p>
-<ul>
-<li>2、generate命令</li>
-</ul>
-<p>执行generate命令，会将所有的md文件生成静态网页博客，生成的静态网页在D:\Hexo\public文件夹下。</p>
-<p>在执行generate命令之前，先执行hexo clean命令，将上次生成的静态网页清空。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate</div></pre></td></tr></table></figure>
-<ul>
-<li>3、server命令</li>
-</ul>
-<p>执行server命令，启动服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure>]]></content>
-      
-        <categories>
-            
-            <category> 文档 </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[【Android平台编码规范】-AndroidTeam]]></title>
-      <url>http://yoursite.com/2017/03/22/%E3%80%90Android%E5%B9%B3%E5%8F%B0%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83%E3%80%91-AndroidTeam/</url>
-      <content type="html"><![CDATA[<h1 id="恒达Android平台编码规范"><a href="#恒达Android平台编码规范" class="headerlink" title="恒达Android平台编码规范"></a>恒达Android平台编码规范</h1><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>为了能够更好地阅读代码，提高代码的可读性，缩短审查和修改代码过程中浪费的时间，特制订以下编码规范，包括<br> 包名，类名，接口，方法，变量，常量，资源图片，布局文件，动画文件，控件ID，色值，自定义View等声明规范。<br>基本原则：名词命名对象，动词命名函数。<br>名词解释：</p>
-<ul>
-<li>小驼峰命名法:除首单词外，其余所有单词的第一个字母大写;</li>
-<li>大驼峰命名法:所有单词的第一个字母大写;</li>
-<li>下划线命名法:单词与单词间用下划线做间隔。</li>
-</ul>
-<h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><h4 id="0-0-1-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-2017-3-20"><a href="#0-0-1-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-2017-3-20" class="headerlink" title="0.0.1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2017.3.20"></a>0.0.1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2017.3.20</h4><h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><h4 id="1-包名"><a href="#1-包名" class="headerlink" title="1 包名"></a>1 包名</h4><h5 id="基本规则：全部使用小写字母。"><a href="#基本规则：全部使用小写字母。" class="headerlink" title="基本规则：全部使用小写字母。"></a>基本规则：全部使用小写字母。</h5><p>app主包名参照：《Android版本号和包名命名规范V1.0》<br>范  例：com.hengda.smart.shanghaighg.m</p>
-<p>本次主要定义第六级模块名或层级名（实际开发中根据相应架构可做适当修改）</p>
-<table>
-<thead>
-<tr>
-<th>包名</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>com.hengda.xx.xx.xx.base</td>
-<td style="text-align:center">基础共享的类比如BaseActivity，BaseFragment等</td>
-</tr>
-<tr>
-<td>com.hengda.xx.xx.xx.tools</td>
-<td style="text-align:center">公共工具方法类，比如网络状态判断，文件路径判断等</td>
-</tr>
-<tr>
-<td>com.hengda.xx.xx.xx.bean</td>
-<td style="text-align:center">各种javabean,比如网络请求实体，数据库实体等</td>
-</tr>
-<tr>
-<td>com.hengda.xx.xx.xx.db</td>
-<td style="text-align:center">数据库操作类</td>
-</tr>
-<tr>
-<td>com.hengda.xx.xx.xx.adapter</td>
-<td style="text-align:center">模块或公共适配器类</td>
-</tr>
-<tr>
-<td>com.hengda.xx.xx.xx.view</td>
-<td style="text-align:center">自定义的view</td>
-</tr>
-<tr>
-<td>com.hengda.xx.xx.xx.service</td>
-<td style="text-align:center">service服务</td>
-</tr>
-<tr>
-<td>com.hengda.xx.xx.xx.broadcast</td>
-<td style="text-align:center">广播类</td>
-</tr>
-<tr>
-<td>com.hengda.xx.xx.xx.listener</td>
-<td style="text-align:center">自定义的监听器</td>
-</tr>
-</tbody>
-</table>
-<h4 id="2-类名"><a href="#2-类名" class="headerlink" title="2 类名"></a>2 类名</h4><h5 id="基本规则：大驼峰命名。"><a href="#基本规则：大驼峰命名。" class="headerlink" title="基本规则：大驼峰命名。"></a>基本规则：大驼峰命名。</h5><table>
-<thead>
-<tr>
-<th>类</th>
-<th style="text-align:center">规则</th>
-<th style="text-align:center">举例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Activity类</td>
-<td style="text-align:center">以Activity为后缀标识</td>
-<td style="text-align:center">主界面：MainActivity，登录界面LoginActivity</td>
-</tr>
-<tr>
-<td>Fragment类</td>
-<td style="text-align:center">以Fragment为后缀标识</td>
-<td style="text-align:center">地图：MapFragment， 用户：UserFragment</td>
-</tr>
-<tr>
-<td>Adapter类</td>
-<td style="text-align:center">以Adapter为后缀标识</td>
-<td style="text-align:center">用户适配器：UserAdapter</td>
-</tr>
-<tr>
-<td>公共方法类</td>
-<td style="text-align:center">Tools或Manager为后缀标识</td>
-<td style="text-align:center">线程池：ThreadPoolManager，日志工具：LogTools</td>
-</tr>
-<tr>
-<td>数据库类</td>
-<td style="text-align:center">以DBHelper为后缀标识</td>
-<td style="text-align:center">展品数据库：ExhibitDBHelper</td>
-</tr>
-<tr>
-<td>Service类</td>
-<td style="text-align:center">以Service为后缀标识</td>
-<td style="text-align:center">收号服务：BeaconService</td>
-</tr>
-<tr>
-<td>广播类</td>
-<td style="text-align:center">以Broadcast为后缀标识</td>
-<td style="text-align:center">通知广播：NotifyBroadcast</td>
-</tr>
-<tr>
-<td>adapter中的ViewHolder</td>
-<td style="text-align:center">以Holder为后缀标识</td>
-<td style="text-align:center">同伴列表中的PartnerHolder</td>
-</tr>
-<tr>
-<td>实体Bean</td>
-<td style="text-align:center">以Model为后缀标识</td>
-<td style="text-align:center">用户实体 UserModel</td>
-</tr>
-</tbody>
-</table>
-<h5 id="类注释"><a href="#类注释" class="headerlink" title="类注释"></a>类注释</h5><p>所有类，接口需要添加注释，格式如下</p>
-<pre><code>/**
- * author:作者
- * time:时间
- * desc:描述
- */
-</code></pre><h4 id="3-接口"><a href="#3-接口" class="headerlink" title="3 接口"></a>3 接口</h4><h5 id="基本规则：大驼峰命名。-1"><a href="#基本规则：大驼峰命名。-1" class="headerlink" title="基本规则：大驼峰命名。"></a>基本规则：大驼峰命名。</h5><p>监听类接口以大写字母I开头例如:INotifyListener，INotifyCallBack等<br>点击触发类以On开头例如：OnClickListener。</p>
-<h4 id="4-方法"><a href="#4-方法" class="headerlink" title="4 方法"></a>4 方法</h4><h5 id="基本规则：小驼峰命名，禁止拼音；"><a href="#基本规则：小驼峰命名，禁止拼音；" class="headerlink" title="基本规则：小驼峰命名，禁止拼音；"></a>基本规则：小驼峰命名，禁止拼音；</h5><h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><ul>
-<li>不要在函数名中描述参数，根本无意义。例如findExhibitByAutoNumAndType(int autoNum, int type) 可以简化成 findExhibit(int autoNum, int type)。</li>
-<li>注意上下文是否已暗示主语，比如一个保存信息的方法，可以叫做saveMessage(),如果这是Message类的一个方法，就可以简化为save()。</li>
-<li>一般情况下不要使用表达不明确的词语，比如do ,handle, perform, return 等等。</li>
-<li>方法参数需要正确表达含义比如doSomething(String s1, String s2, String s3)应该写成doSomething(String userName, String userEmail, String userId) 。</li>
-</ul>
-<p>此外，在Activity，Fragment,各种View，接口等等中请按照以下规则命名相应方法</p>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>initXX()</td>
-<td style="text-align:center">初始化相关方法,使用init为前缀标识，如初始化布局initView()</td>
-</tr>
-<tr>
-<td>getXX()</td>
-<td style="text-align:center">直接访问数据时,比如javabean的数据获取等，其他情况另选更精确的动词</td>
-</tr>
-<tr>
-<td>isXX()</td>
-<td style="text-align:center">方法返回值为boolean型，is, are, was, were开头，或者搭配情态动词，can, could, may, might, must, shall, should, will 和 would，这些词隐含了假设当前条件为真的反问信息。比如Button.isEnabled()，User.canAccess()</td>
-</tr>
-<tr>
-<td>displayXX()</td>
-<td style="text-align:center">弹出提示框和提示信息，比如displayErrorToast().比如displaySucceesDialog()</td>
-</tr>
-<tr>
-<td>saveXX()</td>
-<td style="text-align:center">保存数据</td>
-</tr>
-<tr>
-<td>clearXX()或removeXX()</td>
-<td style="text-align:center">清除数据</td>
-</tr>
-<tr>
-<td>drawXX()</td>
-<td style="text-align:center">绘制图形</td>
-</tr>
-<tr>
-<td>resetXX()</td>
-<td style="text-align:center">重置数据</td>
-</tr>
-<tr>
-<td>setXX()</td>
-<td style="text-align:center">数据或对象直接赋值</td>
-</tr>
-</tbody>
-</table>
-<h5 id="方法注释"><a href="#方法注释" class="headerlink" title="方法注释"></a>方法注释</h5><p> 重要方法需要添加方法注释，最好英文，格式如下：</p>
-<pre><code>/**
- * desc:描述
- * @param 参数名 参数描述
- * @param 参数名2 参数描述
- * @return 返回值类型说明(返回 void时可不写)
- * @throws Exception 异常说明(可选)
- */
-</code></pre><p>  方法內部逻辑注释<br>  全部使用“//”形式标注，注释位于需要注释的语句上方，例如</p>
-<pre><code>//请求成功
-if (response.succeed() == 0) {
-}
-</code></pre><h4 id="5-变量"><a href="#5-变量" class="headerlink" title="5 变量"></a>5 变量</h4><h5 id="基本规则：小驼峰命名"><a href="#基本规则：小驼峰命名" class="headerlink" title="基本规则：小驼峰命名"></a>基本规则：小驼峰命名</h5><p>1 非public的、非static的字段名称以m开头，例如mXXButton,mXXListener等；<br>2 其它字段以小写字母开头 ,例如：userName ,passWord;<br>3 static字段名称以s开头 例如：sSingleton；</p>
-<h4 id="6-常量"><a href="#6-常量" class="headerlink" title="6 常量"></a>6 常量</h4><h5 id="基本规则：全部大写，单词不缩写望文知意原则，下划线命名法。例如：MAX-SCREEN-WIDTH。"><a href="#基本规则：全部大写，单词不缩写望文知意原则，下划线命名法。例如：MAX-SCREEN-WIDTH。" class="headerlink" title="基本规则：全部大写，单词不缩写望文知意原则，下划线命名法。例如：MAX_SCREEN_WIDTH。"></a>基本规则：全部大写，单词不缩写望文知意原则，下划线命名法。例如：MAX_SCREEN_WIDTH。</h5><h4 id="7-资源图片"><a href="#7-资源图片" class="headerlink" title="7 资源图片"></a>7 资源图片</h4><h5 id="基本规则：全部小写，采用下划线命名法，单词禁止出现拼音；"><a href="#基本规则：全部小写，采用下划线命名法，单词禁止出现拼音；" class="headerlink" title="基本规则：全部小写，采用下划线命名法，单词禁止出现拼音；"></a>基本规则：全部小写，采用下划线命名法，单词禁止出现拼音；</h5><p>如果图片可以为各个模块公用可不加模块名，否则需加模块名。</p>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th style="text-align:center">规则</th>
-<th style="text-align:center">举例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>按钮</td>
-<td style="text-align:center">btn_模块_功能_状态 或者 btn_功能_状态</td>
-<td style="text-align:center">btn_login_back_normal.png 或者 btn_back_normal.png</td>
-</tr>
-<tr>
-<td>图标类</td>
-<td style="text-align:center">icon_模块_说明 或者 icon_说明</td>
-<td style="text-align:center">icon_usercenter_userheader.png 或者 icon_userheader.png</td>
-</tr>
-<tr>
-<td>背景</td>
-<td style="text-align:center">bg_模块 或者 bg_说明</td>
-<td style="text-align:center">bg_login.png 或者 bg_white.png</td>
-</tr>
-<tr>
-<td>图片</td>
-<td style="text-align:center">img_模块_说明 或者 img_说明</td>
-<td style="text-align:center">img_login_header.png 或者 img_header.png</td>
-</tr>
-<tr>
-<td>带点击效果控件</td>
-<td style="text-align:center">btn_模块_功能_selector 或者 btn_功能_selector</td>
-<td style="text-align:center">btn_login_back_selector.xml 或者 btn_back_selector.xml</td>
-</tr>
-<tr>
-<td>默认图</td>
-<td style="text-align:center">def_模块_说明 或者 def_说明</td>
-<td style="text-align:center">def_usercenter_header.png 或者 def_header.png</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th style="text-align:center">状态</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>_normal</td>
-<td style="text-align:center">默认</td>
-</tr>
-<tr>
-<td>_pressed</td>
-<td style="text-align:center">按下</td>
-</tr>
-<tr>
-<td>_focused</td>
-<td style="text-align:center">获取焦点</td>
-</tr>
-<tr>
-<td>_disabled</td>
-<td style="text-align:center">不可点击</td>
-</tr>
-<tr>
-<td>_checked  _selected</td>
-<td style="text-align:center">选中</td>
-</tr>
-<tr>
-<td>_hovered</td>
-<td style="text-align:center">获取光标</td>
-</tr>
-<tr>
-<td>_checkable</td>
-<td style="text-align:center">可被选中</td>
-</tr>
-<tr>
-<td>_activated</td>
-<td style="text-align:center">激活</td>
-</tr>
-<tr>
-<td>_windowfocused</td>
-<td style="text-align:center">窗口焦点</td>
-</tr>
-</tbody>
-</table>
-<p>点击效果状态命名规则(参考自<a href="https://github.com/inmite/android-selector-chapek" target="_blank" rel="external">android-selector-chapek</a>使用本规则可使用android-selector-chapek插件快速生成selecter文件)</p>
-<h4 id="8-布局文件"><a href="#8-布局文件" class="headerlink" title="8 布局文件"></a>8 布局文件</h4><h5 id="基本规则：全部小写，下划线命名法-单词禁止出现拼音；"><a href="#基本规则：全部小写，下划线命名法-单词禁止出现拼音；" class="headerlink" title="基本规则：全部小写，下划线命名法,单词禁止出现拼音；"></a>基本规则：全部小写，下划线命名法,单词禁止出现拼音；</h5><table>
-<thead>
-<tr>
-<th>名称</th>
-<th style="text-align:center">规则</th>
-<th style="text-align:center">举例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Activity</td>
-<td style="text-align:center">activity_模块名.xml</td>
-<td style="text-align:center">activity_register.xml</td>
-</tr>
-<tr>
-<td>Fragment</td>
-<td style="text-align:center">fragment_模块名.xml</td>
-<td style="text-align:center">fragment_map.xml</td>
-</tr>
-<tr>
-<td>Dialog</td>
-<td style="text-align:center">dialog_说明.xml</td>
-<td style="text-align:center">dialog_editname.xml</td>
-</tr>
-<tr>
-<td>List列表</td>
-<td style="text-align:center">listitem_说明.xml</td>
-<td style="text-align:center">listitem_partners.xml</td>
-</tr>
-<tr>
-<td>PopupWindow</td>
-<td style="text-align:center">ppw_说明.xml</td>
-<td style="text-align:center">ppw_floorlist.xml</td>
-</tr>
-<tr>
-<td>其他子布局</td>
-<td style="text-align:center">模块_说明_item.xml</td>
-<td style="text-align:center">main_menu_item.xml</td>
-</tr>
-<tr>
-<td>包含项</td>
-<td style="text-align:center">include_说明.xml</td>
-<td style="text-align:center">include_header.xml</td>
-</tr>
-</tbody>
-</table>
-<h4 id="9-动画文件"><a href="#9-动画文件" class="headerlink" title="9 动画文件"></a>9 动画文件</h4><h5 id="基本规则-全部小写，下划线命名法"><a href="#基本规则-全部小写，下划线命名法" class="headerlink" title="基本规则;全部小写，下划线命名法;"></a>基本规则;全部小写，下划线命名法;</h5><h4 id="10-控件Id"><a href="#10-控件Id" class="headerlink" title="10 控件Id"></a>10 控件Id</h4><h5 id="基本规则：全部小写，下划线命名法-单词禁止出现拼音；-1"><a href="#基本规则：全部小写，下划线命名法-单词禁止出现拼音；-1" class="headerlink" title="基本规则：全部小写，下划线命名法,单词禁止出现拼音；"></a>基本规则：全部小写，下划线命名法,单词禁止出现拼音；</h5><p>格式：功能_控件缩写</p>
-<table>
-<thead>
-<tr>
-<th>控件</th>
-<th style="text-align:center">缩写</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Button</td>
-<td style="text-align:center">btn</td>
-</tr>
-<tr>
-<td>TextView</td>
-<td style="text-align:center">tv</td>
-</tr>
-<tr>
-<td>ImageButton</td>
-<td style="text-align:center">imgbtn</td>
-</tr>
-<tr>
-<td>ImageView</td>
-<td style="text-align:center">img</td>
-</tr>
-<tr>
-<td>Linearlayout</td>
-<td style="text-align:center">ll</td>
-</tr>
-<tr>
-<td>Relativelayout</td>
-<td style="text-align:center">rl</td>
-</tr>
-<tr>
-<td>Framelayout</td>
-<td style="text-align:center">fl</td>
-</tr>
-<tr>
-<td>EditText</td>
-<td style="text-align:center">edt</td>
-</tr>
-<tr>
-<td>SeekBar</td>
-<td style="text-align:center">skbar</td>
-</tr>
-<tr>
-<td>ScollView</td>
-<td style="text-align:center">scv</td>
-</tr>
-<tr>
-<td>ListView</td>
-<td style="text-align:center">lv</td>
-</tr>
-<tr>
-<td>ProgressBar</td>
-<td style="text-align:center">psbar</td>
-</tr>
-<tr>
-<td>WebView</td>
-<td style="text-align:center">wbv</td>
-</tr>
-</tbody>
-</table>
-<h4 id="10-colors-xml"><a href="#10-colors-xml" class="headerlink" title="10 colors.xml"></a>10 colors.xml</h4><p>基本规则：全部小写，下划线命名法；</p>
-<table>
-<thead>
-<tr>
-<th>分类</th>
-<th style="text-align:center">规则</th>
-<th style="text-align:center">举例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>纯色</td>
-<td style="text-align:center">直接色值命名</td>
-<td style="text-align:center">black</td>
-</tr>
-<tr>
-<td>非纯色</td>
-<td style="text-align:center">模块<em>说明</em>主题色</td>
-<td style="text-align:center">login_username_light</td>
-</tr>
-</tbody>
-</table>
-<p>如果APP只有单一主题可不用设置主题色</p>
-<h4 id="11-自定义View"><a href="#11-自定义View" class="headerlink" title="11 自定义View"></a>11 自定义View</h4><h5 id="基本规则：大驼峰命名法，以View结尾"><a href="#基本规则：大驼峰命名法，以View结尾" class="headerlink" title="基本规则：大驼峰命名法，以View结尾"></a>基本规则：大驼峰命名法，以View结尾</h5><p>格式：功能+View<br>举例：TipsView；</p>
-<h4 id="12-Menu菜单"><a href="#12-Menu菜单" class="headerlink" title="12 Menu菜单"></a>12 Menu菜单</h4><h5 id="基本规则：全部小写，下划线命名法；"><a href="#基本规则：全部小写，下划线命名法；" class="headerlink" title="基本规则：全部小写，下划线命名法；"></a>基本规则：全部小写，下划线命名法；</h5><p>格式：模块_功能.xml<br>举例：search<em>add.xml<br>因为menu文件统一放在menu文件夹下所以不需要再加menu</em>前缀。</p>
-<h4 id="13-strings-xml"><a href="#13-strings-xml" class="headerlink" title="13 strings.xml"></a>13 strings.xml</h4><p>//还没想好</p>
-<p>参考<br><a href="http://www.blogjava.net/zh-weir/archive/2014/02/08/409608.html" target="_blank" rel="external">Google Java Style 中文版</a><br><a href="http://source.android.com/source/code-style.html" target="_blank" rel="external">Android Code Style</a><br><a href="https://github.com/futurice/android-best-practices/blob/master/translations/Chinese/README.cn.md" target="_blank" rel="external">Android 开发最佳实践</a></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 文档 </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[【瓦片地图HdTileView】-白世伟]]></title>
-      <url>http://yoursite.com/2017/03/22/%E3%80%90%E7%93%A6%E7%89%87%E5%9C%B0%E5%9B%BEHdTileView%E3%80%91-%E7%99%BD%E4%B8%96%E4%BC%9F/</url>
-      <content type="html"><![CDATA[<h1 id="HDTileView"><a href="#HDTileView" class="headerlink" title="HDTileView"></a>HDTileView</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>基于最新版本TileView，继承原有TileView，Picasso加载瓦片，封装开发中常用方法；</p>
-<h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h2><h4 id="V0-0-3"><a href="#V0-0-3" class="headerlink" title="V0.0.3"></a>V0.0.3</h4><ul>
-<li>修复onCreate函数中调用placeMarkerWithScale方法不直接显示markers问题</li>
-</ul>
-<h4 id="V0-0-2"><a href="#V0-0-2" class="headerlink" title="V0.0.2"></a>V0.0.2</h4><ul>
-<li>支持加载网络瓦片</li>
-<li>支持加载网络预缓存图片</li>
-</ul>
-<h4 id="V0-0-1"><a href="#V0-0-1" class="headerlink" title="V0.0.1"></a>V0.0.1</h4><ul>
-<li>完成基础框架构建</li>
-<li>marker增加动画效果</li>
-<li>marker支持缩放设置</li>
-<li>添加最小全屏模式</li>
-<li>支持滑动效果</li>
-<li>完成加载预缓冲图片</li>
-</ul>
-<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p>（限本地测试）导入测试资源：将resource.zip解压后拷贝到sdcard根目录下</p>
-<h3 id="引入插件"><a href="#引入插件" class="headerlink" title="引入插件"></a>引入插件</h3><blockquote>
-<p>Gradle:</p>
-</blockquote>
-<pre><code>compile &apos;com.hengda.frame.tileview:library:0.0.3&apos;
-</code></pre><blockquote>
-<p>Maven:</p>
-</blockquote>
-<pre><code>&lt;dependency&gt;
-  &lt;groupId&gt;com.hengda.frame.tileview&lt;/groupId&gt;
-  &lt;artifactId&gt;library&lt;/artifactId&gt;
-  &lt;version&gt;0.0.3&lt;/version&gt;
-  &lt;type&gt;pom&lt;/type&gt;
-&lt;/dependency&gt;
-</code></pre><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="1-Xml中；"><a href="#1-Xml中；" class="headerlink" title="1.Xml中；"></a>1.Xml中；</h4><pre><code>&lt;com.hengda.frame.tileview.HDTileView
-    android:id=&quot;@+id/tileView&quot;
-    android:layout_width=&quot;match_parent&quot;
-    android:layout_height=&quot;match_parent&quot;/&gt;
-</code></pre><h4 id="2-Java代码中；"><a href="#2-Java代码中；" class="headerlink" title="2.Java代码中；"></a>2.Java代码中；</h4><pre><code>HDTileView mTileView=new HDTileView(this);
-</code></pre><h4 id="3-初始化配置"><a href="#3-初始化配置" class="headerlink" title="3 初始化配置"></a>3 初始化配置</h4><pre><code>/**
- * 初始化
- *
- * @param maxScale 缩放级数
- * @param width    总宽度
- * @param height   总高度
- * @param mapUrl   瓦片路徑
- */
-public void init(int maxScale, int width, int height,String mapUrl) 
-
-loadMapFromHttpUseGlide();//使用Glide加载网络图片，默认开启硬盘缓存节省用户流量（推荐）
-loadMapFromHttpUsePicasso()//使用Picasso加载网络图片，不开启缓存，瓦片实时刷新
-loadMapFromDisk()//使用picasso加载本地瓦片
-</code></pre><p>到此瓦片地图已经可以正常显示。</p>
-<h4 id="4-加载预缓冲图片"><a href="#4-加载预缓冲图片" class="headerlink" title="4 加载预缓冲图片"></a>4 加载预缓冲图片</h4><p>（1）从sdcard或网络加载</p>
-<pre><code>mTileView.addSample(uri);
-</code></pre><p>（2）从res中加载</p>
-<pre><code>public void addSample(int resId)
-</code></pre><h4 id="5-添加marker"><a href="#5-添加marker" class="headerlink" title="5 添加marker"></a>5 添加marker</h4><pre><code>mTileView.placeMarkerWithScale(int resId, double x, double y, Object tag);
-</code></pre><p>或者</p>
-<pre><code>mTileView.placeMarkerWithScale(Bitmap bitmap, double x, double y, Object tag);
-</code></pre><h5 id="6-其他效果设置"><a href="#6-其他效果设置" class="headerlink" title="6 其他效果设置"></a>6 其他效果设置</h5><p>（1）</p>
-<pre><code>/**
- * delay时间内滑动到指定位置并放大/缩小到指定scale
- * @param x
- * @param y
- * @param scale
- * @param delay
- */
-public void slideToPositionWithScale(final double x, final double y, final float scale,final int delay) 
-</code></pre><p>（2）</p>
-<pre><code>/**
- * delay时间内滑动到指定位置
- * @param x
- * @param y
- * @param delay
- */
-public void slideToPosition(final double x, final double y, final int delay) 
-</code></pre><p>（3）</p>
-<pre><code>/**
- * 最小全屏模式
- */
-public void setMinimumScaleFullScreen()；
-</code></pre>]]></content>
-      
-        <categories>
-            
-            <category> Android </category>
-            
-            <category> Model </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[【移动支付AndroidPay】-祝文飞]]></title>
-      <url>http://yoursite.com/2017/03/20/%E3%80%90%E7%A7%BB%E5%8A%A8%E6%94%AF%E4%BB%98AndroidPay%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</url>
+      <title><![CDATA[【移动支付框架-AndroidPay】]]></title>
+      <url>http://yoursite.com/2017/03/20/%E7%A7%BB%E5%8A%A8%E6%94%AF%E4%BB%98%E6%A1%86%E6%9E%B6-AndroidPay/</url>
       <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>移动支付框架，封装了微信支付、支付宝支付，两种支付方式保持了统一的使用风格，使用方便。</p>
 <h2 id="二、版本"><a href="#二、版本" class="headerlink" title="二、版本"></a>二、版本</h2><p>最新版本0.0.1，compile ‘com.hengda.zwf:AndroidPay:0.0.1’</p>
 <h2 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h2><h3 id="1、修改AndroidManifest-xml"><a href="#1、修改AndroidManifest-xml" class="headerlink" title="1、修改AndroidManifest.xml"></a>1、修改AndroidManifest.xml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;activity</div><div class="line">    android:name=&quot;com.hengda.zwf.androidpay.WXPayCallbackActivity&quot;</div><div class="line">    android:configChanges=&quot;orientation|keyboardHidden|navigation|screenSize&quot;</div><div class="line">    android:launchMode=&quot;singleTop&quot;</div><div class="line">    android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar&quot; /&gt;</div><div class="line">&lt;activity-alias</div><div class="line">    android:name=&quot;.wxapi.WXPayEntryActivity&quot;</div><div class="line">    android:exported=&quot;true&quot;</div><div class="line">    android:targetActivity=&quot;com.hengda.zwf.androidpay.WXPayCallbackActivity&quot; /&gt;</div></pre></td></tr></table></figure>
@@ -613,198 +72,29 @@ public void setMinimumScaleFullScreen()；
         </categories>
         
         
-    </entry>
-    
-    <entry>
-      <title><![CDATA[【导览机项目模板】-祝文飞]]></title>
-      <url>http://yoursite.com/2017/03/17/%E3%80%90%E5%AF%BC%E8%A7%88%E6%9C%BA%E9%A1%B9%E7%9B%AE%E6%A8%A1%E6%9D%BF%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</url>
-      <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>参考GeekNews，基于RxJava2，Dagger2，Retrofit2搭建，采用MVP模式。封装了文件下载，多模收号，网络交互、数据库操作、自动更新等功能。</p>
-<h2 id="二、项目地址"><a href="#二、项目地址" class="headerlink" title="二、项目地址"></a>二、项目地址</h2><p><a href="https://git.oschina.net/tailyou/Hd_Smart_Template_D" target="_blank" rel="external">https://git.oschina.net/tailyou/Hd_Smart_Template_D</a></p>
-<h2 id="二、依赖"><a href="#二、依赖" class="headerlink" title="二、依赖"></a>二、依赖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">//tailyou</div><div class="line">compile &apos;com.hengda.zwf:HttpUtil:1.0.2&apos;</div><div class="line">compile &apos;com.hengda.zwf:AutoNoUtil:1.0.1&apos;</div><div class="line">compile &apos;com.hengda.zwf:CommonUtil:1.0.1&apos;</div><div class="line">compile &apos;com.hengda.zwf:CommonAdapter:1.0.2&apos;</div><div class="line">compile &apos;com.hengda.zwf:HdDialog:0.0.6&apos;</div><div class="line">//di</div><div class="line">compile &apos;com.google.dagger:dagger:2.9&apos;</div><div class="line">annotationProcessor &apos;com.google.dagger:dagger-compiler:2.9&apos;</div><div class="line">compile &apos;com.jakewharton:butterknife:8.5.1&apos;</div><div class="line">compile &apos;com.jakewharton:butterknife-compiler:8.5.1&apos;</div><div class="line">//other</div><div class="line">compile &apos;com.qozix:tileview:2.2.6&apos;</div><div class="line">compile &apos;com.orhanobut:logger:1.15&apos;</div><div class="line">compile &apos;me.yokeyword:fragmentation:0.10.1&apos;</div><div class="line">compile &apos;com.tencent.bugly:crashreport:2.4.0&apos;</div><div class="line">compile &apos;com.github.bumptech.glide:glide:3.7.0&apos;</div><div class="line">compile &apos;com.github.chrisbanes:PhotoView:1.3.1&apos;</div><div class="line">compile &apos;org.greenrobot:greendao:3.2.0&apos;</div><div class="line">compile &apos;org.greenrobot:greendao-generator:3.2.0&apos;</div><div class="line">compile &apos;com.android.support:multidex:1.0.1&apos;</div></pre></td></tr></table></figure>
-]]></content>
-      
-        <categories>
+        <tags>
             
-            <category> Android </category>
+            <tag> 支付 </tag>
             
-            <category> 项目模板 </category>
-            
-        </categories>
-        
+        </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[【Android项目模板】-祝文飞]]></title>
-      <url>http://yoursite.com/2017/03/17/%E3%80%90Android%E9%A1%B9%E7%9B%AE%E6%A8%A1%E6%9D%BF%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</url>
-      <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>参考GeekNews，基于RxJava2，Dagger2，Retrofit2搭建，采用MVP模式。封装了文件下载，多模收号，网络交互、数据库操作、自动更新等功能，集成了腾讯Bugly，内存泄漏检测、过度绘制检测。</p>
-<h2 id="二、项目地址"><a href="#二、项目地址" class="headerlink" title="二、项目地址"></a>二、项目地址</h2><p><a href="https://git.oschina.net/tailyou/Hd_Smart_Template" target="_blank" rel="external">https://git.oschina.net/tailyou/Hd_Smart_Template</a></p>
-<h2 id="二、依赖"><a href="#二、依赖" class="headerlink" title="二、依赖"></a>二、依赖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">//tailyou</div><div class="line">compile &apos;com.hengda.zwf:HttpUtil:1.0.2&apos;</div><div class="line">compile &apos;com.hengda.zwf:AutoNoUtil:1.0.2&apos;</div><div class="line">compile &apos;com.hengda.zwf:CommonUtil:1.0.1&apos;</div><div class="line">compile &apos;com.hengda.zwf:CommonAdapter:1.0.2&apos;</div><div class="line">compile &apos;com.hengda.zwf:HdDialog:0.0.6&apos;</div><div class="line">//di</div><div class="line">compile &apos;com.google.dagger:dagger:2.9&apos;</div><div class="line">annotationProcessor &apos;com.google.dagger:dagger-compiler:2.9&apos;</div><div class="line">compile &apos;com.jakewharton:butterknife:8.5.1&apos;</div><div class="line">compile &apos;com.jakewharton:butterknife-compiler:8.5.1&apos;</div><div class="line">//canary</div><div class="line">compile &apos;com.squareup.leakcanary:leakcanary-android:1.5&apos;</div><div class="line">compile &apos;com.squareup.leakcanary:leakcanary-android-no-op:1.5&apos;</div><div class="line">compile &apos;com.github.markzhai:blockcanary-android:1.4.1&apos;</div><div class="line">compile &apos;com.github.markzhai:blockcanary-no-op:1.4.1&apos;</div><div class="line">//other</div><div class="line">compile &apos;com.qozix:tileview:2.2.6&apos;</div><div class="line">compile &apos;com.orhanobut:logger:1.15&apos;</div><div class="line">compile &apos;me.yokeyword:fragmentation:0.10.1&apos;</div><div class="line">compile &apos;com.tencent.bugly:crashreport:2.4.0&apos;</div><div class="line">compile &apos;com.github.bumptech.glide:glide:3.7.0&apos;</div><div class="line">compile &apos;com.github.chrisbanes:PhotoView:1.3.1&apos;</div><div class="line">compile &apos;org.greenrobot:greendao:3.2.0&apos;</div><div class="line">compile &apos;org.greenrobot:greendao-generator:3.2.0&apos;</div><div class="line">compile &apos;com.github.hotchemi:permissionsdispatcher:2.3.1&apos;</div><div class="line">compile &apos;com.android.support:multidex:1.0.1&apos;</div><div class="line">annotationProcessor &apos;com.github.hotchemi:permissionsdispatcher-processor:2.3.1&apos;</div></pre></td></tr></table></figure>
-]]></content>
-      
-        <categories>
-            
-            <category> Android </category>
-            
-            <category> 项目模板 </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[【文件下载FileLoader】-白世伟]]></title>
-      <url>http://yoursite.com/2017/03/17/%E3%80%90%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BDFileLoader%E3%80%91-%E7%99%BD%E4%B8%96%E4%BC%9F/</url>
-      <content type="html"><![CDATA[<h1 id="HDFileLoader-文件下载框架"><a href="#HDFileLoader-文件下载框架" class="headerlink" title="HDFileLoader-文件下载框架"></a>HDFileLoader-文件下载框架</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>基于OKHttp3开发，自带服务器和本地资源文件的同步更新。具体使用方式详见Samples</p>
-<h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h2><h4 id="V0-0-1"><a href="#V0-0-1" class="headerlink" title="V0.0.1"></a>V0.0.1</h4><ul>
-<li>完成基础框架构建</li>
-<li><p>增加资源同步更新</p>
-<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><h3 id="引入插件"><a href="#引入插件" class="headerlink" title="引入插件"></a>引入插件</h3><blockquote>
-<p>Gradle:</p>
-</blockquote>
-<pre><code>暂无
-</code></pre><blockquote>
-<p>Maven:</p>
-</blockquote>
-<pre><code>暂无
-</code></pre></li>
-</ul>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="1-在Application-onCreate中初始化全局配置；"><a href="#1-在Application-onCreate中初始化全局配置；" class="headerlink" title="1.在Application.onCreate中初始化全局配置；"></a>1.在Application.onCreate中初始化全局配置；</h4><pre><code>OkHttpClient okHttpClient = new OkHttpClient.Builder()
-         connectTimeout(10000L, TimeUnit.MILLISECONDS)
-         readTimeout(10000L, TimeUnit.MILLISECONDS)
-         addInterceptor(new LoggerInterceptor(&quot;TAG&quot;))
-         build();
-HDFileLoader.initClient(getApplicationContext(),okHttpClient);
-</code></pre><p>注意:addInterceptor(new LoggerInterceptor(“TAG”))用于输出debug调试信息，如果不需要可以去掉。</p>
-<h5 id="FileLoader有两种使用方式，一种是自带下载框，一种是基础版下载框架-需要自定义下载框；"><a href="#FileLoader有两种使用方式，一种是自带下载框，一种是基础版下载框架-需要自定义下载框；" class="headerlink" title="FileLoader有两种使用方式，一种是自带下载框，一种是基础版下载框架,需要自定义下载框；"></a>FileLoader有两种使用方式，一种是自带下载框，一种是基础版下载框架,需要自定义下载框；</h5><h4 id="2-使用自带下载框的方式"><a href="#2-使用自带下载框的方式" class="headerlink" title="2 使用自带下载框的方式"></a>2 使用自带下载框的方式</h4><p>(1)在Presenter，Fragment或Activity中实现DownloadCallBackListener接口，并实现以下三个回调方法</p>
-<pre><code>@Override
-public void completed(File file) {
-    //下载完成后回调此方法，返回下载文件，可通过file.getAbsolutePath()获取绝对路径;
-}
-
-@Override
-public void justPlay(String fileDir) {
-    //此方法回调分两种方式
-    //1，若果没有开启检查更新功能则判断本地文件是否存在，存在则回调；
-    //2，如果开启了检查更新功能，如果下载文件不需要更新则回调；
-}
-
-@Override
-public void error(Exception e) {
-    //下载失败回调，例如没有网络，连接超时，找不到下载地址（404），无法访问存储路径等等。
-}
-</code></pre><p>（2）开始下载</p>
-<pre><code>Downloader.Builder.create(MainActivity.this)
-                        .url(url)//下载地址
-                        .src(basicPath + &quot;0002/0002.aac&quot;)//源资源路径（例如播放路徑）
-                        .des(basicPath)//下载保存路径
-                        .name(&quot;0002.zip&quot;)//保存的文件名
-                        .title(&quot;正在下载&quot;)//下载框标题
-                        .ckeck(true)//是否自动检查更新，默认false
-                        .unzip(true)//是否需要解压缩，默认true
-                        .listener(MainActivity.this)//回调监听
-                        .showCancel(true)//是否显示取消按钮，默认false
-                        .build()
-                        .start();//开始下载
-</code></pre><h4 id="3-使用基础版下载框架"><a href="#3-使用基础版下载框架" class="headerlink" title="3.使用基础版下载框架"></a>3.使用基础版下载框架</h4><p>（1）创建一个RequestCall</p>
-<pre><code>RequestCall call = HDFileLoader.get().url(url).build();
-</code></pre><p>url为资源下载地址。<br>（2）创建FileCallBack回调，监听下载中的各种状态</p>
-<pre><code>callBack=new FileCallBack(mSrc, mDes, mName, mCheck) {
-    @Override
-    public void connected(long total, int id) {
-
-        //进行一些初始化的操作
-    }
-
-    @Override
-    public void inProgress(float progress, long total, int id) {
-
-        //下载进度回调，progress为已完成百分比，total为总长；
-    }
-
-    @Override
-    public void completed(File file, int id) {
-
-        //下载完成时回调，可以在这里解压缩及后续操作
-    }
-
-    @Override
-    public void justPlay(String destFileDir) {
-        //回调同带下载框方式一样
-    }
-
-    @Override
-    public void onError(Call call, Exception e, int id) {
-
-        //下载失败回调，例如没有网络，连接超时，找不到下载地址（404），无法访问存储路径等等。
-    }
-};
-</code></pre><p>FileCallBack需要传入四个参数：</p>
-<ol>
-<li>源资源路径（例如播放路徑）；</li>
-<li>下载路径。板锉</li>
-<li>保存的文件名</li>
-<li>是否启用检查更新</li>
-</ol>
-<h4 id="4-开始下载"><a href="#4-开始下载" class="headerlink" title="4.开始下载"></a>4.开始下载</h4><pre><code>call.execute(callBack);
-</code></pre><h4 id="5-取消下载"><a href="#5-取消下载" class="headerlink" title="5.取消下载"></a>5.取消下载</h4><pre><code>call.cancel();
-</code></pre>]]></content>
-      
-        <categories>
-            
-            <category> Android </category>
-            
-            <category> Model </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[【移动支付MobilePay】-常文达]]></title>
-      <url>http://yoursite.com/2017/03/17/%E3%80%90%E7%A7%BB%E5%8A%A8%E6%94%AF%E4%BB%98MobilePay%E3%80%91-%E5%B8%B8%E6%96%87%E8%BE%BE/</url>
-      <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>支付宝和微信支付</p>
-<h2 id="二、引入方法"><a href="#二、引入方法" class="headerlink" title="二、引入方法"></a>二、引入方法</h2><p>dependencies {<br>      compile ‘com.wenda.pay:wd_pay:0.0.8’<br>}</p>
-<h2 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h2><p>支付宝支付<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">AliPayReq aliPayReq = new AliPayReq.Builder()</div><div class="line">        .with(MainActivity.this)</div><div class="line">        .setOrderInfo(OrderInfo) //OrderInfo为订单详情，服务器拼好的</div><div class="line">        .create()</div><div class="line"></div><div class="line"> PayAPI.getInstance().sendPayRequest(aliPayReq);//调起支付</div><div class="line"></div><div class="line">//关于支付宝支付的回调</div><div class="line">//aliPayReq.setOnAliPayListener(new OnAliPayListener);</div></pre></td></tr></table></figure></p>
-<p>回调说明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">.setOnAliPayListener(new AliPayReq.OnAliPayListener() &#123;</div><div class="line">                         @Override</div><div class="line">                         public void onPaySuccess(String resultInfo) &#123;</div><div class="line">                             Toast.makeText(MainActivity.this,&quot;支付成功&quot;,Toast.LENGTH_LONG).show();</div><div class="line">                         &#125;</div><div class="line"></div><div class="line">                         @Override</div><div class="line">                         public void onPayFailure(String resultInfo) &#123;//包括用户主动取消支付，或者系统返回的错误</div><div class="line">                             Toast.makeText(MainActivity.this,&quot;支付失败&quot;,Toast.LENGTH_LONG).show();</div><div class="line">                         &#125;</div><div class="line"></div><div class="line">                         @Override</div><div class="line">                         public void onPayConfirmimg(String resultInfo) &#123;//代表支付结果因为支付渠道原因或者系统原因还在等待支付结果确认，最终交易是否成功以服务端异步通知为准（小概率状态）</div><div class="line">                             Toast.makeText(MainActivity.this,&quot;支付失败&quot;,Toast.LENGTH_LONG).show();</div><div class="line">                         &#125;</div><div class="line">                     &#125;);</div></pre></td></tr></table></figure></p>
-<p>微信支付<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">WechatPayReq wechatPayReq = new WechatPayReq.Builder()</div><div class="line">                .with(MainActivity.this) //activity实例</div><div class="line">                .setAppId(&quot;AppId&quot;) //微信支付AppID</div><div class="line">                .setPartnerId(&quot;PartnerId&quot;)//微信支付商户号</div><div class="line">                .setPrepayId(&quot;PrepayId&quot;)//预支付码</div><div class="line">                .setNonceStr(&quot;NonceStr&quot;)</div><div class="line">                .setTimeStamp(&quot;TimeStamp&quot;)//时间戳</div><div class="line">                .setSign(&quot;Sign&quot;)//签名</div><div class="line">                .create();</div><div class="line">        PayAPI.getInstance().sendPayRequest(wechatPayReq);//调起支付</div><div class="line">          //关于微信支付的回调  要在支付前调用</div><div class="line">        wechatPayReq.init(getApplicationContext(), &quot;AppId&quot;);</div><div class="line">        WechatPayReq.getInstance().setWXPayResultCallBack();</div></pre></td></tr></table></figure></p>
-<p>回调说明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">WechatPayReq.getInstance().setWXPayResultCallBack(new WechatPayReq.WXPayResultCallBack() &#123;</div><div class="line">      @Override</div><div class="line">      public void onSuccess() &#123;</div><div class="line">          Toast.makeText(MainActivity.this,&quot;支付成功&quot;,Toast.LENGTH_LONG).show();</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      @Override</div><div class="line">      public void onError(int error_code) &#123;//错误 可能的原因：签名错误、未注册APPID、项目设置APPID不正确、注册的APPID与设置的不匹配、其他异常等</div><div class="line">          Toast.makeText(MainActivity.this,&quot;支付失败&quot;,Toast.LENGTH_LONG).show();</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      @Override</div><div class="line">      public void onCancel() &#123;// 用户取消 无需处理。发生场景：用户不支付了，点击取消，返回APP。</div><div class="line">          Toast.makeText(MainActivity.this,&quot;支付失败&quot;,Toast.LENGTH_LONG).show();</div><div class="line">      &#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure></p>
-<p>微信支付需增加的权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;activity</div><div class="line">        android:name=&quot;com.wenda.pay.WXPayCallbackActivity&quot;</div><div class="line">        android:configChanges=&quot;orientation|keyboardHidden|navigation|screenSize&quot;</div><div class="line">        android:launchMode=&quot;singleTop&quot;</div><div class="line">        android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar&quot; /&gt;</div><div class="line"></div><div class="line">    &lt;activity-alias</div><div class="line">        android:name=&quot;.wxapi.WXPayEntryActivity&quot;</div><div class="line">        android:exported=&quot;true&quot;</div><div class="line">        android:targetActivity=&quot;com.wenda.pay.WXPayCallbackActivity&quot; /&gt;</div></pre></td></tr></table></figure></p>
-<p>混淆</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#wechat pay</div><div class="line">-dontwarn com.tencent.**</div><div class="line">-keep class com.tencent.** &#123;*;&#125;</div><div class="line"></div><div class="line"></div><div class="line">#alipay</div><div class="line">-dontwarn com.alipay.**</div><div class="line">-keep class com.alipay.** &#123;*;&#125;</div><div class="line"></div><div class="line">-dontwarn  com.ta.utdid2.**</div><div class="line">-keep class com.ta.utdid2.** &#123;*;&#125;</div><div class="line"></div><div class="line">-dontwarn  com.ut.device.**</div><div class="line">-keep class com.ut.device.** &#123;*;&#125;</div><div class="line"></div><div class="line">-dontwarn  org.json.alipay.**</div><div class="line">-keep class corg.json.alipay.** &#123;*;&#125;</div></pre></td></tr></table></figure>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>###微信支付<br>微信支付必须是正式的签名包和正确的包名才能调起。</p>
-<p>微信支付<br><a href="https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=8_5" target="_blank" rel="external">https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=8_5</a></p>
-<p>支付宝支付<br><a href="https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.1wPnBT&amp;treeId=204&amp;articleId=106079&amp;docType=1" target="_blank" rel="external">https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.1wPnBT&amp;treeId=204&amp;articleId=106079&amp;docType=1</a></p>
-<p>demo里的数据是测试数据，都是已支付过的所以不能支付成功</p>
-]]></content>
-      
-        <categories>
-            
-            <category> Android </category>
-            
-            <category> Model </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[【提示弹框HdDialog】-祝文飞]]></title>
-      <url>http://yoursite.com/2017/03/17/%E3%80%90%E6%8F%90%E7%A4%BA%E5%BC%B9%E6%A1%86HdDialog%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</url>
+      <title><![CDATA[【通用提示弹框-OkDialog】]]></title>
+      <url>http://yoursite.com/2017/03/17/%E9%80%9A%E7%94%A8%E6%8F%90%E7%A4%BA%E5%BC%B9%E6%A1%86-OkDialog/</url>
       <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>通用Dialog，适用于ProgressDialog，BuilderDialog，可以设置字体、进入退出动画，同时兼容手机和导览机。</p>
-<h2 id="二、版本"><a href="#二、版本" class="headerlink" title="二、版本"></a>二、版本</h2><p>最新版本0.0.6，直接在gradle中添加即可。<br>compile ‘com.hengda.zwf:HdDialog:0.0.6’</p>
+<h2 id="二、版本"><a href="#二、版本" class="headerlink" title="二、版本"></a>二、版本</h2><p>OkDialog已上传jcenter，直接在gradle中添加依赖即可。<br>compile ‘com.hengda.zwf:OkDialog:0.0.1’</p>
 <h2 id="三、效果"><a href="#三、效果" class="headerlink" title="三、效果"></a>三、效果</h2><h3 id="1、ProgressDialog补间动画"><a href="#1、ProgressDialog补间动画" class="headerlink" title="1、ProgressDialog补间动画"></a>1、ProgressDialog补间动画</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-6/79120594-file_1486346779883_dc73.png" alt=""></p>
 <h3 id="2、ProgressDialog帧动画"><a href="#2、ProgressDialog帧动画" class="headerlink" title="2、ProgressDialog帧动画"></a>2、ProgressDialog帧动画</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-6/49606317-file_1486346779998_c220.png" alt=""></p>
 <h3 id="3、BuilderDialog默认布局"><a href="#3、BuilderDialog默认布局" class="headerlink" title="3、BuilderDialog默认布局"></a>3、BuilderDialog默认布局</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-6/95840505-file_1486346780216_7f00.png" alt=""></p>
 <h3 id="4、BuilderDialog自定义布局"><a href="#4、BuilderDialog自定义布局" class="headerlink" title="4、BuilderDialog自定义布局"></a>4、BuilderDialog自定义布局</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-6/76351990-file_1486346780326_3ff9.png" alt=""></p>
-<h2 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h2><p>此处以BuilderDialog自定义布局为例，简单介绍说使用，具体用法参见demo。<br>地址：<a href="https://git.oschina.net/tailyou/HD_Frame_CommonDialog" target="_blank" rel="external">https://git.oschina.net/tailyou/HD_Frame_CommonDialog</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 该方法通过提取文字参数和点击事件可以继续封装</div><div class="line"> *</div><div class="line"> * @author 祝文飞（Tailyou）</div><div class="line"> * @time 2017/2/6 9:37</div><div class="line"> */</div><div class="line">private void showCustomDlg() &#123;</div><div class="line">    HDialogBuilder hDialogBuilder = new HDialogBuilder(mContext);</div><div class="line"></div><div class="line">    View customView = View.inflate(mContext, R.layout.dialog_custom_view_all, null);</div><div class="line">    TextView tvTitle = HdTool.getView(customView, R.id.tvTitle);</div><div class="line">    TextView tvMsg = HdTool.getView(customView, R.id.tvMsg);</div><div class="line">    TextView btnYes = HdTool.getView(customView, R.id.btnYes);</div><div class="line">    TextView btnNo = HdTool.getView(customView, R.id.btnNo);</div><div class="line">    tvTitle.setText(&quot;注销&quot;);</div><div class="line">    tvMsg.setText(&quot;退出账号可能会使连续登录记录归零，确定退出？&quot;);</div><div class="line">    btnYes.setText(&quot;确定退出&quot;);</div><div class="line">    btnNo.setText(&quot;取消&quot;);</div><div class="line">    btnYes.setOnClickListener(v -&gt; hDialogBuilder.dismiss());</div><div class="line">    btnNo.setOnClickListener(v -&gt; hDialogBuilder.dismiss());</div><div class="line"></div><div class="line">    hDialogBuilder.setCustomView(customView)</div><div class="line">            .dlgColor(Color.TRANSPARENT)</div><div class="line">            .cancelable(false)</div><div class="line">            .show();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>封装后:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">private void showCustomDlg(String title, String msg, String txtYes, String txtNo,</div><div class="line">                           DialogClickListener dialogClickListener) &#123;</div><div class="line">    hDialogBuilder = new HDialogBuilder(mContext);</div><div class="line"></div><div class="line">    View customView = View.inflate(mContext, R.layout.dialog_custom_view_all, null);</div><div class="line">    TextView tvTitle = HdTool.getView(customView, R.id.tvTitle);</div><div class="line">    TextView tvMsg = HdTool.getView(customView, R.id.tvMsg);</div><div class="line">    TextView btnYes = HdTool.getView(customView, R.id.btnYes);</div><div class="line">    TextView btnNo = HdTool.getView(customView, R.id.btnNo);</div><div class="line">    tvTitle.setText(title);</div><div class="line">    tvMsg.setText(msg);</div><div class="line">    btnYes.setText(txtYes);</div><div class="line">    btnNo.setText(txtNo);</div><div class="line">    btnYes.setOnClickListener(v -&gt; dialogClickListener.p());</div><div class="line">    btnNo.setOnClickListener(v -&gt; dialogClickListener.n());</div><div class="line"></div><div class="line">    hDialogBuilder.setCustomView(customView)</div><div class="line">                    .dlgColor(Color.TRANSPARENT)</div><div class="line">                    .cancelable(false)</div><div class="line">                    .show();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>封装好之后，可以写到工具类中供直接调用.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 作者：Tailyou （祝文飞）</div><div class="line"> * 时间：2016/5/26 19:03</div><div class="line"> * 邮箱：tailyou@163.com</div><div class="line"> * 描述：Dialog工具类</div><div class="line"> */</div><div class="line">public class DialogCenter &#123;</div><div class="line"></div><div class="line">    private static HDialogBuilder hDialogBuilder;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 封装好的方法可以写到DialogCenter工具类中，供直接调用</div><div class="line">     *</div><div class="line">     * @author 祝文飞（Tailyou）</div><div class="line">     * @time 2017/2/6 9:39</div><div class="line">     */</div><div class="line">    public static void showCustomDlg(Context mContext, String title, String msg, String txtYes, String txtNo,</div><div class="line">                               DialogClickListener dialogClickListener) &#123;</div><div class="line">        hideDialog();</div><div class="line">        hDialogBuilder = new HDialogBuilder(mContext);</div><div class="line"></div><div class="line">        View customView = View.inflate(mContext, R.layout.dialog_custom_view_all, null);</div><div class="line">        TextView tvTitle = HdTool.getView(customView, R.id.tvTitle);</div><div class="line">        TextView tvMsg = HdTool.getView(customView, R.id.tvMsg);</div><div class="line">        TextView btnYes = HdTool.getView(customView, R.id.btnYes);</div><div class="line">        TextView btnNo = HdTool.getView(customView, R.id.btnNo);</div><div class="line">        tvTitle.setText(title);</div><div class="line">        tvMsg.setText(msg);</div><div class="line">        btnYes.setText(txtYes);</div><div class="line">        btnNo.setText(txtNo);</div><div class="line">        btnYes.setOnClickListener(v -&gt; dialogClickListener.p());</div><div class="line">        btnNo.setOnClickListener(v -&gt; dialogClickListener.n());</div><div class="line"></div><div class="line">        hDialogBuilder.setCustomView(customView)</div><div class="line">                        .dlgColor(Color.TRANSPARENT)</div><div class="line">                        .cancelable(false)</div><div class="line">                        .show();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 隐藏Dialog</div><div class="line">     */</div><div class="line">    public static void hideDialog() &#123;</div><div class="line">        if (hDialogBuilder != null) &#123;</div><div class="line">            hDialogBuilder.dismiss();</div><div class="line">            hDialogBuilder = null;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-]]></content>
+<h2 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h2><p>此处以BuilderDialog自定义布局为例，简单介绍说使用，具体用法参见demo。<br>地址：<a href="https://github.com/Tailyou/OkDialog" target="_blank" rel="external">https://github.com/Tailyou/OkDialog</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 该方法通过提取文字参数和点击事件可以继续封装</div><div class="line"> *</div><div class="line"> * <span class="doctag">@author</span> 祝文飞（Tailyou）</div><div class="line"> * <span class="doctag">@time</span> 2017/2/6 9:37</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showCustomDlg</span><span class="params">()</span> </span>&#123;</div><div class="line">    HDialogBuilder hDialogBuilder = <span class="keyword">new</span> HDialogBuilder(mContext);</div><div class="line">    View customView = View.inflate(mContext, R.layout.dialog_custom_view_all, <span class="keyword">null</span>);</div><div class="line">    TextView tvTitle = HdTool.getView(customView, R.id.tvTitle);</div><div class="line">    TextView tvMsg = HdTool.getView(customView, R.id.tvMsg);</div><div class="line">    TextView btnYes = HdTool.getView(customView, R.id.btnYes);</div><div class="line">    TextView btnNo = HdTool.getView(customView, R.id.btnNo);</div><div class="line">    tvTitle.setText(<span class="string">"注销"</span>);</div><div class="line">    tvMsg.setText(<span class="string">"退出账号可能会使连续登录记录归零，确定退出？"</span>);</div><div class="line">    btnYes.setText(<span class="string">"确定退出"</span>);</div><div class="line">    btnNo.setText(<span class="string">"取消"</span>);</div><div class="line">    btnYes.setOnClickListener(v -&gt; hDialogBuilder.dismiss());</div><div class="line">    btnNo.setOnClickListener(v -&gt; hDialogBuilder.dismiss());</div><div class="line">    hDialogBuilder.setCustomView(customView)</div><div class="line">            .dlgColor(Color.TRANSPARENT)</div><div class="line">            .cancelable(<span class="keyword">false</span>)</div><div class="line">            .show();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>封装后:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showCustomDlg</span><span class="params">(String title, String msg, String txtYes, String txtNo,</span></span></div><div class="line">                           DialogClickListener dialogClickListener) &#123;</div><div class="line">    hDialogBuilder = <span class="keyword">new</span> HDialogBuilder(mContext);</div><div class="line">    View customView = View.inflate(mContext, R.layout.dialog_custom_view_all, <span class="keyword">null</span>);</div><div class="line">    TextView tvTitle = HdTool.getView(customView, R.id.tvTitle);</div><div class="line">    TextView tvMsg = HdTool.getView(customView, R.id.tvMsg);</div><div class="line">    TextView btnYes = HdTool.getView(customView, R.id.btnYes);</div><div class="line">    TextView btnNo = HdTool.getView(customView, R.id.btnNo);</div><div class="line">    tvTitle.setText(title);</div><div class="line">    tvMsg.setText(msg);</div><div class="line">    btnYes.setText(txtYes);</div><div class="line">    btnNo.setText(txtNo);</div><div class="line">    btnYes.setOnClickListener(v -&gt; dialogClickListener.p());</div><div class="line">    btnNo.setOnClickListener(v -&gt; dialogClickListener.n());</div><div class="line">    hDialogBuilder.setCustomView(customView)</div><div class="line">                    .dlgColor(Color.TRANSPARENT)</div><div class="line">                    .cancelable(<span class="keyword">false</span>)</div><div class="line">                    .show();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>封装好之后，可以写到工具类中供直接调用.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 作者：Tailyou （祝文飞）</div><div class="line"> * 时间：2016/5/26 19:03</div><div class="line"> * 邮箱：tailyou@163.com</div><div class="line"> * 描述：Dialog工具类</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DialogCenter</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> HDialogBuilder hDialogBuilder;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 封装好的方法可以写到DialogCenter工具类中，供直接调用</div><div class="line">     *</div><div class="line">     * <span class="doctag">@author</span> 祝文飞（Tailyou）</div><div class="line">     * <span class="doctag">@time</span> 2017/2/6 9:39</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showCustomDlg</span><span class="params">(Context mContext, String title, String msg, String txtYes, String txtNo,</span></span></div><div class="line">                               DialogClickListener dialogClickListener) &#123;</div><div class="line">        hideDialog();</div><div class="line">        hDialogBuilder = <span class="keyword">new</span> HDialogBuilder(mContext);</div><div class="line"></div><div class="line">        View customView = View.inflate(mContext, R.layout.dialog_custom_view_all, <span class="keyword">null</span>);</div><div class="line">        TextView tvTitle = HdTool.getView(customView, R.id.tvTitle);</div><div class="line">        TextView tvMsg = HdTool.getView(customView, R.id.tvMsg);</div><div class="line">        TextView btnYes = HdTool.getView(customView, R.id.btnYes);</div><div class="line">        TextView btnNo = HdTool.getView(customView, R.id.btnNo);</div><div class="line">        tvTitle.setText(title);</div><div class="line">        tvMsg.setText(msg);</div><div class="line">        btnYes.setText(txtYes);</div><div class="line">        btnNo.setText(txtNo);</div><div class="line">        btnYes.setOnClickListener(v -&gt; dialogClickListener.p());</div><div class="line">        btnNo.setOnClickListener(v -&gt; dialogClickListener.n());</div><div class="line"></div><div class="line">        hDialogBuilder.setCustomView(customView)</div><div class="line">                        .dlgColor(Color.TRANSPARENT)</div><div class="line">                        .cancelable(<span class="keyword">false</span>)</div><div class="line">                        .show();</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 隐藏Dialog</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">hideDialog</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (hDialogBuilder != <span class="keyword">null</span>) &#123;</div><div class="line">            hDialogBuilder.dismiss();</div><div class="line">            hDialogBuilder = <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
       
         <categories>
             
@@ -815,11 +105,19 @@ public void error(Exception e) {
         </categories>
         
         
+        <tags>
+            
+            <tag> Dialog </tag>
+            
+            <tag> ProgressDialog </tag>
+            
+        </tags>
+        
     </entry>
     
     <entry>
-      <title><![CDATA[【数据适配器CommonAdapter】-祝文飞]]></title>
-      <url>http://yoursite.com/2017/03/17/%E3%80%90%E6%95%B0%E6%8D%AE%E9%80%82%E9%85%8D%E5%99%A8CommonAdapter%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</url>
+      <title><![CDATA[【通用数据适配器-OkAdapter】]]></title>
+      <url>http://yoursite.com/2017/03/17/%E9%80%9A%E7%94%A8%E6%95%B0%E6%8D%AE%E9%80%82%E9%85%8D%E5%99%A8-OkAdapter/</url>
       <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>通用Adapter，适用于单布局ListView、多布局ListView、单布局RecyclerView，多布局RecyclerView，带章节标题RecyclerView，GridView与ViewPage结合使用等情况。</p>
 <h2 id="二、版本"><a href="#二、版本" class="headerlink" title="二、版本"></a>二、版本</h2><p>最新版本1.0.2，直接在gradle中添加即可。<br>compile ‘com.hengda.zwf:CommonAdapter:1.0.2’</p>
 <h2 id="三、效果"><a href="#三、效果" class="headerlink" title="三、效果"></a>三、效果</h2><h3 id="1、单布局ListView"><a href="#1、单布局ListView" class="headerlink" title="1、单布局ListView"></a>1、单布局ListView</h3><p><img src="http://oksdjdocc.bkt.clouddn.com/17-2-3/89062263-file_1486106094623_13cca.png" alt=""></p>
@@ -840,39 +138,11 @@ public void error(Exception e) {
         </categories>
         
         
-    </entry>
-    
-    <entry>
-      <title><![CDATA[【多模收号AutoNoUtil】-祝文飞]]></title>
-      <url>http://yoursite.com/2017/03/17/%E3%80%90%E5%A4%9A%E6%A8%A1%E6%94%B6%E5%8F%B7AutoNoUtil%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</url>
-      <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>多模收号模块，包含rfid，ble，wifi三种收号方式。</p>
-<h2 id="二、版本"><a href="#二、版本" class="headerlink" title="二、版本"></a>二、版本</h2><p>最新版本1.0.2，compile ‘com.hengda.zwf:AutoNoUtil:1.0.2’</p>
-<h2 id="三、gradle依赖"><a href="#三、gradle依赖" class="headerlink" title="三、gradle依赖"></a>三、gradle依赖</h2><p>无</p>
-<h2 id="四、思路"><a href="#四、思路" class="headerlink" title="四、思路"></a>四、思路</h2><h3 id="1、BLE收号思路"><a href="#1、BLE收号思路" class="headerlink" title="1、BLE收号思路"></a>1、BLE收号思路</h3><ul>
-<li>1、启动蓝牙收号后，将后台扫描得到的 BluetoothDevice device, int rssi, byte[] scanRecord 解析成Beacon；</li>
-<li>2、以回调接口的形式，在收号服务中处理解析得到的Beacon，根据一定条件进行过滤，将符合条件的Beacon加入List；</li>
-<li>3、每隔一定时间间隔从List中取AutoNo，取的原则是：按平均rssi排序，较大为优</li>
-</ul>
-<h3 id="2、WiFi收号思路"><a href="#2、WiFi收号思路" class="headerlink" title="2、WiFi收号思路"></a>2、WiFi收号思路</h3><ul>
-<li>1、启动WiFi收号后，通过RxBus发送后台扫描得到的 ScanResult；</li>
-<li>2、在收号服务中接收 ScanResult，根据一定条件过滤，将符合条件的 ScanResult 加入List；</li>
-<li>3、每个一定时间间隔从List中取AutoNo，取的原则是：按平均 level 排序，较大为优</li>
-</ul>
-<h3 id="3、Rfid收号思路"><a href="#3、Rfid收号思路" class="headerlink" title="3、Rfid收号思路"></a>3、Rfid收号思路</h3><ul>
-<li>1、Rfid收号只有导览机使用，接收设备底层上传的数据并解析得到多模号；</li>
-<li>2、SerialPort及所在的包名不能修改。</li>
-</ul>
-<h2 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h2><p>具体使用见demo。<br>地址：<a href="https://git.oschina.net/tailyou/HD_Frame_AutoNoReceiver" target="_blank" rel="external">https://git.oschina.net/tailyou/HD_Frame_AutoNoReceiver</a></p>
-]]></content>
-      
-        <categories>
+        <tags>
             
-            <category> Android </category>
+            <tag> Adapter </tag>
             
-            <category> Model </category>
-            
-        </categories>
-        
+        </tags>
         
     </entry>
     

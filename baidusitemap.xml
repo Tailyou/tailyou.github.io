@@ -4,73 +4,65 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/04/16/%E3%80%90%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BDHttpUtil%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</loc>
-    <lastmod>2017-06-01T03:47:19.191Z</lastmod>
+    <loc>http://yoursite.com/2017/03/17/%E9%80%9A%E7%94%A8%E6%8F%90%E7%A4%BA%E5%BC%B9%E6%A1%86-OkDialog/</loc>
+    <lastmod>2017-06-01T05:57:59.749Z</lastmod>
     <data>
         <display>
-        <title>【文件下载HttpUtil】-祝文飞</title>
+        <title>【通用提示弹框-OkDialog】</title>
+        <pubTime>2017-03-17T00:14:05.000Z</pubTime>
+        
+        <tag>Dialog</tag>
+         
+        <tag>ProgressDialog</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="http://yoursite.com/categories/Android/"/>
+          
+             
+              <breadCrumb title="Model" url="http://yoursite.com/categories/Android/Model/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/03/20/%E7%A7%BB%E5%8A%A8%E6%94%AF%E4%BB%98%E6%A1%86%E6%9E%B6-AndroidPay/</loc>
+    <lastmod>2017-06-01T05:47:59.221Z</lastmod>
+    <data>
+        <display>
+        <title>【移动支付框架-AndroidPay】</title>
+        <pubTime>2017-03-20T11:36:45.000Z</pubTime>
+        
+        <tag>支付</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="http://yoursite.com/categories/Android/"/>
+          
+             
+              <breadCrumb title="Model" url="http://yoursite.com/categories/Android/Model/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/04/16/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD&%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%BA%93-OkRetrofit/</loc>
+    <lastmod>2017-06-01T05:43:35.156Z</lastmod>
+    <data>
+        <display>
+        <title>【文件下载&网络请求库-OkRetrofit】</title>
         <pubTime>2017-04-16T00:14:43.000Z</pubTime>
         
         <tag>Retrofit</tag>
          
+        <tag>文件下载</tag>
          
-           
-             
-              <breadCrumb title="Android" url="http://yoursite.com/categories/Android/"/>
-          
-             
-              <breadCrumb title="Model" url="http://yoursite.com/categories/Android/Model/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
-    <loc>http://yoursite.com/2017/03/28/%E3%80%90Hexo%E5%8D%9A%E5%AE%A2%E7%AE%80%E8%A6%81%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E3%80%91/</loc>
-    <lastmod>2017-03-28T02:42:15.897Z</lastmod>
-    <data>
-        <display>
-        <title>【Hexo博客简要使用说明】</title>
-        <pubTime>2017-03-28T02:19:05.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="文档" url="http://yoursite.com/categories/%E6%96%87%E6%A1%A3/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/03/22/%E3%80%90Android%E5%B9%B3%E5%8F%B0%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83%E3%80%91-AndroidTeam/</loc>
-    <lastmod>2017-03-22T05:22:38.565Z</lastmod>
-    <data>
-        <display>
-        <title>【Android平台编码规范】-AndroidTeam</title>
-        <pubTime>2017-03-22T05:17:08.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="文档" url="http://yoursite.com/categories/%E6%96%87%E6%A1%A3/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/03/22/%E3%80%90%E7%93%A6%E7%89%87%E5%9C%B0%E5%9B%BEHdTileView%E3%80%91-%E7%99%BD%E4%B8%96%E4%BC%9F/</loc>
-    <lastmod>2017-03-22T05:14:45.573Z</lastmod>
-    <data>
-        <display>
-        <title>【瓦片地图HdTileView】-白世伟</title>
-        <pubTime>2017-03-22T05:13:23.000Z</pubTime>
-        
          
            
              
@@ -85,34 +77,15 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/03/20/%E3%80%90%E7%A7%BB%E5%8A%A8%E6%94%AF%E4%BB%98AndroidPay%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</loc>
-    <lastmod>2017-03-20T11:37:43.157Z</lastmod>
+    <loc>http://yoursite.com/2017/03/17/%E9%80%9A%E7%94%A8%E6%95%B0%E6%8D%AE%E9%80%82%E9%85%8D%E5%99%A8-OkAdapter/</loc>
+    <lastmod>2017-06-01T05:37:43.612Z</lastmod>
     <data>
         <display>
-        <title>【移动支付AndroidPay】-祝文飞</title>
-        <pubTime>2017-03-20T11:36:45.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Android" url="http://yoursite.com/categories/Android/"/>
-          
-             
-              <breadCrumb title="Model" url="http://yoursite.com/categories/Android/Model/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/03/17/%E3%80%90%E6%95%B0%E6%8D%AE%E9%80%82%E9%85%8D%E5%99%A8CommonAdapter%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</loc>
-    <lastmod>2017-03-18T00:22:50.028Z</lastmod>
-    <data>
-        <display>
-        <title>【数据适配器CommonAdapter】-祝文飞</title>
+        <title>【通用数据适配器-OkAdapter】</title>
         <pubTime>2017-03-17T00:13:19.000Z</pubTime>
         
+        <tag>Adapter</tag>
+         
          
            
              
@@ -126,129 +99,4 @@
     </url>
 
     
-  <url>
-    <loc>http://yoursite.com/2017/03/17/%E3%80%90%E6%8F%90%E7%A4%BA%E5%BC%B9%E6%A1%86HdDialog%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</loc>
-    <lastmod>2017-03-18T00:22:18.517Z</lastmod>
-    <data>
-        <display>
-        <title>【提示弹框HdDialog】-祝文飞</title>
-        <pubTime>2017-03-17T00:14:05.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Android" url="http://yoursite.com/categories/Android/"/>
-          
-             
-              <breadCrumb title="Model" url="http://yoursite.com/categories/Android/Model/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/03/17/%E3%80%90Android%E9%A1%B9%E7%9B%AE%E6%A8%A1%E6%9D%BF%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</loc>
-    <lastmod>2017-03-17T09:18:31.677Z</lastmod>
-    <data>
-        <display>
-        <title>【Android项目模板】-祝文飞</title>
-        <pubTime>2017-03-17T07:20:25.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Android" url="http://yoursite.com/categories/Android/"/>
-          
-             
-              <breadCrumb title="项目模板" url="http://yoursite.com/categories/Android/%E9%A1%B9%E7%9B%AE%E6%A8%A1%E6%9D%BF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/03/17/%E3%80%90%E5%AF%BC%E8%A7%88%E6%9C%BA%E9%A1%B9%E7%9B%AE%E6%A8%A1%E6%9D%BF%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</loc>
-    <lastmod>2017-03-17T09:18:27.661Z</lastmod>
-    <data>
-        <display>
-        <title>【导览机项目模板】-祝文飞</title>
-        <pubTime>2017-03-17T07:20:34.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Android" url="http://yoursite.com/categories/Android/"/>
-          
-             
-              <breadCrumb title="项目模板" url="http://yoursite.com/categories/Android/%E9%A1%B9%E7%9B%AE%E6%A8%A1%E6%9D%BF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/03/17/%E3%80%90%E5%A4%9A%E6%A8%A1%E6%94%B6%E5%8F%B7AutoNoUtil%E3%80%91-%E7%A5%9D%E6%96%87%E9%A3%9E/</loc>
-    <lastmod>2017-03-17T08:54:22.355Z</lastmod>
-    <data>
-        <display>
-        <title>【多模收号AutoNoUtil】-祝文飞</title>
-        <pubTime>2017-03-17T00:11:30.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Android" url="http://yoursite.com/categories/Android/"/>
-          
-             
-              <breadCrumb title="Model" url="http://yoursite.com/categories/Android/Model/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/03/17/%E3%80%90%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BDFileLoader%E3%80%91-%E7%99%BD%E4%B8%96%E4%BC%9F/</loc>
-    <lastmod>2017-03-17T07:53:35.282Z</lastmod>
-    <data>
-        <display>
-        <title>【文件下载FileLoader】-白世伟</title>
-        <pubTime>2017-03-17T00:16:15.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Android" url="http://yoursite.com/categories/Android/"/>
-          
-             
-              <breadCrumb title="Model" url="http://yoursite.com/categories/Android/Model/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/03/17/%E3%80%90%E7%A7%BB%E5%8A%A8%E6%94%AF%E4%BB%98MobilePay%E3%80%91-%E5%B8%B8%E6%96%87%E8%BE%BE/</loc>
-    <lastmod>2017-03-17T06:31:52.213Z</lastmod>
-    <data>
-        <display>
-        <title>【移动支付MobilePay】-常文达</title>
-        <pubTime>2017-03-17T00:15:34.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Android" url="http://yoursite.com/categories/Android/"/>
-          
-             
-              <breadCrumb title="Model" url="http://yoursite.com/categories/Android/Model/"/>
-          
-        </display>
-    </data>
-    </url>
-
 </urlset>
