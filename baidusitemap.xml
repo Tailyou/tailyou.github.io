@@ -4,6 +4,52 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/03/17/%E9%80%9A%E7%94%A8%E6%95%B0%E6%8D%AE%E9%80%82%E9%85%8D%E5%99%A8-OkAdapter/</loc>
+    <lastmod>2017-06-06T00:06:49.714Z</lastmod>
+    <data>
+        <display>
+        <title>【通用数据适配器-OkAdapter】</title>
+        <pubTime>2017-03-17T00:13:19.000Z</pubTime>
+        
+        <tag>Adapter</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="http://yoursite.com/categories/Android/"/>
+          
+             
+              <breadCrumb title="Model" url="http://yoursite.com/categories/Android/Model/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/03/20/%E7%A7%BB%E5%8A%A8%E6%94%AF%E4%BB%98%E6%A1%86%E6%9E%B6-AndroidPay/</loc>
+    <lastmod>2017-06-06T00:06:41.289Z</lastmod>
+    <data>
+        <display>
+        <title>【移动支付框架-AndroidPay】</title>
+        <pubTime>2017-03-20T11:36:45.000Z</pubTime>
+        
+        <tag>支付</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="http://yoursite.com/categories/Android/"/>
+          
+             
+              <breadCrumb title="Model" url="http://yoursite.com/categories/Android/Model/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/03/17/%E9%80%9A%E7%94%A8%E6%8F%90%E7%A4%BA%E5%BC%B9%E6%A1%86-OkDialog/</loc>
     <lastmod>2017-06-01T05:57:59.749Z</lastmod>
     <data>
@@ -29,29 +75,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/03/20/%E7%A7%BB%E5%8A%A8%E6%94%AF%E4%BB%98%E6%A1%86%E6%9E%B6-AndroidPay/</loc>
-    <lastmod>2017-06-01T05:47:59.221Z</lastmod>
-    <data>
-        <display>
-        <title>【移动支付框架-AndroidPay】</title>
-        <pubTime>2017-03-20T11:36:45.000Z</pubTime>
-        
-        <tag>支付</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="http://yoursite.com/categories/Android/"/>
-          
-             
-              <breadCrumb title="Model" url="http://yoursite.com/categories/Android/Model/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2017/04/16/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD&%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%BA%93-OkRetrofit/</loc>
     <lastmod>2017-06-01T05:43:35.156Z</lastmod>
     <data>
@@ -62,29 +85,6 @@
         <tag>Retrofit</tag>
          
         <tag>文件下载</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="http://yoursite.com/categories/Android/"/>
-          
-             
-              <breadCrumb title="Model" url="http://yoursite.com/categories/Android/Model/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/03/17/%E9%80%9A%E7%94%A8%E6%95%B0%E6%8D%AE%E9%80%82%E9%85%8D%E5%99%A8-OkAdapter/</loc>
-    <lastmod>2017-06-01T05:37:43.612Z</lastmod>
-    <data>
-        <display>
-        <title>【通用数据适配器-OkAdapter】</title>
-        <pubTime>2017-03-17T00:13:19.000Z</pubTime>
-        
-        <tag>Adapter</tag>
          
          
            
