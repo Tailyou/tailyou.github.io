@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title><![CDATA[第三方登录分享框架-ShareLogin]]></title>
+      <title><![CDATA[【第三方登录分享框架-ShareLogin】]]></title>
       <url>http://yoursite.com/2017/06/08/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95%E5%88%86%E4%BA%AB%E6%A1%86%E6%9E%B6-ShareLogin/</url>
       <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>ShareLoginSdk是一个封装了QQ、微信、微博登录和分享功能的库，分享支持纯文字、<br>纯图片、网页（图文）三种格式，可分享到微博、QQ好友、QQ空间、微信好友、朋友圈、微信收藏。</p>
 <ol>
