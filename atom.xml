@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-08T02:55:43.018Z</updated>
+  <updated>2017-07-19T07:57:07.784Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【Kotlin配置信息管理工具-OkPreference】</title>
+    <link href="http://yoursite.com/2017/07/19/Kotlin%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-OkPreference/"/>
+    <id>http://yoursite.com/2017/07/19/Kotlin配置信息管理工具-OkPreference/</id>
+    <published>2017-07-19T07:54:46.000Z</published>
+    <updated>2017-07-19T07:57:07.784Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>在开发过程中通常需要保存用户或App的一些配置信息，如token，CurrentLanguage（当前语种），DeviceNo（设备号）等，OkPreference是一个处理配置信息工具库，<br>可以方便的管理需要配置的字段，字段支持Long，Int，Boolean，String，Float五种基本类型，也可以是任意类。</p>
+<h2 id="二、版本"><a href="#二、版本" class="headerlink" title="二、版本"></a>二、版本</h2><p>已上传JitPack，最新版本1.2，直接在gradle中添加依赖即可。<br>compile ‘com.github.Tailyou:OkPreference:1.2’</p>
+<h2 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h2><h4 id="3-1-app-build-gradle中添加依赖"><a href="#3-1-app-build-gradle中添加依赖" class="headerlink" title="3.1 app build.gradle中添加依赖"></a>3.1 app build.gradle中添加依赖</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile <span class="string">'com.github.Tailyou:OkPreference:1.2'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="3-2-root-build-gradle中添加"><a href="#3-2-root-build-gradle中添加" class="headerlink" title="3.2 root build.gradle中添加"></a>3.2 root build.gradle中添加</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">allprojects &#123;</div><div class="line">    repositories &#123;</div><div class="line">        ...</div><div class="line">        maven &#123; url &apos;https://jitpack.io&apos; &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="3-3-继承PreferenceHolderApplication或在自定义的Application中添加如下代码："><a href="#3-3-继承PreferenceHolderApplication或在自定义的Application中添加如下代码：" class="headerlink" title="3.3 继承PreferenceHolderApplication或在自定义的Application中添加如下代码："></a>3.3 继承PreferenceHolderApplication或在自定义的Application中添加如下代码：</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">super</span>.onCreate()</div><div class="line">    ...</div><div class="line">    PreferenceHolder.setContext(applicationContext)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="3-4-继承PreferenceHolder，添加需要配置的字段"><a href="#3-4-继承PreferenceHolder，添加需要配置的字段" class="headerlink" title="3.4 继承PreferenceHolder，添加需要配置的字段"></a>3.4 继承PreferenceHolder，添加需要配置的字段</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">const <span class="keyword">val</span> CHINESE: <span class="built_in">Int</span> = <span class="number">1</span></div><div class="line">const <span class="keyword">val</span> ENGLISH: <span class="built_in">Int</span> = <span class="number">2</span></div><div class="line">const <span class="keyword">val</span> JAPANESE: <span class="built_in">Int</span> = <span class="number">3</span></div><div class="line">const <span class="keyword">val</span> DEFAULT_DEVICE_NO: String = <span class="string">"AG10000000000"</span></div><div class="line"></div><div class="line"><span class="keyword">object</span> AppConfig : PreferenceHolder() &#123;</div><div class="line">    <span class="keyword">var</span> deviceNo: String <span class="keyword">by</span> bindToPreferenceField(DEFAULT_DEVICE_NO, <span class="string">"DeviceNo"</span>)</div><div class="line">    <span class="keyword">var</span> language: <span class="built_in">Int</span> <span class="keyword">by</span> bindToPreferenceField(CHINESE, <span class="string">"Language"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">object</span> UserConfig : PreferenceHolder() &#123;</div><div class="line">    <span class="keyword">var</span> user: User? <span class="keyword">by</span> bindToPreferenceFieldNullable(<span class="string">"User"</span>)</div><div class="line">    <span class="keyword">var</span> token: String? <span class="keyword">by</span> bindToPreferenceFieldNullable(<span class="string">"Token"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span></span>(</div><div class="line">        <span class="keyword">var</span> name: String,</div><div class="line">        <span class="keyword">var</span> age: <span class="built_in">Int</span></div><div class="line">)</div></pre></td></tr></table></figure>
+<h4 id="3-5-取值、赋值"><a href="#3-5-取值、赋值" class="headerlink" title="3.5 取值、赋值"></a>3.5 取值、赋值</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">tvDeviceNo.text = AppConfig.deviceNo</div><div class="line">btnChangeDeviceNo.setOnClickListener &#123;</div><div class="line">    AppConfig.deviceNo = <span class="string">"AG100000000"</span> + String.format(<span class="string">"%02d"</span>, Random().nextInt(<span class="number">100</span>))</div><div class="line">    tvDeviceNo.text = AppConfig.deviceNo</div><div class="line">&#125;</div><div class="line">btnSaveEntity.setOnClickListener &#123;</div><div class="line">    UserConfig.user = User(<span class="string">"tailyou"</span>, <span class="number">20</span>)</div><div class="line">    toast((UserConfig.user <span class="keyword">as</span> User).name)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>具体用法参见Demo，项目地址：<a href="https://github.com/Tailyou/OkPreference" target="_blank" rel="external">https://github.com/Tailyou/OkPreference</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一、概述&quot;&gt;&lt;a href=&quot;#一、概述&quot; class=&quot;headerlink&quot; title=&quot;一、概述&quot;&gt;&lt;/a&gt;一、概述&lt;/h2&gt;&lt;p&gt;在开发过程中通常需要保存用户或App的一些配置信息，如token，CurrentLanguage（当前语种），DeviceN
+    
+    </summary>
+    
+      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
+    
+      <category term="Model" scheme="http://yoursite.com/categories/Android/Model/"/>
+    
+    
+      <category term="Kotlin" scheme="http://yoursite.com/tags/Kotlin/"/>
+    
+      <category term="Preference" scheme="http://yoursite.com/tags/Preference/"/>
+    
+  </entry>
   
   <entry>
     <title>【第三方登录分享框架-ShareLogin】</title>
