@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-12T07:44:54.468Z</updated>
+  <updated>2017-12-12T08:36:23.350Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Glide4.0+学习笔记</title>
+    <link href="http://yoursite.com/2017/12/12/Glide4.0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2017/12/12/Glide4.0学习笔记/</id>
+    <published>2017-12-12T07:53:15.000Z</published>
+    <updated>2017-12-12T08:36:23.350Z</updated>
+    
+    <content type="html"><![CDATA[<p>Glide是一个快速高效的Android图片加载库，注重于平滑的滚动。Glide提供了易用的API，高性能、可扩展的图片解码管道（decode pipeline），以及自动的资源池技术。</p>
+<p>当前版本：v4.4</p>
+<p>项目地址：<a href="https://github.com/bumptech/glide" target="_blank" rel="external">https://github.com/bumptech/glide</a></p>
+<p>中文文档：<a href="https://muyangmin.github.io/glide-docs-cn/" target="_blank" rel="external">https://muyangmin.github.io/glide-docs-cn/</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Glide是一个快速高效的Android图片加载库，注重于平滑的滚动。Glide提供了易用的API，高性能、可扩展的图片解码管道（decode pipeline），以及自动的资源池技术。&lt;/p&gt;
+&lt;p&gt;当前版本：v4.4&lt;/p&gt;
+&lt;p&gt;项目地址：&lt;a href=&quot;https
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Glide4.0" scheme="http://yoursite.com/tags/Glide4-0/"/>
+    
+  </entry>
   
   <entry>
     <title>Kotlin学习笔记-Standart.kt</title>

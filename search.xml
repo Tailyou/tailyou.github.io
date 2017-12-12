@@ -4,6 +4,30 @@
   
     
     <entry>
+      <title><![CDATA[Glide4.0+学习笔记]]></title>
+      <url>http://yoursite.com/2017/12/12/Glide4.0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      <content type="html"><![CDATA[<p>Glide是一个快速高效的Android图片加载库，注重于平滑的滚动。Glide提供了易用的API，高性能、可扩展的图片解码管道（decode pipeline），以及自动的资源池技术。</p>
+<p>当前版本：v4.4</p>
+<p>项目地址：<a href="https://github.com/bumptech/glide" target="_blank" rel="external">https://github.com/bumptech/glide</a></p>
+<p>中文文档：<a href="https://muyangmin.github.io/glide-docs-cn/" target="_blank" rel="external">https://muyangmin.github.io/glide-docs-cn/</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Glide4.0 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Kotlin学习笔记-Standart.kt]]></title>
       <url>http://yoursite.com/2017/12/12/Kotlin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Standard.kt/</url>
       <content type="html"><![CDATA[<h4 id="1-apply"><a href="#1-apply" class="headerlink" title="1. apply"></a>1. apply</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Calls the specified function [block] with `this` value as its receiver and returns `this` value.</div><div class="line"> */</div><div class="line"><span class="meta">@kotlin</span>.<span class="keyword">internal</span>.InlineOnly</div><div class="line"><span class="keyword">public</span> <span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> T.<span class="title">apply</span><span class="params">(block: <span class="type">T</span>.()</span></span> -&gt; <span class="built_in">Unit</span>): T &#123; block(); <span class="keyword">return</span> <span class="keyword">this</span> &#125;</div></pre></td></tr></table></figure>
